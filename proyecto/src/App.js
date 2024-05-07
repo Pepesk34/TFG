@@ -1,23 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import Cabecera from './components/cabecera.js';
+import Cuerpo from './components/cuerpo.js';
 //asdfasldf
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit  la repanocha xdddd<code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cabecera></Cabecera>
+      <Cuerpo></Cuerpo>
+      
     </div>
   );
 }

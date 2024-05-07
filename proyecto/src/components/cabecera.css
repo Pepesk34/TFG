@@ -1,0 +1,17 @@
+body{
+    font-family: sans-serif;
+    background-color: white;
+}
+#logo{
+    width: 200px;
+    height: auto;
+}
+#divlogo{
+    margin-left: 5%;
+    text-align: left;
+}
+#apartados{
+    margin-right: 5%;
+    text-align: right;
+    
+}
