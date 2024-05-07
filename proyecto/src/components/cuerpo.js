@@ -4,7 +4,10 @@ import imagen1 from "./imagen1.jpg";
 const Cuerpo = () =>{
     return(
         <div>
-            <img src={imagen1}></img>
+            <div id="divimagen1">
+            <img id="imagen1" src={imagen1}></img>
+            </div>
+            
                 
             
         </div>
