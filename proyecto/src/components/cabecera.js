@@ -1,18 +1,34 @@
 import React from 'react';
 import './cabecera.css';
 import logo from "./logo1.jpg";
-const Cabecera = () =>{
-    return(
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const Cabecera = () => {
+    return (
         <div>
-            <div id="divlogo">
-            <img id="logo"src={logo}></img>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div id="divlogo">
+                        <img id="logo" src={logo}></img>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div id="apartados">
+                        <h5>
+                            <a id="inicio">INICIO</a>
+                            <a id="suporte">SUPORTE</a>
+                            <a id="ayuda">AYUDA</a>
+                            <a id="iniciosesion">INICIAR SESIÓN</a>
+                        </h5>
+
+                    </div>
+                </div>
             </div>
-            <div id="apartados">
-                <a>INICIO</a>
-                
-            </div>
-                
-            
+
+
+
+
+
         </div>
     );
 }

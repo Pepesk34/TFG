@@ -6,14 +6,19 @@ body{
     width: 200px;
     height: auto;
     transition: transform 1s linear;
+    
+    
 }
 #divlogo{
     margin-left: 5%;
     text-align: left;
+    width: 100%;
 }
 #apartados{
+    margin-top: 10%;
     margin-right: 5%;
     text-align: right;
+
     
 }
 #divimagen1{
@@ -26,3 +31,11 @@ body{
 #logo:hover{     
     transform: scale(1.2);   
 }
+#apartados h5 a {
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+#apartados h5 a:hover {
+    color: gray;
+}
+
