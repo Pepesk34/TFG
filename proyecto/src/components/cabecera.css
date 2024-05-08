@@ -60,7 +60,7 @@
         color: gray;
     }
     #fila1{
-        background-color: rgb(0, 175, 0);
+        background-color: #5B7C2B;
         border-top: 5px solid black;
         border-bottom: 5px solid black;
         
@@ -74,6 +74,19 @@
         color: white;
         
     }
+    #filaFooter{
+        color: green;
+        margin-top: 3%;
+    }
+    .list-unstyled{
+        margin-left: 5%;
+    }
+    
+    #InicioSesion{
+        background-image: url("./campo.jpg");
+        height: 1000px;
+    }
+    
   }
   @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
@@ -135,7 +148,7 @@
         color: gray;
     }
     #fila1{
-        background-color: rgb(0, 175, 0);
+        background-color: #5B7C2B;
         border-top: 5px solid black;
         border-bottom: 5px solid black;
         
@@ -151,4 +164,17 @@
         animation-duration: 1.5s;
         color: white;
     }
+    #filaFooter{
+        color: green;
+        margin-top: 3%;
+    }
+    .list-unstyled{
+        margin-left: 5%;
+    }
+    #InicioSesion{
+        background-image: url("./campo.jpg");
+        height: 1000px;
+    }
+    
+
   }

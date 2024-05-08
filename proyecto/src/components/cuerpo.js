@@ -1,6 +1,8 @@
 import React from 'react';
 import './cabecera.css';
 import imagen1 from "./imagen1.jpg";
+import imagen2 from "./imagen2.jpg";
+import imagen3 from "./imagen3.jpg";
 const Cuerpo = () => {
     return (
         <div>
@@ -17,11 +19,10 @@ const Cuerpo = () => {
                         <h5>Somos una plataforma que conecta a dedicados agricultores de la región de Almeria con personas voluntarias que desean contribuir a una causa noble: reducir el desperdicio de alimentos y ayudar a quienes lo necesitan. Nosotros creemos en un mundo donde cada alimento cuenta, donde cada gesto de generosidad tiene un impacto real.</h5>
                     </div>
                 </div>
+
             </div>
+            <div id="InicioSesion">holaaaa</div>
             
-
-
-
 
         </div>
     );
