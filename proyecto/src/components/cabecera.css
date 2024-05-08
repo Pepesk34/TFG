@@ -1,3 +1,5 @@
+/*ordenar css*/
+
 @media only screen and (min-width: 1200px) {
     /* Aquí el estilo de pantallas grandes*/
     body{
@@ -36,6 +38,18 @@
         box-shadow: 0 0 20px black;
         width: 500px;
         margin-top: 8%;
+        animation-iteration-count: 1;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+    }
+    /*animacion*/
+    @keyframes animacion1 {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
     }
     
     #apartados h5 a {
@@ -54,6 +68,11 @@
     #image-data{
         margin-top: 15%;
         margin-right: 5%;
+        animation-iteration-count: 1;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+        color: white;
+        
     }
   }
   @media only screen and (min-width: 600px) and (max-width: 1200px) {
@@ -95,8 +114,18 @@
         box-shadow: 0 0 20px black;
         width: 500px;
         margin-top: 8%;
+        animation-iteration-count: 1;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
     }
-    
+    @keyframes animacion1 {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
     #apartados h5 a {
         margin-right: 20px;
         transition: color 0.3s ease;
@@ -117,5 +146,9 @@
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 15%;
+        animation-iteration-count: 1;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+        color: white;
     }
   }
