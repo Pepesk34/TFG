@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Cabecera = () => {
     return (
         <div>
-            <div class="row">
+            <div  class="row">
                 <div class="col-xl-6">
                     <div id="divlogo">
                         <img id="logo" src={logo}></img>
