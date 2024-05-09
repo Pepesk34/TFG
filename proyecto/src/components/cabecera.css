@@ -1,6 +1,6 @@
 /*ordenar css*/
 
-@media only screen and (min-width: 1200px) {
+
     /* Aquí el estilo de pantallas grandes*/
     body{
         font-family: sans-serif;
@@ -87,25 +87,13 @@
         height: 1000px;
     }
     
-  }
+  
   @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
-    body{
-        font-family: sans-serif;
-        background-color: white;
-    }
-    #logo{
-        width: 200px;
-        height: auto;
-        
-        
-    }
-    img{
-        max-width: 100%;
-        
-    }
+    
     #divlogo{
-        
+        margin-right: 5%;
+        padding-right: 5%;
         text-align: center;
         width: 100%;
     }
@@ -113,67 +101,31 @@
         margin-top: 5%;
         margin-bottom: 2%;
         text-align: center;
+        margin-left: 5%;
+        padding-left: 5%;
         
         
     }
     #divimagen1{
-        height: 550px;
-        margin-left: 5%;
+        
         margin-top: 10%;
     
     }
-    #imagen1{
-        border-radius: 10px;
-        box-shadow: 0 0 20px black;
-        width: 500px;
-        margin-top: 8%;
-        animation-iteration-count: 1;
-        animation-name: animacion1;
-        animation-duration: 1.5s;
-    }
-    @keyframes animacion1 {
-        0%{
-            opacity: 0;
-        }
-        100%{
-            opacity: 1;
-        }
-    }
+    
+    
     #apartados h5 a {
-        margin-right: 20px;
-        transition: color 0.3s ease;
         margin-bottom: 50%;
     }
-    #apartados h5 a:hover {
-        color: gray;
-    }
-    #fila1{
-        background-color: #5B7C2B;
-        border-top: 5px solid black;
-        border-bottom: 5px solid black;
-        
-    }
+    
     #image-data{
         margin-top: 4%;
         text-align: center;
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 15%;
-        animation-iteration-count: 1;
         animation-name: animacion1;
         animation-duration: 1.5s;
         color: white;
-    }
-    #filaFooter{
-        color: green;
-        margin-top: 3%;
-    }
-    .list-unstyled{
-        margin-left: 5%;
-    }
-    #InicioSesion{
-        background-image: url("./campo.jpg");
-        height: 1000px;
     }
     
 
