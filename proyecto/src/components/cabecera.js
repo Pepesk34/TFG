@@ -1,6 +1,6 @@
 import React from 'react';
 import './cabecera.css';
-import logo from "./logo1.jpg";
+import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cabecera = () => {
@@ -16,7 +16,7 @@ const Cabecera = () => {
                     <div id="apartados">
                         <h5>
                             <a id="inicio">INICIO</a>
-                            <a id="suporte">SUPORTE</a>
+                            <a id="suporte">SOPORTE</a>
                             <a id="ayuda">AYUDA</a>
                             <a id="iniciosesion">INICIAR SESIÓN</a>
                         </h5>

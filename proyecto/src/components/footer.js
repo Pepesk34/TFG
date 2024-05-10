@@ -1,5 +1,8 @@
 import React from 'react';
 import './cabecera.css';
+import twitter from "./imagenes/twitter.png";
+import youtube from "./imagenes/youtube.png";
+import instagram from "./imagenes/instagram.png";
 const Footer = () => {
     return (
         <div>
@@ -8,7 +11,7 @@ const Footer = () => {
                     <div id="contactos" >
                         <h5>Contactos</h5>
                         <h6>
-                            <br />
+                            <br/>
                             <ul class="list-unstyled">
                                 <li>+34 644 98 04 84</li>
                                 <li>greenboydhouse@gmail.com</li>
@@ -23,11 +26,13 @@ const Footer = () => {
                         <h5>Siguenos</h5>
                         <h6>
                             <br />
-                            <ul class="list-unstyled">
-                                <li>Youtube</li>
-                                <li>Twitter</li>
-                                <li>Instagram</li>
-                            </ul>
+                            
+                                <div id="iconos">
+                                <a href='https://twitter.com/HouseBoyd61754'><img id="twitter" src={twitter}></img></a>
+                                <a href='https://www.youtube.com/channel/UCtu69_nm6WnRX64XQRFvwaQ'><img id="youtube" src={youtube}></img></a>
+                                <img id="instagram" src={instagram}></img>
+                                </div>
+                            
                         </h6>
 
 
