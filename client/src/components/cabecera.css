@@ -1,0 +1,172 @@
+/*ordenar css*/
+
+
+    /* Aquí el estilo de pantallas grandes*/
+    body{
+        font-family: sans-serif;
+        background-color: white;
+    }
+    #logo{
+        width: 200px;
+        height: auto;
+        
+        
+    }
+    img{
+        max-width: 100%;
+        
+    }
+    #divlogo{
+        margin-left: 5%;
+        text-align: left;
+        width: 100%;
+    }
+    #apartados{
+        margin-top: 10%;
+        margin-right: 5%;
+        text-align: right;
+    
+        
+    }
+    #divimagen1{
+        height: 550px;
+        margin-left: 5%;
+    
+    }
+    #imagen1{
+        border-radius: 10px;
+        box-shadow: 0 0 20px black;
+        width: 500px;
+        margin-top: 8%;
+        animation-iteration-count: 1;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+    }
+    #imagen2{
+        margin-top: 15%;
+        width: 850px;
+        box-shadow: 0 0 20px black;
+        animation-iteration-count: 1;
+        animation-duration: 1.5s;
+        animation-name: animacion2;
+    }
+    #image-data2{
+        margin-top: 3%;
+        color: #5B7C2B;
+        text-align: center;
+        margin-bottom: 15%;
+        animation-iteration-count: 1;
+        animation-name: animacion3;
+        animation-duration: 1.5s;
+    }
+    /*animacion*/
+    @keyframes animacion1 {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes animacion2 {
+        0%{
+            opacity: 0;
+            margin-right: 30%;
+        }
+        100%{
+            opacity: 1;
+            margin-right: 0;
+        }
+    }
+    @keyframes animacion3 {
+        0%{
+            opacity: 0;
+            margin-left: 30%;
+        }
+        100%{
+            opacity: 1;
+            margin-left: 0;
+        }
+    }
+    
+    #apartados h5 a {
+        margin-right: 20px;
+        transition: color 0.3s ease;
+    }
+    #apartados h5 a:hover {
+        color: gray;
+    }
+    #fila1{
+        background-color: #5B7C2B;
+        border-top: 5px solid black;
+        border-bottom: 5px solid black;
+        
+    }
+    #image-data{
+        margin-top: 15%;
+        margin-right: 5%;
+        animation-iteration-count: 1;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+        color: white;
+        
+    }
+    #filaFooter{
+        color: green;
+        margin-top: 3%;
+    }
+    
+    
+    #InicioSesion{
+        background-color: aqua;
+        height: 1000px;
+        box-shadow: 0 0 20pxw white;
+        
+    }
+    
+  
+  @media only screen and (min-width: 600px) and (max-width: 1200px) {
+    /* Aquí el estilo de pantallas medianas */
+    
+    #divlogo{
+        margin-right: 5%;
+        padding-right: 5%;
+        text-align: center;
+        width: 100%;
+    }
+    #apartados{
+        margin-top: 5%;
+        margin-bottom: 2%;
+        text-align: center;
+        margin-left: 5%;
+        padding-left: 5%;
+        
+        
+    }
+    #divimagen1{
+        
+        margin-top: 10%;
+    
+    }
+    
+    
+    #apartados h5 a {
+        margin-bottom: 50%;
+    }
+    
+    #image-data{
+        margin-top: 4%;
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 15%;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+        color: white;
+    }
+    #imagen2{
+        width: 500px;
+    }
+    
+
+  }
