@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useState } from 'react';
+import Axios from "axios";
 //asdfasldf
 
 const Registrarse = () => {
@@ -10,8 +11,19 @@ const Registrarse = () => {
   const [dni,setDni] = useState("");
   const [usuario,setUsuario] = useState("");
   const [contraseña,setContraseña] = useState("");
-  const lanzarDatos = () =>{
-    alert(nombre);
+
+  //Envia los datos al sevidor en la url http://localhost:3001/create con los datos proporcionados en el objeto
+  const add = () =>{
+    Axios.post("http://localhost:3001/create",{
+      //Datos enviados
+      nombre:nombre,
+      apellidos:apellidos,
+      dni:dni,
+      usuario:usuario,
+      contraseña:contraseña
+    }).then(()=>{
+      alert("Agricultor registrado con exito");
+    });
   }
     return (
         <div>
@@ -41,7 +53,7 @@ const Registrarse = () => {
               setContraseña(event.target.value)
             }}
             type="text"></input></label><br/>
-            <button onClick={lanzarDatos}>Registrar</button>
+            <button onClick={add}>Registrar</button>
         </div>
     );
 };
