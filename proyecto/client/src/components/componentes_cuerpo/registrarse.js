@@ -1,0 +1,35 @@
+import '../estilo.css';
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import agricultor from "../imagenes/agricultor.png";
+import voluntario from "../imagenes/voluntario.png"
+const Registrarse = () => {
+    return (
+        <div>
+            <div className='row'>
+                <div className='col-xl-12'>
+                    <div id="preguntarol">
+                        <h3>¿Cual va a ser tu rol?</h3>
+                    </div>
+
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col-xl-6'>
+                    <Link to="/agricultor">
+                        <img src={agricultor} />
+                    </Link>
+
+                </div>
+                <div className='col-xl-6'>
+                    <Link to="voluntario">
+                    <img src={voluntario} />
+                    </Link>
+                    
+                </div>
+            </div>
+        </div>
+
+    );
+
+}
+export default Registrarse

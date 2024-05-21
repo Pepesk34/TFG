@@ -1,5 +1,5 @@
 import React from 'react';
-import './cabecera.css';
+import './estilo.css';
 import twitter from "./imagenes/twitter.png";
 import youtube from "./imagenes/youtube.png";
 import instagram from "./imagenes/instagram.png";
@@ -28,9 +28,9 @@ const Footer = () => {
                             <br />
                             
                                 <div id="iconos">
-                                <a href='https://twitter.com/HouseBoyd61754'><img id="twitter" src={twitter}></img></a>
-                                <a href='https://www.youtube.com/channel/UCtu69_nm6WnRX64XQRFvwaQ'><img id="youtube" src={youtube}></img></a>
-                                <img id="instagram" src={instagram}></img>
+                                <a target='blank' href='https://twitter.com/HouseBoyd61754'><img id="twitter" src={twitter}></img></a>
+                                <a target='blank' href='https://www.youtube.com/channel/UCtu69_nm6WnRX64XQRFvwaQ'><img id="youtube" src={youtube}></img></a>
+                                <a target='blank'><img id="instagram" src={instagram}></img></a>
                                 </div>
                             
                         </h6>

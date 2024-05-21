@@ -1,11 +1,11 @@
 import React from 'react';
-import './cabecera.css';
+import './estilo.css';
 import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cabecera = () => {
     return (
-        <div>
+        <div id="cabecera">
             <div  class="row">
                 <div class="col-xl-6">
                     <div id="divlogo">

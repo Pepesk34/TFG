@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Axios from "axios";
 //asdfasldf
 
-const Registrarse = () => {
+const RegistrarseAgricultores = () => {
   //Declaro varias variables de estados y funciones para actualizarlas
   const [nombre,setNombre] = useState("");
   const [apellidos,setApellidos] = useState("");
@@ -58,4 +58,4 @@ const Registrarse = () => {
     );
 };
 
-export default Registrarse;
+export default RegistrarseAgricultores;
