@@ -33,10 +33,6 @@ img {
 
 }
 
-#cabecera {
-    border-bottom: 5px solid black;
-}
-
 #divimagen1 {
     height: 550px;
     margin-left: 5%;
@@ -119,8 +115,6 @@ img {
 #fila1 {
     background-color: #5B7C2B;
 
-    border-bottom: 5px solid black;
-
 }
 
 #image-data {
@@ -195,7 +189,43 @@ img {
     width: 100%;
     transition: 800ms ease all;
 }
-
+#div_registrarse{
+    padding-top: 7%;
+    background-color: #5B7C2B;
+    color: #fff;
+    padding-bottom: 7%;
+}
+#img_agricultor{
+    width: 500px;
+    height: auto;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion2;
+    box-shadow: 0 0 20px black;
+}
+#img_voluntario{
+    width: 500px;
+    height: auto;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion3;
+    box-shadow: 0 0 20px black;
+}
+#pregunta_rol{
+    padding-bottom: 3%;
+}
+#h3_agricultor{
+    padding-top: 3%;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion2;
+}
+#h3_voluntario{
+    padding-top: 3%;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion3;
+}
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
 
