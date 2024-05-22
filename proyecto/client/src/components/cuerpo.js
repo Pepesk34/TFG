@@ -1,13 +1,24 @@
-
+import React from 'react';
+import { Link, Routes, Route } from "react-router-dom";
 import './estilo.css';
-import Registrarse from './componentes_cuerpo/registrarse.js';
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import imagen1 from "./imagenes/imagen1.jpg";
 import imagen2 from "./imagenes/pepe.jpeg";
+import Inicio from './componentes_cuerpo/Inicio';
+import Ayuda from './componentes_cuerpo/ayuda';
+import InicioSesion from './componentes_cuerpo/iniciosesion';
+import Registrarse from './componentes_cuerpo/registrarse';
 
 const Cuerpo = () => {
     return (
         <div>
+            <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/Inicio" element={<Inicio />} />
+                <Route path="/Ayuda" element={<Ayuda />} />
+                <Route path="/InicioSesion" element={<InicioSesion />} />
+                <Route path="/Registrarse" element={<Registrarse />} />
+            </Routes>
+
             <div id="fila1" className="row">
                 <div className="col-xl-6">
                     <div id="divimagen1">
@@ -55,3 +66,4 @@ const Cuerpo = () => {
 };
 
 export default Cuerpo;
+
