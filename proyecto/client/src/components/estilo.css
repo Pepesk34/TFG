@@ -206,6 +206,7 @@ img {
     width: 500px;
     height: auto;
     box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
 }
 #emoji_voluntario{
     animation-iteration-count: 1;
@@ -214,6 +215,8 @@ img {
     width: 500px;
     height: auto;
     box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    
 }
 #opciones_registrarse{
     padding-top: 5%;
@@ -229,6 +232,12 @@ img {
     animation-duration: 1.5s;
     animation-name: animacion3;
     margin-top: 3%;
+}
+#emoji_agricultor:hover {
+    transform: scale(1.05);
+}
+#emoji_voluntario:hover{
+    transform: scale(1.05)
 }
 
 
@@ -279,6 +288,8 @@ img {
     #imagen2 {
         width: 500px;
     }
-
+    #div_agricultor_rol{
+        margin-bottom: 7%;
+    }
 
 }

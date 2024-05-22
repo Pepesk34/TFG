@@ -43,7 +43,7 @@ const RegistrarseVoluntarios = () => {
               setDni(event.target.value)
             }}
             type="text"></input></label><br/>
-            <label>Nombre: <input
+            <label>Matricula: <input
             onChange={(event)=>{
               setMatricula(event.target.value)
             }}

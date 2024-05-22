@@ -14,15 +14,15 @@ const Registrarse = () => {
                 </div>
             </div>
             <div id="opciones_registrarse" className='row'>
-                <div className='col-xl-6'>
+                <div id="div_agricultor_rol" className='col-xl-6'>
                     <Link to="/agricultor">
                         <img id="emoji_agricultor" src={agricultor} />
                     </Link>
                     <h3 id="h3_agricultor">Agricultor</h3>
 
                 </div>
-                <div className='col-xl-6'>
-                    <Link to="voluntario">
+                <div id="div_voluntario_rol"className='col-xl-6'>
+                    <Link to="/voluntario">
                         <img id="emoji_voluntario"src={voluntario} />  
                     </Link>
                     <h3 id="h3_voluntario">Voluntario</h3>
