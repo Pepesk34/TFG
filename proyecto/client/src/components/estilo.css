@@ -189,42 +189,55 @@ img {
     width: 100%;
     transition: 800ms ease all;
 }
-#div_registrarse{
-    padding-top: 7%;
+
+#registrarse_div{
+    padding-top: 10%;
     background-color: #5B7C2B;
+    padding-bottom: 10%;
+    animation-iteration-count: 1;
+    animation-name: animacion1;
+    animation-duration: 1.5s;
     color: #fff;
-    padding-bottom: 7%;
 }
-#img_agricultor{
-    width: 500px;
-    height: auto;
+#emoji_agricultor{
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion2;
-    box-shadow: 0 0 20px black;
-}
-#img_voluntario{
     width: 500px;
     height: auto;
+    box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+}
+#emoji_voluntario{
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion3;
+    width: 500px;
+    height: auto;
     box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    
 }
-#pregunta_rol{
-    padding-bottom: 3%;
+#opciones_registrarse{
+    padding-top: 5%;
 }
 #h3_agricultor{
-    padding-top: 3%;
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion2;
+    margin-top: 3%;
 }
 #h3_voluntario{
-    padding-top: 3%;
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion3;
+    margin-top: 3%;
+}
+#emoji_agricultor:hover {
+    transform: scale(1.05);
+}
+#emoji_voluntario:hover{
+    transform: scale(1.05)
 }
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
@@ -271,6 +284,8 @@ img {
     #imagen2 {
         width: 500px;
     }
-
+    #div_agricultor_rol{
+        margin-bottom: 7%;
+    }
 
 }

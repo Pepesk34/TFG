@@ -4,7 +4,7 @@ import agricultor from "../imagenes/agricultor.jpg";
 import voluntario from "../imagenes/voluntario.jpg"
 const Registrarse = () => {
     return (
-        <div id="div_registrarse">
+        <div id="registrarse_div">
             <div className='row'>
                 <div className='col-xl-12'>
                     <div id="pregunta_rol">
@@ -13,20 +13,20 @@ const Registrarse = () => {
 
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-xl-6'>
+            <div id="opciones_registrarse" className='row'>
+                <div id="div_agricultor_rol" className='col-xl-6'>
                     <Link to="/agricultor">
-                        <img id="img_agricultor" src={agricultor} />
+                        <img id="emoji_agricultor" src={agricultor} />
                     </Link>
                     <h3 id="h3_agricultor">Agricultor</h3>
-                    
 
                 </div>
-                <div className='col-xl-6'>
-                    <Link to="voluntario">
-                    <img id="img_voluntario"src={voluntario} />
+                <div id="div_voluntario_rol"className='col-xl-6'>
+                    <Link to="/voluntario">
+                        <img id="emoji_voluntario"src={voluntario} />  
                     </Link>
                     <h3 id="h3_voluntario">Voluntario</h3>
+
                 </div>
             </div>
         </div>
