@@ -11,7 +11,6 @@ function App() {
       <Cabecera></Cabecera>
       <Cuerpo></Cuerpo>
       <Footer></Footer>
-      
     </div>
   );
 }
