@@ -68,7 +68,55 @@ img {
     animation-name: animacion3;
     animation-duration: 1.5s;
 }
-
+#div_formulario{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #5B7C2B;
+    color: #fff;
+    padding: 10%;
+    text-align: left;
+    animation-iteration-count: 1;
+    animation-name: animacion1;
+    animation-duration: 1.5s;
+    
+}
+.form-register{
+    width: 400px;
+    background-color: #14312F;
+    padding: 30px;
+    margin:auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    color: white;
+    
+}
+.form-register h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.controls{
+    width: 100%;
+    background-color: #14312F;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid  #5B7C2B;
+    font-size: 18px;
+}
+.form-register .botons{
+    width: 100%;
+    background-color: #5B7C2B;
+    border: none;
+    padding: 12px;
+    color: #fff;
+    margin: 16px 0;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+.form-register .botons:hover{
+    background-color: #4f6b26;
+}
 /*animacion*/
 @keyframes animacion1 {
     0% {
@@ -103,7 +151,15 @@ img {
         margin-left: 0;
     }
 }
+@keyframes animacion4 {
+    0% {
+        background-color: #5B7C2B;
+    }
 
+    100% {
+        background-color: #4f6b26;
+    }
+}
 #apartados h5 a {
     margin-right: 20px;
     transition: color 0.3s ease;

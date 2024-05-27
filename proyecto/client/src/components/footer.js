@@ -17,8 +17,6 @@ const Footer = () => {
                                 <li>greenboydhouse@gmail.com</li>
                             </ul>
                         </h6>
-
-
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -26,16 +24,12 @@ const Footer = () => {
                         <h5>Siguenos</h5>
                         <h6>
                             <br />
-                            
                                 <div id="iconos">
                                 <a target='blank' href='https://twitter.com/HouseBoyd61754'><img id="twitter" src={twitter}></img></a>
                                 <a target='blank' href='https://www.youtube.com/channel/UCtu69_nm6WnRX64XQRFvwaQ'><img id="youtube" src={youtube}></img></a>
                                 <a target='blank'><img id="instagram" src={instagram}></img></a>
                                 </div>
-                            
                         </h6>
-
-
                     </div>
                 </div>
             </div>
