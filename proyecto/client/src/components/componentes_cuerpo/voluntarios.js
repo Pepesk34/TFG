@@ -26,6 +26,7 @@ const RegistrarseVoluntarios = () => {
       alert("Voluntario registrado con exito");
     });
   }
+
   return (
     <div id="div_formulario">
       <section className="form-register">
