@@ -1,0 +1,17 @@
+.btn-circle {
+    width: 40px; /* Ajusta el tamaño del botón */
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-circle img {
+    width: 85%;
+    height: 85%;
+    object-fit: cover;
+    border-radius: 50%; /* Hace la imagen circular */
+}

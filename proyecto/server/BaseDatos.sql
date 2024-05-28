@@ -2,7 +2,7 @@ CREATE DATABASE `greenboydhousedb`;
 USE greenboydhousedb;
 
 CREATE TABLE agricultores (
-    id INT(10) serial PRIMARY KEY,
+    id serial PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     dni VARCHAR(9) unique NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE agricultores (
 );
 
 CREATE TABLE voluntarios (
-    id INT(10) serial PRIMARY KEY,
+    id serial PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     dni VARCHAR(9) unique NOT NULL,

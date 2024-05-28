@@ -46,6 +46,32 @@ app.post("/create", (req, res)=> {
     );
 });
 
+app.post("/create1", (req, res)=> {
+
+    console.log("entra en create1");
+    //Obtenemos datos del cuerpo de la solicitud
+    const nombre = req.body.nombre;
+    const apellidos = req.body.apellidos;
+    const dni = req.body.dni;
+    const matricula = req.body.matricula
+    const usuario = req.body.usuario;
+    const contraseña = req.body.contraseña;
+
+    //consulta sql
+    db.query(
+        "INSERT INTO voluntarios(nombre, apellidos, dni, matricula, usuario, contraseña) VALUES ($1, $2, $3, $4, $5, $6)",
+        [nombre, apellidos, dni, matricula, usuario, contraseña],
+        (err, result) => {
+            if (err) {
+                console.log('Error al hacer el insert' + err);
+                res.status(500).send("Error al registrar el voluntario");
+            } else {
+                res.send("Registro completado con exito")
+            }
+        }
+    );
+});
+
 
  //Iniciamos el servidor en el puerto 3001
  app.listen(3001, ()=>{
