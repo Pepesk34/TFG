@@ -115,6 +115,12 @@ img {
 .form-register .botons:hover{
     background-color: #4f6b26;
 }
+
+#forminiciosesion{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
 /*animacion*/
 @keyframes animacion1 {
     0% {
