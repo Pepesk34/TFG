@@ -27,15 +27,17 @@ function Cabecera(props) {
     return (
         <div id="cabecera">
             <div class="row">
-                <div class="col-xl-6">
+                <div class="col-xl-4">
                     <div id="divlogo">
                         <img id="logo" src={logo}></img>
                     </div>
                 </div>
-                <div class="col-xl-6">
+                <div class="col-xl-8">
                     <div id="apartados">
                         <h5>
                             <BotonCabecera link="/inicio" nombre="INICIO"/>
+
+                            <BotonCabecera link="/comunidad" nombre="COMUNIDAD"/>
 
                             <BotonCabecera link="/registrarse" click={handleClick} nombre="REGÍSTRATE"/>
 
