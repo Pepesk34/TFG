@@ -11,6 +11,7 @@ const RegistrarseAgricultores = () => {
   const [apellidos, setApellidos] = useState("");
   const [dni, setDni] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
 
   //Envia los datos al sevidor en la url http://localhost:3001/create con los datos proporcionados en el objeto
@@ -21,6 +22,7 @@ const RegistrarseAgricultores = () => {
       apellidos: apellidos,
       dni: dni,
       usuario: usuario,
+      email: email,
       contraseña: contraseña
     }).then(() => {
       alert("Agricultor registrado con exito");
@@ -50,6 +52,11 @@ const RegistrarseAgricultores = () => {
             setUsuario(event.target.value)
           }}
           type="text" id="usuario" className="controls" placeholder="Ingresa el usuario"></input>
+           <input
+          onChange={(event) => {
+            setEmail(event.target.value)
+          }}
+          type="email" id="email" className="controls" placeholder="Ingresa el email"></input>
         <input
           onChange={(event) => {
             setContraseña(event.target.value)

@@ -9,6 +9,7 @@ const RegistrarseVoluntarios = () => {
   const [dni, setDni] = useState("");
   const [matricula, setMatricula] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [mensaje, setMensaje] = useState("");
 
@@ -21,6 +22,7 @@ const RegistrarseVoluntarios = () => {
       dni: dni,
       matricula: matricula,
       usuario: usuario,
+      email: email,
       contraseña: contraseña
     }).then((response) => {
       console.log("Recibe respuesta: ", response.data.message);
@@ -62,6 +64,11 @@ const RegistrarseVoluntarios = () => {
             setUsuario(event.target.value)
           }}
           type="text" id="usuario" className="controls" placeholder="Ingresa el usuario"></input>
+          <input
+          onChange={(event) => {
+            setEmail(event.target.value)
+          }}
+          type="email" id="email" className="controls" placeholder="Ingresa el email"></input>
         <input
           onChange={(event) => {
             setContraseña(event.target.value)
