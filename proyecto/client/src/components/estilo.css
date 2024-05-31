@@ -2,6 +2,87 @@
 
 
 /* Aquí el estilo de pantallas grandes*/
+
+/* src/components/estilo.css */
+
+#nav-perfil{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-filtros{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-inicio{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-ajustes{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-ajustes{
+    width: 100%;
+    height: 100%;
+}
+
+#button-perfil{
+    width: 100%;
+    height: 100%;
+}
+
+#cabecera-recolecta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Ancho del navbar */
+    height: 100%;
+    background-color: #343a40; /* Mismo color que bg-dark */
+  }
+  
+  #cabecera-recolecta .navbar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  #cabecera-recolecta .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  #cabecera-recolecta .nav-item {
+    width: 100%;
+  }
+  
+  #cabecera-recolecta .nav-link {
+    color: white; /* Color del texto */
+    padding: 1rem;
+  }
+  
+  #cabecera-recolecta .nav-link:hover {
+    background-color: #495057; /* Color de fondo al pasar el ratón */
+  }
+  
+
+  
+
 body {
     font-family: sans-serif;
     background-color: white;

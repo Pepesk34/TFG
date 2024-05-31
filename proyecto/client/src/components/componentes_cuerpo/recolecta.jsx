@@ -54,6 +54,7 @@ function Recolecta() {
               ))}
             </div>
           </div>
+          </div>
         );
       }
     }
@@ -61,7 +62,7 @@ function Recolecta() {
   };
 
   return (
-    <div className="App">
+    <div className="App" id="divrecolecta">
       <h1>Recolectas</h1>
       <Calendar
         onClickDay={handleDateClick}

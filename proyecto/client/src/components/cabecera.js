@@ -58,4 +58,4 @@ function Cabecera(props) {
         </div>
     );
 }
-export default Cabecera
+export default Cabecera;
