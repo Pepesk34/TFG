@@ -2,31 +2,24 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import agricultor from "../imagenes/agricultor.jpg";
 import voluntario from "../imagenes/voluntario.jpg"
 import Calendar from "react-calendar";
-
-
 import 'react-calendar/dist/Calendar.css';
 import "./estilos.css"
 import Boton from "./Boton.jsx"
 import React, { useState } from "react";
+import { Modal, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Recolecta() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const today = new Date().getDay;
+  const [showModal, setShowModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
-  // Definir el array de fechas con objetos
   const eventos = [
-    { fecha: new Date(2024, 4, 2), titulo: 'Evento 1' }, // 02/05/2023
-    { fecha: new Date(2024, 4, 6), titulo: 'Evento 2' }, // 06/05/2023
-    { fecha: new Date(2024, 4, 6), titulo: 'Evento 2' }, // 06/05/2023
-    { fecha: new Date(2024, 4, 6), titulo: 'Evento 2' }, // 06/05/2023
-    { fecha: new Date(2024, 4, 30), titulo: 'Evento 3' }, // 30/05/2023
-    { fecha: new Date(2024, 5, 8), titulo: 'Evento 4' }, // 08/06/2023
-    { fecha: new Date(2024, 5, 9), titulo: 'Evento 5' }  // 09/06/2023
-  ];
-
-  const eventos2 = [
-    { fecha: new Date(2024, 4, 30), titulo: 'Evento 3' }, // 30/05/2023
-    { fecha: new Date(2024, 5, 9), titulo: 'Evento 5' }  // 09/06/2023
+    { fecha: new Date(2024, 4, 2), titulo: 'Evento 1' },
+    { fecha: new Date(2024, 4, 6), titulo: 'Evento 2' },
+    { fecha: new Date(2024, 4, 30), titulo: 'Evento 3' },
+    { fecha: new Date(2024, 5, 8), titulo: 'Evento 4' },
+    { fecha: new Date(2024, 5, 9), titulo: 'Evento 5' }
   ];
 
   const handleDateClick = (value) => {
@@ -34,38 +27,33 @@ function Recolecta() {
     console.log('Fecha seleccionada:', value);
   };
 
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = (event) => {
+    setSelectedEvent(event);
+    setShowModal(true);
+  };
+
   const tileContent = ({ date, view }) => {
     if (view === 'month') {
-      // Verificar si la fecha está en el array de eventos
       const eventosFiltrados = eventos.filter(evento =>
         evento.fecha.getFullYear() === date.getFullYear() &&
         evento.fecha.getMonth() === date.getMonth() &&
         evento.fecha.getDate() === date.getDate()
       );
 
-      if (eventosFiltrados.length != 0) {
-
-        /*const evento2 = eventos2.find(evento2 =>
-          evento2.fecha.getFullYear() === evento.fecha.getFullYear() &&
-          evento2.fecha.getMonth() === evento.fecha.getMonth() &&
-          evento2.fecha.getDate() === evento.fecha.getDate()
-        );*/
-        /*
-        if (evento2) { //Las fechas de los dos arrays son iguales ? La recolecta está incompleta ? verde : rojo : azul
-        } */
-        console.log("entra dentro");
+      if (eventosFiltrados.length !== 0) {
         return (
-
           <div className='contenedor'>
             <div className='botones-grid'>
               {eventosFiltrados.map((evento, index) => (
                 <Boton
                   key={index}
-                  onClick={() => alert(`Evento: ${evento.titulo} en ${date.toDateString()}`)}
+                  onClick={() => handleShowModal(evento)}
                   tipo=""
                 />
               ))}
             </div>
+          </div>
           </div>
         );
       }
@@ -81,6 +69,23 @@ function Recolecta() {
         value={selectedDate}
         tileContent={tileContent}
       />
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedEvent ? selectedEvent.titulo : ''}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedEvent ? `Detalles del evento para el día ${selectedEvent.fecha.toDateString()}` : ''}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cerrar
+          </Button>
+          <Button variant="primary" onClick={handleCloseModal}>
+            Guardar cambios
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
