@@ -10,7 +10,7 @@ import Boton from "./Boton.jsx"
 import React, { useState } from "react";
 
 function Recolecta() {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const today = new Date().getDay;
 
   // Definir el array de fechas con objetos
@@ -58,15 +58,15 @@ function Recolecta() {
 
           <div className='contenedor'>
             <div className='botones-grid'>
-                {eventosFiltrados.map((evento, index) => (
-                    <Boton
-                        key={index}
-                        onClick={() => alert(`Evento: ${evento.titulo} en ${date.toDateString()}`)}
-                        tipo=""
-                    />
-                ))}
+              {eventosFiltrados.map((evento, index) => (
+                <Boton
+                  key={index}
+                  onClick={() => alert(`Evento: ${evento.titulo} en ${date.toDateString()}`)}
+                  tipo=""
+                />
+              ))}
             </div>
-        </div>
+          </div>
         );
       }
     }
@@ -74,7 +74,7 @@ function Recolecta() {
   };
 
   return (
-    <div className="App">
+    <div className="App" id="divrecolecta">
       <h1>Recolectas</h1>
       <Calendar
         onClickDay={handleDateClick}
