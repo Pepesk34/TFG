@@ -51,7 +51,7 @@ function Recolecta() {
           evento2.fecha.getDate() === evento.fecha.getDate()
         );*/
         /*
-        if (evento2) { //Las fechas de los dos arrays son iguales ? azul : La recolecta está incompleta ? verde : rojo
+        if (evento2) { //Las fechas de los dos arrays son iguales ? La recolecta está incompleta ? verde : rojo : azul
         } */
         console.log("entra dentro");
         return (
