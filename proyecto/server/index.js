@@ -1,6 +1,7 @@
 import express from 'express' //importar express
 import pg from 'pg';
 import cors from 'cors';
+const PORT = 3001;
 
 const app = express()
 
@@ -21,7 +22,7 @@ const db = new pg.Client({
 
 db.connect();
 
-app.post("/create", (req, res)=> {
+app.post("/createAgricultor", (req, res)=> {
 
     console.log("entra en create");
     //Obtenemos datos del cuerpo de la solicitud
@@ -74,6 +75,6 @@ app.post("/create1", (req, res)=> {
 
 
  //Iniciamos el servidor en el puerto 3001
- app.listen(3001, ()=>{
-    console.log("Corriendo en el servidor 3001");
+ app.listen(PORT, ()=>{
+    console.log("Server running on port " + PORT);
  })
