@@ -10,13 +10,21 @@ body {
 #logo {
     width: 200px;
     height: auto;
-
-
 }
 
 img {
     max-width: 100%;
 
+}
+
+#cabecera {
+    border-bottom: 5px solid #13302C;
+}
+
+#divcabecera{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 #divlogo {
@@ -25,16 +33,30 @@ img {
     width: 100%;
 }
 
-#apartados {
-    margin-top: 10%;
-    margin-right: 5%;
-    text-align: right;
-
-
+#divapartados {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-#cabecera {
-    border-bottom: 5px solid black;
+#apartadocabecera {
+    width: 23%;
+    border: solid #13302C 2px;
+    padding: 2%;
+}
+
+.active{
+    color:#13302C;
+    text-decoration: none;
+    margin: 0%;
+}
+
+.inactive{
+    color: #5C7D2C;
+    margin: 0%;
+    text-decoration: none;
 }
 
 #divimagen1 {
@@ -195,6 +217,50 @@ img {
     width: 100%;
     transition: 800ms ease all;
 }
+
+#divayudaFlex{
+    display: flex;
+    flex-direction: row;
+    margin: 0%;
+}
+
+#ayudaFlex1{
+    padding: 2%;
+    border: solid #5C7D2C 2px;
+    width: 33%;
+}
+
+#ayudaFlex2{
+    padding: 2%;
+    border: solid #5C7D2C 2px;
+    width: 33%;
+    
+}
+
+#ayudaFlex3{
+    padding: 2%;
+    border: solid #5C7D2C 2px;
+    width: 33%;
+    
+}
+
+#perdido{
+    border-top: solid #14312F 2px;
+}
+
+#divroles{
+    display: flex;
+    flex-direction: row;
+}
+
+#rol1{
+    width: 50%;
+}
+
+#rol2{
+    width: 50%;
+}
+
 
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
