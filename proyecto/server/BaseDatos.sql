@@ -6,7 +6,7 @@ CREATE TABLE agricultores (
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     dni VARCHAR(9) unique NOT NULL,
-    usuario VARCHAR(100) NOT NULL,
+    email varchar(100) unique NOT NULL,
     contraseña VARCHAR(100) NOT NULL
 );
 

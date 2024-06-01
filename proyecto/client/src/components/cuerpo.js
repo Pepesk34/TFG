@@ -1,4 +1,4 @@
-
+/*
 import './estilo.css';
 import Registrarse from './componentes_cuerpo/registrarse.js';
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
@@ -26,3 +26,4 @@ const Cuerpo = () => {
 };
 
 export default Cuerpo;
+*/

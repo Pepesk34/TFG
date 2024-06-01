@@ -1,7 +1,5 @@
-
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
-import "./estilos.css"
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from '../../contexts/userContext';
 import 'bootstrap/dist/css/bootstrap.min.css';

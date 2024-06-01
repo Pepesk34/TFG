@@ -13,7 +13,6 @@ function CabeceraRecolecta() {
     const toggleModal = () => {
         setShowModal(!showModal);
     };
-
     
       const handleCloseModal = () => setShowModal(false);
       const handleShowModal = () => {
@@ -23,9 +22,9 @@ function CabeceraRecolecta() {
     return (
         <div id="cabecera-recolecta">
             <nav className="navbar bg-dark border-bottom border-body navbar-dark">
-                <div className="container-fluid" id='containernav'>
-                    <Link className="navbar-brand" id='navtitulo' to="/recolecta">
-                        <h5>GREEN BOYD HOUSE</h5>
+                <div className="container-fluid d-flex justify-content-center" id='containernav'>
+                    <Link className="navbar-brand" id='navtitulo' to="/inicio">
+                    <img src={logo} alt="logo" width="120" height="120" className="d-inline-block align-top" />
                     </Link>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">

@@ -2,13 +2,12 @@
 import './App.css';
 import Cabecera from './components/cabecera.js';
 import CabeceraRecolecta from './components/cabecerarecolecta.js';
-import Cuerpo from './components/cuerpo.js';
 import Footer from './components/footer.js';
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Inicio from './components/componentes_cuerpo/Inicio.js';
 import InicioSesion from './components/componentes_cuerpo/iniciosesion.js';
-import Agricultor from "./components/componentes_cuerpo/agricultores.js"
-import Voluntario from "./components/componentes_cuerpo/registrarVoluntario.js"
+import Agricultor from "./components/componentes_cuerpo/componentesRegistro/registrarAgricultor.js"
+import Voluntario from "./components/componentes_cuerpo/componentesRegistro/registrarVoluntario.js"
 import Recolecta from './components/componentes_cuerpo/recolecta';
 import Registrarse from './components/componentes_cuerpo/registrarse.js';
 
