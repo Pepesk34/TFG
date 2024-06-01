@@ -1,1 +1,8 @@
 Estilar el calendario: https://www.youtube.com/watch?v=uvS9MavVbao How to Build a React Reusable Calendar Component
+
+Cosas por hacer:
+- Hashear y autenticar contraseñas, expresiones regulares.
+- Estilar calendario y meter componente Boton en los dias. Componente Boton no sólo será un boton si no un div y tal (creo).
+- Hacer llamadas a la bd en tileContent o donde sea y que compruebe cada dia con los arrays y eso.
+- Hacer el modal de los botones del calendario dinámico por usuario.
+- Ver que css aplicar a cada cosa (Boton, Calendario, etc).
