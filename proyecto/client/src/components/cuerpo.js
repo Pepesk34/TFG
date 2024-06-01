@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Inicio from './componentes_cuerpo/Inicio.js';
 import InicioSesion from './componentes_cuerpo/iniciosesion.js';
 import Agricultor from "./componentes_cuerpo/agricultores.js"
-import Voluntario from "./componentes_cuerpo/voluntarios.js"
+import Voluntario from "./componentes_cuerpo/registrarVoluntario.js"
 //cuerpo.js
 const Cuerpo = () => {
     return (

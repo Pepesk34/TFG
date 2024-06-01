@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Inicio from './components/componentes_cuerpo/Inicio.js';
 import InicioSesion from './components/componentes_cuerpo/iniciosesion.js';
 import Agricultor from "./components/componentes_cuerpo/agricultores.js"
-import Voluntario from "./components/componentes_cuerpo/voluntarios.js"
+import Voluntario from "./components/componentes_cuerpo/registrarVoluntario.js"
 import Recolecta from './components/componentes_cuerpo/recolecta';
 import Registrarse from './components/componentes_cuerpo/registrarse.js';
 

@@ -7,7 +7,7 @@ const app = express()
 
 
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
 // Configura la conexión
 const db = new pg.Client({
@@ -22,7 +22,7 @@ const db = new pg.Client({
 
 db.connect();
 
-app.post("/createAgricultor", (req, res)=> {
+app.post("/createAgricultor", (req, res) => {
 
     console.log("entra en create");
     //Obtenemos datos del cuerpo de la solicitud
@@ -47,34 +47,35 @@ app.post("/createAgricultor", (req, res)=> {
     );
 });
 
-app.post("/create1", (req, res)=> {
+app.post("/registrarVoluntario", async (req, res) => {
 
-    console.log("entra en create1");
+    console.log("Entra en /registrarVoluntario");
     //Obtenemos datos del cuerpo de la solicitud
-    const nombre = req.body.nombre;
-    const apellidos = req.body.apellidos;
-    const dni = req.body.dni;
-    const matricula = req.body.matricula
-    const usuario = req.body.usuario;
-    const contraseña = req.body.contraseña;
+    const { nombre, apellidos, dni, email, contraseña } = req.body;
 
-    //consulta sql
-    db.query(
-        "INSERT INTO voluntarios(nombre, apellidos, dni, matricula, usuario, contraseña) VALUES ($1, $2, $3, $4, $5, $6)",
-        [nombre, apellidos, dni, matricula, usuario, contraseña],
-        (err, result) => {
-            if (err) {
-                console.log('Error al hacer el insert' + err);
-                res.status(500).send("Error al registrar el voluntario");
-            } else {
-                res.send("Registro completado con exito")
-            }
+    try {
+        // Comprobamos si el voluntario ya existe por su email
+        const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1", [email]);
+        
+        if (comprobacion.rows.length > 0) {
+            res.status(400).send("Ya existe un voluntario con este email");
+        } else {
+            // Insertamos el voluntario
+            const nuevoVoluntario = await db.query(
+                "INSERT INTO voluntarios(nombre, apellidos, dni, email, contraseña) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+                [nombre, apellidos, dni, email, contraseña]
+            );
+            
+            res.status(201).json(nuevoVoluntario.rows[0]);
         }
-    );
+    } catch (error) {
+        console.error('Error al registrar el voluntario:', error);
+        res.status(500).send("Error al registrar el voluntario");
+    }
 });
 
 
- //Iniciamos el servidor en el puerto 3001
- app.listen(PORT, ()=>{
+//Iniciamos el servidor en el puerto 3001
+app.listen(PORT, () => {
     console.log("Server running on port " + PORT);
- })
+})
