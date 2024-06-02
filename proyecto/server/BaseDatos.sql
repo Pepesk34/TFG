@@ -35,6 +35,7 @@ CREATE TABLE recolectas (
     id serial PRIMARY KEY,
     localizacion VARCHAR(100) NOT NULL,
     kilos INTEGER NOT NULL,
+    fecha TIMESTAMP NOT NULL,
     id_agricultor INTEGER REFERENCES agricultores(id) UNIQUE
 );
 

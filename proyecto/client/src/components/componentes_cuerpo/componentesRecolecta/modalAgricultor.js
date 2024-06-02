@@ -5,25 +5,25 @@ import { UserContext } from '../../../contexts/userContext';
 import { Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function ModalCalendario(props) {
-    return(
+function ModalAgricultor(props) {
+  return(
     <Modal show={props.showModal} onHide={props.handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title><h2>Título del modal</h2></Modal.Title>
+          <Modal.Title>Titulo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Body del modal</p>
+          body
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.handleCloseModal}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={() => alert("HOla")}>
+          <Button variant="primary" onClick={props.handleCloseModal}>
             Guardar cambios
           </Button>
         </Modal.Footer>
       </Modal>
-    )
+      )
 }
 
-export default ModalCalendario;
+export default ModalAgricultor;

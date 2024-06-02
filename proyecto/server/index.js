@@ -29,7 +29,7 @@ app.post("/registrarV", async (req, res) => {
     try {
         // Comprobamos si el voluntario ya existe por su email
         const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1", [email]);
-        
+
         if (comprobacion.rows.length > 0) {
             res.status(400).send("Ya existe un voluntario con este email");
         } else {
@@ -38,7 +38,7 @@ app.post("/registrarV", async (req, res) => {
                 "INSERT INTO voluntarios(nombre, apellidos, dni, email, contraseña) VALUES ($1, $2, $3, $4, $5) RETURNING *",
                 [nombre, apellidos, dni, email, contraseña]
             );
-            
+
             res.status(201).json(nuevoAgricultor.rows[0]);
         }
     } catch (error) {
@@ -56,7 +56,7 @@ app.post("/registrarA", async (req, res) => {
     try {
         // Comprobamos si el voluntario ya existe por su email
         const comprobacion = await db.query("SELECT * FROM agricultores WHERE email = $1", [email]);
-        
+
         if (comprobacion.rows.length > 0) {
             res.status(400).send("Ya existe un agricultor con este email");
         } else {
@@ -65,12 +65,47 @@ app.post("/registrarA", async (req, res) => {
                 "INSERT INTO agricultores(nombre, apellidos, dni, email, contraseña) VALUES ($1, $2, $3, $4, $5) RETURNING *",
                 [nombre, apellidos, dni, email, contraseña]
             );
-            
+
             res.status(201).json(nuevoAgricultor.rows[0]);
         }
     } catch (error) {
         console.error('Error al registrar el agricultor:', error);
         res.status(500).send("Error al registrar el agricultor");
+    }
+});
+
+app.get('/selectRecolectas', async (req, res) => {
+    console.log("Entra en selectRecolectas")
+    try {
+      const result = await db.query(`
+        SELECT *
+        FROM recolectas
+      `);
+  
+      res.json(result.rows);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  });
+
+app.get('/selectRecolectasUsuario', async (req, res) => {
+    console.log("Entra en selectRecolectasUsuario")
+
+    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    try {
+        const result = await db.query(
+            `SELECT r.*
+            FROM voluntarios_recolectas vr
+            JOIN voluntarios v ON vr.id_voluntario = v.id
+            JOIN recolectas r ON vr.id_recolecta = r.id
+            WHERE v.id = $1`,
+            [userId]
+        );
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
 });
 

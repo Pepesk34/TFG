@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import agricultor from "../imagenes/imagen3.jpg";
 import voluntario from "../imagenes/voluntario.jpg";
 
+
 const Registrarse = () => {
     return (
         <div id="registrarse_div">
