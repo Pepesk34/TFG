@@ -27,20 +27,13 @@ const Inicio = () => {
 
     return (
         <div>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col d-flex justify-content-end'>
-                        <div class="row card text-bg-secondary mb-3" id='carta-cabecera'>
-                            <div class="card-header">CONTACTO</div>
-                            <div class="card-body">
-                                <h5 class="card-title">LLAMA A ESTE TELÉFONO</h5>
-                                <p class="card-text">+34 612 34 56 78</p>
-                            </div>
-                        </div>
+                <div class="card text-white bg-secondary mb-3 sticky-top" >
+                    <div class="card-header">CONTACTO</div>
+                    <div class="card-body">
+                        <h5 class="card-title">LLAMA A NUESTRO NÚMERO DE TELÉFONO</h5>
+                        <p class="card-text">+34 662 47 32 48</p>
                     </div>
                 </div>
-            </div>
-
             <div id="fila1" className="row">
                 <div className="col-xl-6">
                     <div id="divimagen1">
