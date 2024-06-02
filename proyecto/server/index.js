@@ -77,17 +77,37 @@ app.post("/registrarA", async (req, res) => {
 app.get('/selectRecolectas', async (req, res) => {
     console.log("Entra en selectRecolectas")
     try {
-      const result = await db.query(`
+        const result = await db.query(`
         SELECT *
         FROM recolectas
       `);
-  
-      res.json(result.rows);
+
+        res.json(result.rows);
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
-  });
+});
+
+app.get('/selectRecolectasCompletas', async (req, res) => {
+    console.log("Entra en selectRecolectasCompletas");
+    try {
+        const result = await db.query(`
+      SELECT r.id
+        FROM recolectas r
+        JOIN (
+            SELECT id_recolecta, COUNT(*) AS num_voluntarios
+            FROM voluntarios_recolectas
+            GROUP BY id_recolecta
+        ) vr ON r.id = vr.id_recolecta
+        WHERE vr.num_voluntarios >= r.maxNumVoluntarios
+      `);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 
 app.get('/selectRecolectasUsuario', async (req, res) => {
     console.log("Entra en selectRecolectasUsuario")

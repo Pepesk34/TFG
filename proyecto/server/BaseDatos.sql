@@ -33,9 +33,11 @@ CREATE TABLE usuarios (
 
 CREATE TABLE recolectas (
     id serial PRIMARY KEY,
-    localizacion VARCHAR(100) NOT NULL,
+    hortaliza VARCHAR(50) NOT NULL,
     kilos INTEGER NOT NULL,
+    maxNumVoluntarios INTEGER NOT NULL,
     fecha TIMESTAMP NOT NULL,
+    localizacion VARCHAR(100) NOT NULL,
     id_agricultor INTEGER REFERENCES agricultores(id) UNIQUE
 );
 
@@ -44,3 +46,13 @@ CREATE TABLE voluntarios_recolectas (
     id_recolecta INTEGER REFERENCES recolectas(id),
     PRIMARY KEY (id_voluntario, id_recolecta)
 )
+
+/* Seleccionar los id de las recolectas que llegan a maxNumVoluntarios */
+SELECT r.id
+FROM recolectas r
+JOIN (
+    SELECT id_recolecta, COUNT(*) AS num_voluntarios
+    FROM voluntarios_recolectas
+    GROUP BY id_recolecta
+) vr ON r.id = vr.id_recolecta
+WHERE vr.num_voluntarios = r.maxNumVoluntarios;

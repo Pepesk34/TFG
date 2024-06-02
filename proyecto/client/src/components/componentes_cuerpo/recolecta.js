@@ -1,5 +1,5 @@
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from '../../contexts/userContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,13 +18,14 @@ function Recolecta() {
 
   const [data, setData] = useState([]);
   const [dataUsuario, setDataUsuario] = useState([]);
+  const [recolectasCompletas, setRecolectasCompletas] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await axios.get('http://localhost:3001/selectRecolectas');
       console.log("Response.data de selectRecolectas: " + response.data);
       console.log(response.data)
-      await setData(response.data);
+      setData(response.data);
     } catch (err) {
       console.error(err.message)
     }
@@ -36,6 +37,19 @@ function Recolecta() {
       console.log("Response.data de selectRecolectasUsuario: " + response.data);
       console.log(response.data);
       setDataUsuario(response.data);
+    } catch (err) {
+      console.error(err.message)
+    }
+  };
+
+  const fetchRecolectasCompletas = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3001/selectRecolectasCompletas`);
+      console.log("Response.data de selectRecolectasUsuario: " + response.data);
+      console.log("Recolectas completas: ");
+      console.log(response.data);
+
+      setRecolectasCompletas(response.data);
     } catch (err) {
       console.error(err.message)
     }
@@ -55,6 +69,10 @@ function Recolecta() {
     }
   }, [userId]); // Se ejecuta cuando userId cambia
 
+  useEffect(() => {
+    fetchRecolectasCompletas();
+  }, []); // Solo se ejecuta una vez cuando el componente se monta
+
   const handleDateClick = (value) => {
     setSelectedDate(value);
     console.log('Fecha seleccionada:', value);
@@ -62,8 +80,11 @@ function Recolecta() {
   };
 
   const handleShowModalAgricultor = () => {
-    console.log('Entra en handleShowModalAgricultor')
+    console.log('Entra en handleShowModalAgricultor');
     setShowModalAgricultor(true);
+    if(showModal) {
+      setShowModalAgricultor(false);
+    }
   }
   const handleCloseModalAgricultor = () => setShowModalAgricultor(false);
 
@@ -79,7 +100,7 @@ function Recolecta() {
 
   const tileContentFunction = ({ date, view }) => {
     return (
-      <TileContent date={date} view={view} data={data} dataUsuario={dataUsuario} handleShowModal={handleShowModal} />
+      <TileContent date={date} view={view} data={data} dataUsuario={dataUsuario} handleShowModal={handleShowModal} recolectasCompletas={recolectasCompletas}/>
     );
   };
 

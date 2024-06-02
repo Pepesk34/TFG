@@ -1,5 +1,5 @@
 
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import "../estilos.css"
 import React, { useState, useContext } from "react";
 import { UserContext } from '../../../contexts/userContext';
@@ -10,10 +10,10 @@ import Boton from './boton';
 function TileContent(props) {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
-  const { view, data, dataUsuario, handleShowModal, date } = props;
+  const { view, data, dataUsuario, handleShowModal, date, recolectasCompletas } = props;
+
   if (!data) {
     return <>
-
       <h1>Comprobar</h1> <Boton
         key={2}
         color="azul"
@@ -27,6 +27,11 @@ function TileContent(props) {
       return data.map((fila) => {
 
         const fechaFila = new Date(fila.fecha);
+
+        var hours = fechaFila.getHours();
+        var minutes = fechaFila.getMinutes();
+
+        var hora = `${hours}:${minutes}`
 
         const idRecolecta = fila.id;
 
@@ -49,10 +54,15 @@ function TileContent(props) {
         if (comprobarFechaCalendario()) {
           console.log("Entra en comprobarFechaCalendario");
           if (userRole === 'A') {
+            if (userId === fila.id_agricultor) {
+              //azul
+            } else {
+              //gris
+            }
           } else if (userRole === 'V') {
             console.log("Entra en userRola = V")
 
-            const botonUsuario = dataUsuario.find(filaUsuario => {
+            const usuarioApuntado = dataUsuario.find(filaUsuario => {
               const idRecolectaUsuario = filaUsuario.id;
 
               const comprobarFechaUsuario = () => {
@@ -62,38 +72,55 @@ function TileContent(props) {
               return comprobarFechaUsuario();
             });
 
-            if (botonUsuario) {
+            if (usuarioApuntado) { //Usuario apuntado a recolecta
               console.log("Entra en el primer return")
-              return (<>
-
-                <h1>Comprobar</h1> <Boton
-                  key={fila.id}
-                  color="azul"
-                  handleShowModal={handleShowModal}
-                />
-              </>
-
-              );
-            } else {
-              console.log("Entra en el segundo return")
               return (
-                <Col key={fila.id} xs={12}>
-              <Boton
-                color="azul"
-                handleShowModal={handleShowModal}
-              />
-            </Col>  
+                <Boton
+                  key={fila.id}
+                  tipo="azul"
+                  handleShowModal={handleShowModal}
+                  hora={hora}
+                />
               );
+            } else { //Usuario no apuntado a recolecta
+              console.log("Entra en el segundo return")
+
+              let recolectaCompleta = recolectasCompletas.find(recolecta => {
+                return recolecta.id === fila.id;
+              })
+
+              if (recolectaCompleta) { //En rojo
+                console.log("Entra en rojo cuyo maxNumVoluntarios es " + fila.maxnumvoluntarios)
+                return (
+                  <Boton
+                    key={fila.id}
+                    tipo="rojo"
+                    handleShowModal={handleShowModal}
+                    hora={hora}
+                  />
+                );
+              } else { // En verde
+                console.log("Entra en verde cuyo maxNumVoluntarios es " + fila.maxnumvoluntarios)
+                return (
+                  <Boton
+                    key={fila.id}
+                    tipo="verde"
+                    handleShowModal={handleShowModal}
+                    hora={hora}
+                  />
+                );
+              }
+
             }
           } else {
             console.log("Entra aquí?")
-            return (<Col key={fila.id} xs={12}>
+            return (
               <Boton
-                color="azul"
+                key={fila.id}
+                tipo="azul"
                 handleShowModal={handleShowModal}
+                hora={hora}
               />
-            </Col>
-
             );
           }
         } else {
@@ -104,25 +131,18 @@ function TileContent(props) {
     } else {
       return null;
     }
-
   }
-  return(
+  return (
     <div>
       <div className="container">
-    <div className="row fila">
-      <div className="col">
-     
-        <div className="p-1 mb-1 bg-secondary text-white">Div Hijo 1</div>
-        
-      
-        <div className="p-1 mb-1 bg-success text-white">Div Hijo 2</div>
-        
-     
-        <div className="p-1 bg-danger text-white">Div Hijo 3</div>
+        <div className="row fila">
+          <div className="col columna">
+            {renderBoton()}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-    </div>
+
   )
 }
 

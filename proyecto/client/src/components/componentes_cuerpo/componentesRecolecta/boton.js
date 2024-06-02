@@ -6,9 +6,16 @@ import tomate from "../../imagenes/tomato.png"
 function Boton(props) {
     
     return(
-        <button type="button" className="btn btn-circle" onClick={props.handleShowModal} style={{border: "4px solid rgb(39, 227, 30)"}}>
-            <img src={tomate} alt="Imagen Redondeada" />
-        </button>
+        <div className="mb-1 row filaTile" onClick={props.handleShowModal}>
+              <div className="col-1 bg-primary text-dark"></div>
+              <div className="col div-11">
+                <div className="row">
+                    <div className="col-1">{props.hora}</div>
+                    <div className="col">buenas</div>
+                </div>
+                
+                </div>
+        </div>
     )
 }
 
