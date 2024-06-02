@@ -77,13 +77,12 @@ function TileContent(props) {
             } else {
               console.log("Entra en el segundo return")
               return (
-                <>
-                  <Boton
-                    key={fila.id}
-                    color="azul"
-                    onClick={handleShowModal}
-                  />
-                </>
+                <Col key={fila.id} xs={12}>
+              <Boton
+                color="azul"
+                handleShowModal={handleShowModal}
+              />
+            </Col>  
               );
             }
           } else {
@@ -109,9 +108,20 @@ function TileContent(props) {
   }
   return(
     <div>
-      <Row>
-        {renderBoton()}
-      </Row>
+      <div className="container">
+    <div className="row fila">
+      <div className="col">
+     
+        <div className="p-1 mb-1 bg-secondary text-white">Div Hijo 1</div>
+        
+      
+        <div className="p-1 mb-1 bg-success text-white">Div Hijo 2</div>
+        
+     
+        <div className="p-1 bg-danger text-white">Div Hijo 3</div>
+      </div>
+    </div>
+  </div>
     </div>
   )
 }

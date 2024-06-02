@@ -24,6 +24,8 @@ function App() {
           <Route path="/agricultor" element={<><Cabecera /><Agricultor /></>} />
           <Route path="/recolecta" element={<><Cabecera /><Recolecta /></>} />
           <Route path="/voluntario" element={<><Cabecera /><Voluntario /></>} />
+          <Route path="/about" element={<><Cabecera /></>} />
+          <Route path="/perfil" element={<><Cabecera /><Inicio /></>} />
         </Routes>
         <Footer />
       </div>

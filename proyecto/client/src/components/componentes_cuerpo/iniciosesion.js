@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const InicioSesion = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rol, setRol] = useState('');
+
+    useEffect(() => {
+        window.scrollTo(0, 100);
+      }, []);
+    
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);

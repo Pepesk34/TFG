@@ -64,3 +64,16 @@
     width: 100%;
     display: block;
   } */
+  
+
+  .div-principal{
+    width: 100%;
+    height: 90px;
+    background-color: rgb(255, 0, 0);
+  }
+
+  .box {
+    width: 10%;
+    height: 100px;
+    background-color: chartreuse;
+  }

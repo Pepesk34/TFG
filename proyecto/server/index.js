@@ -28,10 +28,10 @@ app.post("/registrarV", async (req, res) => {
 
     try {
         // Comprobamos si el voluntario ya existe por su email
-        const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1", [email]);
+        const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1 OR dni = $2", [email, dni]);
 
         if (comprobacion.rows.length > 0) {
-            res.status(400).send("Ya existe un voluntario con este email");
+            res.status(400).send("Ya existe un voluntario con ese email o DNI");
         } else {
             // Insertamos el voluntario
             const nuevoAgricultor = await db.query(
@@ -55,10 +55,10 @@ app.post("/registrarA", async (req, res) => {
 
     try {
         // Comprobamos si el voluntario ya existe por su email
-        const comprobacion = await db.query("SELECT * FROM agricultores WHERE email = $1", [email]);
+        const comprobacion = await db.query("SELECT * FROM agricultores WHERE email = $1 OR dni = $2", [email, dni]);
 
         if (comprobacion.rows.length > 0) {
-            res.status(400).send("Ya existe un agricultor con este email");
+            res.status(400).send("Ya existe un agricultor con ese email o DNI");
         } else {
             // Insertamos el voluntario
             const nuevoAgricultor = await db.query(

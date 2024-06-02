@@ -42,6 +42,10 @@ function Recolecta() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetchData();
   }, []); // Solo se ejecuta una vez cuando el componente se monta
 

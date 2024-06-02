@@ -4,24 +4,6 @@ import imagen2 from "../imagenes/pepe.jpeg";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import React from 'react';
 
-//---------------------------------------------------------------------
-//DESPLAZAR A DONDE QUIERAS EN LA PÁGINA AL PULSAR UN BOTÓN
-const handleScrollToTop = () => {
-    window.scrollTo({
-        top: 190,
-        behavior: 'smooth'
-    });
-};
-
-const handleClick = () => {
-    // Lógica existente del botón
-    console.log('Botón clickeado');
-
-    // Llamar a handleScrollToTop para desplazar al principio
-    handleScrollToTop();
-};
-//----------------------------------------------------------------------
-
 const Inicio = () => {
 
     return (
@@ -69,7 +51,7 @@ const Inicio = () => {
                         <div id="contenido">
                             <h2 id="mensaje_registrarse">¡Únete a nosotros y ayuda a llevar alimentos <br></br>a quienes más lo necesitan!</h2>
 
-                            <Link to="/registrarse"><button id="boton_registrar" onClick={handleClick}>Registrarse</button></Link>
+                            <Link to="/registrarse"><button id="boton_registrar">Registrarse</button></Link>
                         </div>
 
                     </div>
