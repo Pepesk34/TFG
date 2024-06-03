@@ -2,6 +2,27 @@
 /* Aquí el estilo de pantallas grandes*/
 /* src/components/estilo.css */
 
+.inicio-caption-carousel{
+    height: 170px;
+}
+
+.inicio-img-carousel{
+    margin-top: 100px;
+    box-shadow: 0 0 20px black;
+    border: solid #fbfefd 3px;
+    height: 450px;
+}
+
+.inicio-item-carousel{
+    height: 800px;
+}
+
+#div-carousel{
+    background-color: #14302D;
+    height: 800px;
+    margin-bottom: 5%;
+}
+
 .fila-segunda{
     height: 20%;
 }
@@ -112,7 +133,7 @@ img {
 }
 
 #imagen2 {
-    margin-top: 15%;
+    margin-top: 5%;
     width: 850px;
     box-shadow: 0 0 20px black;
     animation-iteration-count: 1;
@@ -124,7 +145,7 @@ img {
     margin-top: 3%;
     color: #5B7C2B;
     text-align: center;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
     animation-iteration-count: 1;
     animation-name: animacion3;
     animation-duration: 1.5s;
@@ -249,11 +270,11 @@ img {
 }
 
 #InicioSesion {
-    background-color: #14312F;
+    background-color: #304D34;
     box-shadow: 0 0 20pxw white;
     color: white;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
 
 }
 
@@ -379,10 +400,6 @@ img {
         animation-name: animacion1;
         animation-duration: 1.5s;
         color: white;
-    }
-
-    #imagen2 {
-        width: 500px;
     }
 
     #div_agricultor_rol {
