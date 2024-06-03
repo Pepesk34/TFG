@@ -17,7 +17,7 @@ function Cabecera(props) {
         <Navbar bg="light" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/inicio">
-                    <img src={logo} alt="logo" width="120" height="120" className="d-inline-block align-top" />
+                    <img src={logo} alt="logo" width="190" height="190" className="d-inline-block align-top" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
