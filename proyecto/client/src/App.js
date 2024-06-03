@@ -22,7 +22,7 @@ function App() {
           <Route path="/registrarse" element={<><Cabecera /><Registrarse /></>} />
           <Route path="/iniciosesion" element={<><Cabecera /><InicioSesion /></>} />
           <Route path="/agricultor" element={<><Cabecera /><Agricultor /></>} />
-          <Route path="/recolecta" element={<><Cabecera /><Recolecta /></>} />
+          <Route path="/recolecta" element={<><CabeceraRecolecta /><Recolecta /></>} />
           <Route path="/voluntario" element={<><Cabecera /><Voluntario /></>} />
           <Route path="/about" element={<><Cabecera /></>} />
           <Route path="/perfil" element={<><Cabecera /><Inicio /></>} />
