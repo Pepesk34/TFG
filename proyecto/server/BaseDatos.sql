@@ -33,7 +33,6 @@ CREATE TABLE usuarios (
 
 CREATE TABLE recolectas (
     id serial PRIMARY KEY,
-    hortaliza VARCHAR(50) NOT NULL,
     kilos INTEGER NOT NULL,
     maxNumVoluntarios INTEGER NOT NULL,
     fecha TIMESTAMP NOT NULL,
@@ -45,6 +44,17 @@ CREATE TABLE voluntarios_recolectas (
     id_voluntario INTEGER REFERENCES voluntarios(id),
     id_recolecta INTEGER REFERENCES recolectas(id),
     PRIMARY KEY (id_voluntario, id_recolecta)
+)
+
+CREATE TABLE hortalizas (
+    id serial PRIMARY KEY,
+    hortaliza VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE hortalizas_recolectas (
+    id_hortaliza INTEGER REFERENCES hortalizas(id),
+    id_recolecta INTEGER REFERENCES recolectas(id),
+    PRIMARY KEY (id_hortaliza, id_recolecta)
 )
 
 /* Seleccionar los id de las recolectas que llegan a maxNumVoluntarios */

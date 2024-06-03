@@ -11,7 +11,7 @@ import { RecolectasContext } from "../../../contexts/recolectasContext";
 function TileContent(props) {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
-  const { view, handleShowModal, date, recolectasCompletas, pasarRecolecta } = props;
+  const { view, handleShowModal, date, recolectasCompletas, pasarRecolecta} = props;
 
   const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
 
@@ -116,7 +116,7 @@ function TileContent(props) {
                 return (
                   <Boton
                     key={fila.id}
-                    tipo="azul"
+                    tipo="rojo"
                     handleShowModal={handleShowModal}
                     hora={hora}
                     pasarRecolecta={pasarRecolecta}
@@ -128,7 +128,7 @@ function TileContent(props) {
                 return (
                   <Boton
                     key={fila.id}
-                    tipo="azul"
+                    tipo="verde"
                     handleShowModal={handleShowModal}
                     hora={hora}
                     pasarRecolecta={pasarRecolecta}

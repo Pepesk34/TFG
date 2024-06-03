@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ModalCalendario(props) {
     return(
-    <Modal show={props.showModal} onHide={props.handleCloseModal}>
+    <Modal show={props.showModal} onHide={props.handleCloseModal} onShow={props.onShow}>
         <Modal.Header closeButton>
           <Modal.Title><h2>Título del modal</h2></Modal.Title>
         </Modal.Header>
