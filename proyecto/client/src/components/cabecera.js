@@ -14,7 +14,7 @@ function Cabecera(props) {
     const { userRole, userLoggedIn, userId } = useContext(UserContext);
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg" className='navbar-cabecera'>
             <Container>
                 <Navbar.Brand as={Link} to="/inicio">
                     <img src={logo} alt="logo" width="120" height="120" className="d-inline-block align-top" />

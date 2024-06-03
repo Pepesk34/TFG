@@ -5,7 +5,11 @@
 
 /* src/components/estilo.css */
 
-#nav-perfil{
+.navbar-cabecera{
+    background-color: #fbfefd;
+}
+
+#nav-perfil {
     width: 100%;
     height: 200px;
     display: flex;
@@ -13,7 +17,7 @@
     align-items: center;
 }
 
-#nav-filtros{
+#nav-filtros {
     width: 100%;
     height: 200px;
     display: flex;
@@ -21,7 +25,7 @@
     align-items: center;
 }
 
-#nav-inicio{
+#nav-inicio {
     width: 100%;
     height: 200px;
     display: flex;
@@ -29,7 +33,7 @@
     align-items: center;
 }
 
-#nav-ajustes{
+#nav-ajustes {
     width: 100%;
     height: 200px;
     display: flex;
@@ -37,12 +41,12 @@
     align-items: center;
 }
 
-#button-ajustes{
+#button-ajustes {
     width: 100%;
     height: 100%;
 }
 
-#button-perfil{
+#button-perfil {
     width: 100%;
     height: 100%;
 }
@@ -51,37 +55,41 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; /* Ancho del navbar */
+    width: 250px;
+    /* Ancho del navbar */
     height: 100%;
-    background-color: #343a40; /* Mismo color que bg-dark */
-  }
-  
-  #cabecera-recolecta .navbar {
+    background-color: #343a40;
+    /* Mismo color que bg-dark */
+}
+
+#cabecera-recolecta .navbar {
     display: flex;
     flex-direction: column;
     height: 100%;
-  }
-  
-  #cabecera-recolecta .navbar-nav {
+}
+
+#cabecera-recolecta .navbar-nav {
     flex-direction: column;
     width: 100%;
-  }
-  
-  #cabecera-recolecta .nav-item {
-    width: 100%;
-  }
-  
-  #cabecera-recolecta .nav-link {
-    color: white; /* Color del texto */
-    padding: 1rem;
-  }
-  
-  #cabecera-recolecta .nav-link:hover {
-    background-color: #495057; /* Color de fondo al pasar el ratón */
-  }
-  
+}
 
-  
+#cabecera-recolecta .nav-item {
+    width: 100%;
+}
+
+#cabecera-recolecta .nav-link {
+    color: white;
+    /* Color del texto */
+    padding: 1rem;
+}
+
+#cabecera-recolecta .nav-link:hover {
+    background-color: #495057;
+    /* Color de fondo al pasar el ratón */
+}
+
+
+
 
 body {
     font-family: sans-serif;
@@ -132,7 +140,7 @@ img {
     animation-duration: 1.5s;
 }
 
-#div_formulario{
+#div_formulario {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -145,33 +153,33 @@ img {
     animation-duration: 1.5s;
 }
 
-.form-register{
+.form-register {
     width: 400px;
     background-color: #14312F;
     padding: 30px;
-    margin:auto;
+    margin: auto;
     margin-top: 100px;
     border-radius: 4px;
     color: white;
 }
 
-.form-register h4{
+.form-register h4 {
     font-size: 22px;
     margin-bottom: 20px;
 }
 
-.controls{
+.controls {
     width: 100%;
     background-color: #14312F;
     color: rgba(239, 237, 230, 0.874);
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;
-    border: 1px solid  #5B7C2B;
+    border: 1px solid #5B7C2B;
     font-size: 18px;
 }
 
-.form-register .botons{
+.form-register .botons {
     width: 100%;
     background-color: #5B7C2B;
     border: none;
@@ -182,7 +190,7 @@ img {
     transition: color 0.3s ease;
 }
 
-.form-register .botons:hover{
+.form-register .botons:hover {
     background-color: #4f6b26;
 }
 
@@ -259,7 +267,7 @@ img {
 
 }
 
-#mensaje_registrarse{
+#mensaje_registrarse {
     margin-bottom: 3%;
 }
 
@@ -306,7 +314,7 @@ img {
     transition: 800ms ease all;
 }
 
-#emoji_agricultor{
+#emoji_agricultor {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion2;
@@ -317,7 +325,7 @@ img {
     margin-top: 2%;
 }
 
-#emoji_voluntario{
+#emoji_voluntario {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion3;
@@ -328,11 +336,11 @@ img {
     margin-top: 2%;
 }
 
-#opciones_registrarse{
+#opciones_registrarse {
     padding-top: 5%;
 }
 
-#registrarse_div{
+#registrarse_div {
     padding-top: 10%;
     background-color: #5B7C2B;
     padding-bottom: 10%;
@@ -342,24 +350,28 @@ img {
     color: #fff;
 }
 
-#h3_agricultor{
+#h3_agricultor {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion2;
     margin-top: 3%;
 }
-#h3_voluntario{
+
+#h3_voluntario {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion3;
     margin-top: 3%;
 }
+
 #emoji_agricultor:hover {
     transform: scale(1.05);
 }
-#emoji_voluntario:hover{
+
+#emoji_voluntario:hover {
     transform: scale(1.05)
 }
+
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
 
@@ -383,8 +395,9 @@ img {
         width: 500px;
     }
 
-    #div_agricultor_rol{
+    #div_agricultor_rol {
         margin-bottom: 7%;
     }
 
 }
+
