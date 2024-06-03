@@ -27,7 +27,7 @@ function App() {
           <Route path="/about" element={<><Cabecera /></>} />
           <Route path="/perfil" element={<><Cabecera /><Inicio /></>} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   );

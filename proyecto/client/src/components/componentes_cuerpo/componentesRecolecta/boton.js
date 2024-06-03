@@ -11,7 +11,7 @@ function Boton(props) {
 
     const handleClick = () => {
         handleShowModal();
-        pasarRecolecta(fila);
+        pasarRecolecta(filaActual);
     }
 
     const handleTipo = () => {
