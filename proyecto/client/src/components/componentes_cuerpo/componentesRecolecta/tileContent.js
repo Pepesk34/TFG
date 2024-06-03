@@ -6,11 +6,14 @@ import { UserContext } from '../../../contexts/userContext';
 import { Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Boton from './boton';
+import { RecolectasContext } from "../../../contexts/recolectasContext";
 
 function TileContent(props) {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
-  const { view, data, dataUsuario, handleShowModal, date, recolectasCompletas } = props;
+  const { view, handleShowModal, date, recolectasCompletas, pasarRecolecta } = props;
+
+  const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
 
   if (!data) {
     return <>
@@ -23,10 +26,11 @@ function TileContent(props) {
   }
 
   const renderBoton = () => {
-    if (view === 'month') {
+    if (view === 'month' && data) {
       return data.map((fila) => {
 
         const fechaFila = new Date(fila.fecha);
+
 
         var hours = fechaFila.getHours();
         var minutes = fechaFila.getMinutes();
@@ -56,8 +60,22 @@ function TileContent(props) {
           if (userRole === 'A') {
             if (userId === fila.id_agricultor) {
               //azul
+              <Boton
+                key={fila.id}
+                tipo="azul"
+                handleShowModal={handleShowModal}
+                hora={hora}
+                pasarRecolecta={pasarRecolecta}
+                filaActual={fila}
+              />
             } else {
               //gris
+              <Boton
+                key={fila.id}
+                tipo="azul"
+                handleShowModal={handleShowModal}
+                hora={hora}
+              />
             }
           } else if (userRole === 'V') {
             console.log("Entra en userRola = V")
@@ -72,16 +90,20 @@ function TileContent(props) {
               return comprobarFechaUsuario();
             });
 
-            if (usuarioApuntado) { //Usuario apuntado a recolecta
+            if (usuarioApuntado) { // Usuario apuntado a recolecta AZUL
               console.log("Entra en el primer return")
               return (
+
                 <Boton
                   key={fila.id}
                   tipo="azul"
                   handleShowModal={handleShowModal}
                   hora={hora}
+                  pasarRecolecta={pasarRecolecta}
+                  filaActual={fila}
                 />
               );
+
             } else { //Usuario no apuntado a recolecta
               console.log("Entra en el segundo return")
 
@@ -94,9 +116,11 @@ function TileContent(props) {
                 return (
                   <Boton
                     key={fila.id}
-                    tipo="rojo"
+                    tipo="azul"
                     handleShowModal={handleShowModal}
                     hora={hora}
+                    pasarRecolecta={pasarRecolecta}
+                    filaActual={fila}
                   />
                 );
               } else { // En verde
@@ -104,9 +128,11 @@ function TileContent(props) {
                 return (
                   <Boton
                     key={fila.id}
-                    tipo="verde"
+                    tipo="azul"
                     handleShowModal={handleShowModal}
                     hora={hora}
+                    pasarRecolecta={pasarRecolecta}
+                    filaActual={fila}
                   />
                 );
               }
@@ -120,6 +146,8 @@ function TileContent(props) {
                 tipo="azul"
                 handleShowModal={handleShowModal}
                 hora={hora}
+                pasarRecolecta={pasarRecolecta}
+                filaActual={fila}
               />
             );
           }

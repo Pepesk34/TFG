@@ -7,18 +7,20 @@ import axios from "axios";
 import ModalCalendario from "./componentesRecolecta/modalCalendario";
 import ModalAgricultor from "./componentesRecolecta/modalAgricultor";
 import TileContent from "./componentesRecolecta/tileContent";
+import { RecolectasContext } from "../../contexts/recolectasContext";
 
 function Recolecta() {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
+  const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
   const [showModalAgricultor, setShowModalAgricultor] = useState(false);
 
-  const [data, setData] = useState([]);
-  const [dataUsuario, setDataUsuario] = useState([]);
   const [recolectasCompletas, setRecolectasCompletas] = useState([]);
+
+  const [recolectaActual, setRecolectaActual] = useState({});
 
   const fetchData = async () => {
     try {
@@ -97,10 +99,14 @@ function Recolecta() {
       setShowModal(false);
   }
 
+  const pasarRecolecta = (recolecta) => {
+    setRecolectaActual(recolecta);
+  }
+
 
   const tileContentFunction = ({ date, view }) => {
     return (
-      <TileContent date={date} view={view} data={data} dataUsuario={dataUsuario} handleShowModal={handleShowModal} recolectasCompletas={recolectasCompletas}/>
+      <TileContent date={date} view={view} handleShowModal={handleShowModal} recolectasCompletas={recolectasCompletas} pasarRecolecta={pasarRecolecta}/>
     );
   };
 
@@ -108,11 +114,11 @@ function Recolecta() {
     <div className="App" id="div-recolecta">
       <h1>Recolectas {userId} {userRole}</h1>
       <Calendar
-        onClickDay={handleDateClick}
+        // onClickDay={handleDateClick}
         value={selectedDate}
         tileContent={tileContentFunction}
       />
-      <ModalCalendario showModal={showModal} handleCloseModal={handleCloseModal}/>
+      <ModalCalendario showModal={showModal} handleCloseModal={handleCloseModal} recolecta={recolectaActual}/>
       <ModalAgricultor showModal={showModalAgricultor}  handleCloseModal={handleCloseModalAgricultor}/>
     </div>
   );

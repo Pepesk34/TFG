@@ -14,7 +14,7 @@ const db = new pg.Client({
     user: 'postgres',         // reemplaza con tu usuario de PostgreSQL
     host: 'localhost',          // dirección del servidor PostgreSQL
     database: 'greenboydhousedb', // reemplaza con el nombre de tu base de datos
-    password: '8569',            // reemplaza con tu contraseña
+    password: '1234',            // reemplaza con tu contraseña
     port: 5432,                 // puerto donde corre PostgreSQL
 });
 
