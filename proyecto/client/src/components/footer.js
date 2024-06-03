@@ -27,7 +27,7 @@ const Footer = () => {
                                 <div id="iconos">
                                 <a target='blank' href='https://twitter.com/HouseBoyd61754'><img id="twitter" src={twitter}></img></a>
                                 <a target='blank' href='https://www.youtube.com/channel/UCtu69_nm6WnRX64XQRFvwaQ'><img id="youtube" src={youtube}></img></a>
-                                <a target='blank'><img id="instagram" src={instagram}></img></a>
+                                <a target='blank' href='https://www.instagram.com/greenboydhouse/'><img id="instagram" src={instagram}></img></a>
                                 </div>
                         </h6>
                     </div>
