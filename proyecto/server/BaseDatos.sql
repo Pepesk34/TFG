@@ -38,7 +38,7 @@ CREATE TABLE recolectas (
     maxNumVoluntarios INTEGER NOT NULL,
     fecha TIMESTAMP NOT NULL,
     localizacion VARCHAR(100) NOT NULL,
-    id_agricultor INTEGER REFERENCES agricultores(id) UNIQUE
+    FOREIGN KEY id_agricultor INTEGER REFERENCES agricultores(id)
 );
 
 CREATE TABLE voluntarios_recolectas (

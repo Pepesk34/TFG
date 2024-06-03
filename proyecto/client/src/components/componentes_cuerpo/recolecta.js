@@ -114,7 +114,7 @@ function Recolecta() {
     <div className="App" id="divrecolecta">
       <h1>Recolectas {userId} {userRole}</h1>
       <Calendar
-        onClickDay={handleDateClick}
+        // onClickDay={handleDateClick}
         value={selectedDate}
         tileContent={tileContentFunction}
       />
