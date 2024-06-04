@@ -30,7 +30,7 @@ const InicioSesion = () => {
 
     return (
         <div>
-            <div id="pregunta_rol" className='mt-5 mb-5'>
+            <div id="pregunta-rol" className='mb-5'>
                 <h1>INICIA SESIÓN</h1>
             </div>
             <div className="row justify-content-center" id='forminiciosesion'>
