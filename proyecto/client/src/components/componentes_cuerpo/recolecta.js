@@ -114,11 +114,11 @@ function Recolecta() {
     <div className="App" id="div-recolecta">
       <h1>Recolectas {userId} {userRole}</h1>
       <Calendar
-        // onClickDay={handleDateClick}
+        onClickDay={handleDateClick}
         value={selectedDate}
         tileContent={tileContentFunction}
       />
-      <ModalCalendario showModal={showModal} handleCloseModal={handleCloseModal} recolecta={recolectaActual}/>
+      <ModalCalendario showModal={showModal} handleCloseModal={handleCloseModal} recolecta={recolectaActual} onShow={handleCloseModalAgricultor}/>
       <ModalAgricultor showModal={showModalAgricultor}  handleCloseModal={handleCloseModalAgricultor}/>
     </div>
   );

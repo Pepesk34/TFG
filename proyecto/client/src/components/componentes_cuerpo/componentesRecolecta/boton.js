@@ -5,25 +5,28 @@ import tomate from "../../imagenes/tomato.png"
 
 function Boton(props) {
 
-    const {key, tipo, handleShowModal, hora, pasarRecolecta, filaActual} = props;
+    const { key, tipo, handleShowModal, hora, pasarRecolecta, filaActual } = props;
 
     const fila = filaActual;
 
     const handleClick = () => {
         handleShowModal();
-        pasarRecolecta(fila);
+        pasarRecolecta(filaActual);
     }
-    
-    return(
+
+    const handleTipo = () => {
+
+    }
+
+    return (
         <div className="mb-1 row filaTile" onClick={handleClick}>
-              <div className="col-1 bg-primary text-dark"></div>
-              <div className="col div-11">
+            <div className={`col-1 ${tipo} text-dark`}></div>
+            <div className="col div-11">
                 <div className="row">
                     <div className="col-1">{props.hora}</div>
                     <div className="col">buenas</div>
                 </div>
-                
-                </div>
+            </div>
         </div>
     )
 }
