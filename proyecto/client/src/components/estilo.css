@@ -2,50 +2,51 @@
 /* Aquí el estilo de pantallas grandes*/
 /* src/components/estilo.css */
 
-#about-main{
+#about-main {
     height: 2000px;
     width: 100%;
 }
 
-.about-fruta{
+.about-fruta {
     height: 500px;
     border: solid red 1px;
 }
 
-.inicio-caption-carousel{
+.inicio-caption-carousel {
     height: 170px;
 }
 
-.inicio-img-carousel{
+.inicio-img-carousel {
     margin-top: 100px;
     box-shadow: 0 0 20px black;
     border: solid #fbfefd 3px;
     height: 450px;
 }
 
-.inicio-item-carousel{
+.inicio-item-carousel {
     height: 800px;
 }
 
-#div-carousel{
+#div-carousel {
     background-color: #14302D;
     height: 800px;
     margin-bottom: 5%;
 }
 
-.fila-segunda{
+.fila-segunda {
     height: 20%;
 }
 
-.fila-primera{
+.fila-primera {
     height: 100%;
 }
 
 /***CABECERA ESTILO***/
-.navbar-cabecera{
+.navbar-cabecera {
     background-color: #fbfefd;
     height: 200px;
 }
+
 /******/
 
 .botones-ca-re {
@@ -53,20 +54,15 @@
     height: 100%;
 }
 
-#button-logo{
-}
+#button-logo {}
 
-#button-ajustes {
-}
+#button-ajustes {}
 
-#button-perfil {
-}
+#button-perfil {}
 
-#button-inicio {
-}
+#button-inicio {}
 
-#button-filtros {
-}
+#button-filtros {}
 
 #cabecera-recolecta {
     position: fixed;
@@ -210,7 +206,7 @@ img {
 }
 
 /*animacion*/
-@keyframes animacion1 {
+@keyframes animacion-registrarse {
     0% {
         opacity: 0;
     }
@@ -220,7 +216,7 @@ img {
     }
 }
 
-@keyframes animacion2 {
+@keyframes animacion-agricultor {
     0% {
         opacity: 0;
         margin-right: 30%;
@@ -232,7 +228,7 @@ img {
     }
 }
 
-@keyframes animacion3 {
+@keyframes animacion-voluntario {
     0% {
         opacity: 0;
         margin-left: 30%;
@@ -251,6 +247,14 @@ img {
 
     100% {
         background-color: #4f6b26;
+    }
+}
+
+@keyframes animacion-descripcion {
+    0% {
+    }
+
+    100% {
     }
 }
 
@@ -329,10 +333,17 @@ img {
     transition: 800ms ease all;
 }
 
-#emoji_agricultor {
+.img-container {
+}
+
+.img-descripcion {
+    margin-top: 2%;
+}
+
+#emoji-agricultor {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
-    animation-name: animacion2;
+    animation-name: animacion-agricultor;
     width: 50%;
     height: auto;
     box-shadow: 0 0 20px black;
@@ -340,10 +351,10 @@ img {
     margin-top: 2%;
 }
 
-#emoji_voluntario {
+#emoji-voluntario {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
-    animation-name: animacion3;
+    animation-name: animacion-voluntario;
     width: 50%;
     height: auto;
     box-shadow: 0 0 20px black;
@@ -351,41 +362,40 @@ img {
     margin-top: 2%;
 }
 
-#opciones_registrarse {
+#emoji-agricultor:hover {
+    transform: scale(1.05);
+}
+
+#emoji-voluntario:hover {
+    transform: scale(1.05)
+}
+
+#opciones-registrarse {
     padding-top: 5%;
 }
 
-#registrarse_div {
+#registrarse-div {
     padding-top: 5%;
     background-color: #5B7C2B;
     padding-bottom: 8%;
     animation-iteration-count: 1;
-    animation-name: animacion1;
+    animation-name: animacion-registrarse;
     animation-duration: 1.5s;
     color: #fff;
 }
 
-#h3_agricultor {
+#h3-agricultor {
     animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion2;
-    margin-top: 3%;
+    animation-duration: 2s;
+    animation-name: animacion-agricultor;
 }
 
-#h3_voluntario {
+#h3-voluntario {
     animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion3;
-    margin-top: 3%;
+    animation-duration: 2s;
+    animation-name: animacion-voluntario;
 }
 
-#emoji_agricultor:hover {
-    transform: scale(1.05);
-}
-
-#emoji_voluntario:hover {
-    transform: scale(1.05)
-}
 
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
@@ -406,9 +416,5 @@ img {
         color: white;
     }
 
-    #div_agricultor_rol {
-        margin-bottom: 7%;
-    }
 
 }
-
