@@ -2,6 +2,16 @@
 /* Aquí el estilo de pantallas grandes*/
 /* src/components/estilo.css */
 
+#about-main{
+    height: 2000px;
+    width: 100%;
+}
+
+.about-fruta{
+    height: 500px;
+    border: solid red 1px;
+}
+
 .inicio-caption-carousel{
     height: 170px;
 }
@@ -352,9 +362,9 @@ img {
 }
 
 #registrarse_div {
-    padding-top: 10%;
+    padding-top: 5%;
     background-color: #5B7C2B;
-    padding-bottom: 10%;
+    padding-bottom: 8%;
     animation-iteration-count: 1;
     animation-name: animacion1;
     animation-duration: 1.5s;
