@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const Registrarse = () => {
 
     useEffect(() => {
-        window.scrollTo(0, 260);
+        window.scrollTo(0, 230);
     }, []);
 
 
