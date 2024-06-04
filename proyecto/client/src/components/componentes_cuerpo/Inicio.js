@@ -1,7 +1,6 @@
 import '../cabecera.js';
 import imagen1 from "../imagenes/imagen1.jpg";
 import imagen2 from "../imagenes/pepe.jpeg";
-import Registrarse from './agricultores.js';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import React from 'react';
 

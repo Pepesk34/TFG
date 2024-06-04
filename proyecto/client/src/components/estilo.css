@@ -191,6 +191,7 @@ img {
 .controls {
     width: 100%;
     background-color: #14312F;
+    color: rgba(239, 237, 230, 0.874);
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;

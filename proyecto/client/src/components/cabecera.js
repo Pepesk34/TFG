@@ -2,8 +2,11 @@ import React from 'react';
 import './estilo.css';
 import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BotonCabecera from './botonCabecera';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import BotonCabecera from './botonCabecera';
+import Button from 'react-bootstrap/Button';
+
 
 //---------------------------------------------------------------------
 //DESPLAZAR A DONDE QUIERAS EN LA PÁGINA AL PULSAR UN BOTÓN
@@ -15,49 +18,32 @@ const handleScrollToTop = () => {
 };
 
 const handleClick = () => {
-    // Lógica existente del botón
     console.log('Botón clickeado');
-
-    // Llamar a handleScrollToTop para desplazar al principio
     handleScrollToTop();
 };
-//----------------------------------------------------------------------
 
 function Cabecera(props) {
     return (
-        <div id="cabecera">
-            <div class="row">
-                <div class="col-xl-4">
-                    <div id="divlogo">
-                        <img id="logo" src={logo}></img>
-                    </div>
-                </div>
-                <div class="col-xl-8">
-                    <div id="apartados">
-                        <h5>
-                            <BotonCabecera link="/inicio" nombre="INICIO"/>
-
-                            <BotonCabecera link="/comunidad" nombre="COMUNIDAD"/>
-
-                            <BotonCabecera link="/registrarse" click={handleClick} nombre="REGÍSTRATE"/>
-
-                            <BotonCabecera link="/iniciosesion" nombre="INICIAR SESION"/>
-
-                            <BotonCabecera link="/recolecta" nombre="RECOLECTA"/>
-
-                            {props.tipoUser === "A" ?
-                                <BotonCabecera
-                                    link="/registrarse"
-                                    nombre="mi perfil"
-                                /> : null
-
-                            }
-                        </h5>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Navbar bg="light" expand="lg">
+            <Container>
+                <Navbar.Brand as={Link} to="/inicio">
+                    <img src={logo} alt="logo" width="120" height="120" className="d-inline-block align-top" />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to="/inicio"> <Button variant="outline-secondary">Inicio</Button></Nav.Link>
+                        <Nav.Link as={Link} to="/registrarse" onClick={handleClick}> <Button variant="outline-secondary">Registrase</Button></Nav.Link>
+                        <Nav.Link as={Link} to="/iniciosesion"> <Button variant="outline-secondary">Iniciar Sesión</Button></Nav.Link>
+                        <Nav.Link as={Link} to="/recolecta"> <Button variant="outline-secondary">Recolecta</Button></Nav.Link>
+                        {props.tipoUser === "A" &&
+                            <Nav.Link as={Link} to="/mi-perfil">MI PERFIL</Nav.Link>
+                        }
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
+
 export default Cabecera;

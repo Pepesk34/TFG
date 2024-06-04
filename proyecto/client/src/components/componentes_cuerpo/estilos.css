@@ -1,6 +1,4 @@
-
 #divrecolecta{
-  margin-left: 250px;
   margin-top: 3%;
 }
 
@@ -13,8 +11,8 @@
   }
   
   .react-calendar__tile {
-    height: 100px; /* Incrementar altura de las celdas */
-    max-height: 100px; /* Incrementar altura máxima de las celdas */
+    height: 110px; /* Incrementar altura de las celdas */
+    max-height: 110px; /* Incrementar altura máxima de las celdas */
     overflow: hidden; /* Asegurarse de que el contenido adicional no se desborde */
     display: flex;
     flex-direction: column;
