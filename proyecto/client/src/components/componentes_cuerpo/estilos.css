@@ -1,3 +1,14 @@
+.contenedor{
+  width: 100%;
+}
+
+#pregunta-rol{
+  border-top: groove #5b7c2d 5px;
+  padding-top: 4%;
+  border-radius: 5%;
+
+}
+
 #div-recolecta{
   padding: 2%;
   margin-left: 15%;

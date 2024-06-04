@@ -25,7 +25,7 @@ function Cabecera(props) {
                         <Nav.Link as={Link} to="/inicio"> <Button variant="outline-secondary">Inicio</Button></Nav.Link>
                         <Nav.Link as={Link} to="/about"> <Button variant="outline-secondary">Sobre Nosotros</Button></Nav.Link>
 
-                        {!userLoggedIn && <Nav.Link as={Link} to="/registrarse"> <Button variant="outline-secondary">Registrase</Button></Nav.Link>}
+                        {!userLoggedIn && <Nav.Link as={Link} to="/registrarse"> <Button variant="outline-secondary">Registrarse</Button></Nav.Link>}
                         {!userLoggedIn && <Nav.Link as={Link} to="/iniciosesion" > <Button variant="outline-secondary">Iniciar Sesión</Button></Nav.Link>}
                         {userLoggedIn && <Nav.Link as={Link} to="/recolecta"> <Button variant="outline-secondary">Recolecta</Button></Nav.Link>}
                         {userLoggedIn && <Nav.Link as={Link} to="/perfil"><Button variant="outline-secondary">MI PERFIL</Button></Nav.Link>}

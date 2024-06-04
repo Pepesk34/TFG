@@ -5,6 +5,7 @@ import CabeceraRecolecta from './components/cabecerarecolecta.js';
 import Footer from './components/footer.js';
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Inicio from './components/componentes_cuerpo/Inicio.js';
+import About from './components/componentes_cuerpo/about.js'
 import InicioSesion from './components/componentes_cuerpo/iniciosesion.js';
 import Agricultor from "./components/componentes_cuerpo/componentesRegistro/registrarAgricultor.js"
 import Voluntario from "./components/componentes_cuerpo/componentesRegistro/registrarVoluntario.js"
@@ -24,7 +25,7 @@ function App() {
           <Route path="/agricultor" element={<><Cabecera /><Agricultor /></>} />
           <Route path="/recolecta" element={<><CabeceraRecolecta /><Recolecta /></>} />
           <Route path="/voluntario" element={<><Cabecera /><Voluntario /></>} />
-          <Route path="/about" element={<><Cabecera /></>} />
+          <Route path="/about" element={<><Cabecera /><About /></>} />
           <Route path="/perfil" element={<><Cabecera /><Inicio /></>} />
         </Routes>
         <Footer />
