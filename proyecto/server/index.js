@@ -78,10 +78,29 @@ app.get('/selectRecolectas', async (req, res) => {
     console.log("Entra en selectRecolectas")
     try {
         const result = await db.query(`
-        SELECT *
-        FROM recolectas
+        SELECT r.*, h.hortaliza
+        FROM recolectas r JOIN hortalizas_recolectas hr ON r.id=hr.id_recolecta JOIN hortalizas h ON hr.id_hortaliza = h.id
       `);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 
+app.get('/selectRecolectasUsuario', async (req, res) => {
+    console.log("Entra en selectRecolectasUsuario")
+
+    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    try {
+        const result = await db.query(
+            `SELECT r.*
+            FROM voluntarios_recolectas vr
+            JOIN voluntarios v ON vr.id_voluntario = v.id
+            JOIN recolectas r ON vr.id_recolecta = r.id
+            WHERE v.id = $1`,
+            [userId]
+        );
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);
@@ -109,22 +128,36 @@ app.get('/selectRecolectasCompletas', async (req, res) => {
     }
 });
 
-app.get('/selectRecolectasUsuario', async (req, res) => {
-    console.log("Entra en selectRecolectasUsuario")
+app.get('/selectAgricultor', async (req, res) => {
+    console.log("Entra en selectAgricultor")
 
-    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    const agricultorId = req.query.agricultorId; // Obtén el userId de los parámetros de consulta
     try {
         const result = await db.query(
-            `SELECT r.*
-            FROM voluntarios_recolectas vr
-            JOIN voluntarios v ON vr.id_voluntario = v.id
-            JOIN recolectas r ON vr.id_recolecta = r.id
-            WHERE v.id = $1`,
-            [userId]
+            `SELECT * FROM agricultores WHERE id=$1`,
+            [agricultorId]
         );
         res.json(result.rows);
     } catch (err) {
-        console.error(err.message);
+        console.error("Error selectAgricultor: " + err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/addVoluntarioRecolecta', async (req, res) => {
+    console.log("Entra en addVoluntarioRecolecta")
+
+    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    const recolectaId = req.query.recolectaId;
+
+    try {
+        const result = await db.query(
+            `INSERT INTO voluntarios_recolectas (id_voluntario, id_recolecta) VALUES ($1, $2)`,
+            [userId, recolectaId]
+        );
+        res.json(result.rows);
+    } catch (err) {
+        console.error("Error addVoluntarioRecolecta " + err.message);
         res.status(500).send('Server Error');
     }
 });

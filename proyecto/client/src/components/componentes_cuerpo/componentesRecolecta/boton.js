@@ -1,17 +1,26 @@
-import React from "react";
 /*import 'bootstrap/dist/css/bootstrap.min.css'; */
 import "../boton.css"
 import tomate from "../../imagenes/tomato.png"
+import pimiento from "../../imagenes/pimiento.webp"
+import React, { useState, useContext, useEffect } from "react";
+import { UserContext } from '../../../contexts/userContext';
 
 function Boton(props) {
 
-    const { key, tipo, handleShowModal, hora, pasarRecolecta, filaActual } = props;
+    const { userRole, userLoggedIn, userId } = useContext(UserContext);
 
-    const fila = filaActual;
+    const { key, tipo, handleOnClickBoton, hora, pasarRecolecta, filaActual } = props;
 
     const handleClick = () => {
-        handleShowModal();
+        if(userRole === 'V') {
+        handleOnClickBoton();
         pasarRecolecta(filaActual);
+        } else if(userRole === 'A') {
+            
+        } else {
+            console.error("No es no A ni V")
+        }
+        
     }
 
     const handleTipo = () => {
@@ -21,10 +30,13 @@ function Boton(props) {
     return (
         <div className="mb-1 row filaTile" onClick={handleClick}>
             <div className={`col-1 ${tipo} text-dark`}></div>
-            <div className="col div-11">
+            <div className="col ps-1 div-11">
                 <div className="row">
-                    <div className="col-1">{props.hora}</div>
-                    <div className="col">buenas</div>
+                    <div className="col-1 hora">{props.hora}</div>
+                    <div className="col">
+                        {filaActual.hortaliza === 'Pimiento' ? <img src={pimiento} width={"24px"}></img> : null}
+                        {filaActual.hortaliza === 'Tomate' ? <img src={tomate} width={"17px"}></img> : null}
+                        </div>
                 </div>
             </div>
         </div>
