@@ -2,71 +2,76 @@
 /* Aquí el estilo de pantallas grandes*/
 /* src/components/estilo.css */
 
-/***Barra de navegación de cabecera-recolecta***/
-.nav-perfil {
+#about-main {
+    height: 2000px;
     width: 100%;
-    height: 22%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.nav-filtros {
-    width: 100%;
-    height: 22%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about-fruta {
+    height: 500px;
+    border: solid red 1px;
 }
 
-.nav-inicio {
-    width: 100%;
-    height: 22%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.inicio-caption-carousel {
+    height: 170px;
 }
 
-.nav-ajustes {
-    width: 100%;
-    height: 22%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.inicio-img-carousel {
+    margin-top: 100px;
+    box-shadow: 0 0 20px black;
+    border: solid #fbfefd 3px;
+    height: 450px;
 }
 
-/***BOTONES***/
+.inicio-item-carousel {
+    height: 800px;
+}
 
-#link-inicio {
+#div-carousel {
+    background-color: #14302D;
+    height: 800px;
+    margin-bottom: 5%;
+}
+
+.fila-segunda {
+    height: 20%;
+}
+
+.fila-primera {
+    height: 100%;
+}
+
+/***CABECERA ESTILO***/
+.navbar-cabecera {
+    background-color: #fbfefd;
+    height: 200px;
+}
+
+/******/
+
+.botones-ca-re {
     width: 100%;
     height: 100%;
 }
 
-#button-ajustes {
-    width: 100%;
-    height: 100%;
-}
+#button-logo {}
 
-#button-perfil {
-    width: 100%;
-    height: 100%;
-}
+#button-ajustes {}
 
-#button-filtros {
-    width: 100%;
-    height: 100%;
-}
+#button-perfil {}
 
-/***CABECERA-RECOLECTA***/
+#button-inicio {}
+
+#button-filtros {}
 
 #cabecera-recolecta {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20%;
+    width: 15%;
     /* Ancho del navbar */
     height: 100%;
-    background-color: #343a40;
+    background-color: #fbfefd;
     /* Mismo color que bg-dark */
 }
 
@@ -77,20 +82,24 @@
 }
 
 #cabecera-recolecta .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+}
+
+#cabecera-recolecta .nav-item {
     width: 100%;
 }
 
 #cabecera-recolecta .nav-link {
     color: white;
+    /* Color del texto */
+    padding: 1rem;
 }
 
 #cabecera-recolecta .nav-link:hover {
     background-color: #495057;
+    /* Color de fondo al pasar el ratón */
 }
-
-
-/***BODY***/
-
 
 body {
     font-family: sans-serif;
@@ -98,35 +107,19 @@ body {
 }
 
 #logo {
-    width: 200px;
+    width: 120px;
     height: auto;
-
-
+    min-width: 80px;
 }
 
 img {
     max-width: 100%;
-
 }
 
-#divlogo {
-    margin-left: 5%;
-    text-align: left;
-    width: 100%;
-}
-
-#apartados {
-    margin-top: 10%;
-    margin-right: 5%;
-    text-align: right;
-
-
-}
 
 #divimagen1 {
     height: 550px;
-    margin-left: 5%;
-
+    margin-left: 0%;
 }
 
 #imagen1 {
@@ -140,7 +133,7 @@ img {
 }
 
 #imagen2 {
-    margin-top: 15%;
+    margin-top: 5%;
     width: 850px;
     box-shadow: 0 0 20px black;
     animation-iteration-count: 1;
@@ -152,7 +145,7 @@ img {
     margin-top: 3%;
     color: #5B7C2B;
     text-align: center;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
     animation-iteration-count: 1;
     animation-name: animacion3;
     animation-duration: 1.5s;
@@ -169,7 +162,6 @@ img {
     animation-iteration-count: 1;
     animation-name: animacion1;
     animation-duration: 1.5s;
-
 }
 
 .form-register {
@@ -180,7 +172,6 @@ img {
     margin-top: 100px;
     border-radius: 4px;
     color: white;
-
 }
 
 .form-register h4 {
@@ -214,13 +205,8 @@ img {
     background-color: #4f6b26;
 }
 
-#forminiciosesion {
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
-
 /*animacion*/
-@keyframes animacion1 {
+@keyframes animacion-registrarse {
     0% {
         opacity: 0;
     }
@@ -230,7 +216,7 @@ img {
     }
 }
 
-@keyframes animacion2 {
+@keyframes animacion-agricultor {
     0% {
         opacity: 0;
         margin-right: 30%;
@@ -242,7 +228,7 @@ img {
     }
 }
 
-@keyframes animacion3 {
+@keyframes animacion-voluntario {
     0% {
         opacity: 0;
         margin-left: 30%;
@@ -264,14 +250,14 @@ img {
     }
 }
 
-#apartados h5 a {
-    margin-right: 20px;
-    transition: color 0.3s ease;
+@keyframes animacion-descripcion {
+    0% {
+    }
+
+    100% {
+    }
 }
 
-#apartados h5 a:hover {
-    color: gray;
-}
 
 #fila1 {
     background-color: #5B7C2B;
@@ -284,7 +270,6 @@ img {
     animation-name: animacion1;
     animation-duration: 1.5s;
     color: white;
-
 }
 
 #filaFooter {
@@ -292,18 +277,15 @@ img {
     margin-top: 3%;
 }
 
-
 #InicioSesion {
-    background-color: #14312F;
+    background-color: #304D34;
     box-shadow: 0 0 20pxw white;
     color: white;
-    padding-top: 10%;
-    padding-bottom: 10%;
-
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 #mensaje_registrarse {
-
     margin-bottom: 3%;
 }
 
@@ -318,7 +300,6 @@ img {
     cursor: pointer;
     transition: 800ms ease all;
     outline: none;
-
 }
 
 #boton_registrar:hover {
@@ -351,150 +332,76 @@ img {
     transition: 800ms ease all;
 }
 
-#registrarse_div {
-    padding-top: 10%;
-    background-color: #5B7C2B;
-    padding-bottom: 10%;
+.img-container {
+}
+
+.img-descripcion {
+    margin-top: 2%;
+}
+
+#emoji-agricultor {
     animation-iteration-count: 1;
-    animation-name: animacion1;
+    animation-duration: 1.5s;
+    animation-name: animacion-agricultor;
+    width: 50%;
+    height: auto;
+    box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 2%;
+}
+
+#emoji-voluntario {
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion-voluntario;
+    width: 50%;
+    height: auto;
+    box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 2%;
+}
+
+#emoji-agricultor:hover {
+    transform: scale(1.05);
+}
+
+#emoji-voluntario:hover {
+    transform: scale(1.05)
+}
+
+#opciones-registrarse {
+    padding-top: 5%;
+}
+
+#registrarse-div {
+    padding-top: 5%;
+    background-color: #5B7C2B;
+    padding-bottom: 8%;
+    animation-iteration-count: 1;
+    animation-name: animacion-registrarse;
     animation-duration: 1.5s;
     color: #fff;
 }
 
-#emoji_agricultor {
+#h3-agricultor {
     animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion2;
-    width: 500px;
-    height: auto;
-    box-shadow: 0 0 20px black;
-    transition: transform 0.3s ease-in-out;
+    animation-duration: 2s;
+    animation-name: animacion-agricultor;
 }
 
-#emoji_voluntario {
+#h3-voluntario {
     animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion3;
-    width: 500px;
-    height: auto;
-    box-shadow: 0 0 20px black;
-    transition: transform 0.3s ease-in-out;
-
+    animation-duration: 2s;
+    animation-name: animacion-voluntario;
 }
 
-#opciones_registrarse {
-    padding-top: 5%;
-}
-
-#h3_agricultor {
-    animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion2;
-    margin-top: 3%;
-}
-
-#h3_voluntario {
-    animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion3;
-    margin-top: 3%;
-}
-
-#emoji_agricultor:hover {
-    transform: scale(1.05);
-}
-
-#emoji_voluntario:hover {
-    transform: scale(1.05)
-}
-
-
-
-
-#registrarse_div {
-    padding-top: 10%;
-    background-color: #5B7C2B;
-    padding-bottom: 10%;
-    animation-iteration-count: 1;
-    animation-name: animacion1;
-    animation-duration: 1.5s;
-    color: #fff;
-}
-
-#emoji_agricultor {
-    animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion2;
-    width: 500px;
-    height: auto;
-    box-shadow: 0 0 20px black;
-    transition: transform 0.3s ease-in-out;
-}
-
-#emoji_voluntario {
-    animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion3;
-    width: 500px;
-    height: auto;
-    box-shadow: 0 0 20px black;
-    transition: transform 0.3s ease-in-out;
-
-}
-
-#opciones_registrarse {
-    padding-top: 5%;
-}
-
-#h3_agricultor {
-    animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion2;
-    margin-top: 3%;
-}
-
-#h3_voluntario {
-    animation-iteration-count: 1;
-    animation-duration: 1.5s;
-    animation-name: animacion3;
-    margin-top: 3%;
-}
-
-#emoji_agricultor:hover {
-    transform: scale(1.05);
-}
-
-#emoji_voluntario:hover {
-    transform: scale(1.05)
-}
 
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     /* Aquí el estilo de pantallas medianas */
 
-    #divlogo {
-        margin-right: 5%;
-        padding-right: 5%;
-        text-align: center;
-        width: 100%;
-    }
-
-    #apartados {
-        margin-top: 5%;
-        margin-bottom: 2%;
-        text-align: center;
-        margin-left: 5%;
-        padding-left: 5%;
-    }
 
     #divimagen1 {
-
         margin-top: 10%;
-
-    }
-
-
-    #apartados h5 a {
-        margin-bottom: 50%;
     }
 
     #image-data {
@@ -508,12 +415,5 @@ img {
         color: white;
     }
 
-    #imagen2 {
-        width: 500px;
-    }
-
-    #div_agricultor_rol {
-        margin-bottom: 7%;
-    }
 
 }

@@ -14,7 +14,7 @@ const db = new pg.Client({
     user: 'postgres',         // reemplaza con tu usuario de PostgreSQL
     host: 'localhost',          // dirección del servidor PostgreSQL
     database: 'greenboydhousedb', // reemplaza con el nombre de tu base de datos
-    password: '8569',            // reemplaza con tu contraseña
+    password: '1234',            // reemplaza con tu contraseña
     port: 5432,                 // puerto donde corre PostgreSQL
 });
 
@@ -28,10 +28,10 @@ app.post("/registrarV", async (req, res) => {
 
     try {
         // Comprobamos si el voluntario ya existe por su email
-        const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1", [email]);
+        const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1 OR dni = $2", [email, dni]);
 
         if (comprobacion.rows.length > 0) {
-            res.status(400).send("Ya existe un voluntario con este email");
+            res.status(400).send("Ya existe un voluntario con ese email o DNI");
         } else {
             // Insertamos el voluntario
             const nuevoAgricultor = await db.query(
@@ -55,10 +55,10 @@ app.post("/registrarA", async (req, res) => {
 
     try {
         // Comprobamos si el voluntario ya existe por su email
-        const comprobacion = await db.query("SELECT * FROM agricultores WHERE email = $1", [email]);
+        const comprobacion = await db.query("SELECT * FROM agricultores WHERE email = $1 OR dni = $2", [email, dni]);
 
         if (comprobacion.rows.length > 0) {
-            res.status(400).send("Ya existe un agricultor con este email");
+            res.status(400).send("Ya existe un agricultor con ese email o DNI");
         } else {
             // Insertamos el voluntario
             const nuevoAgricultor = await db.query(
@@ -77,17 +77,16 @@ app.post("/registrarA", async (req, res) => {
 app.get('/selectRecolectas', async (req, res) => {
     console.log("Entra en selectRecolectas")
     try {
-      const result = await db.query(`
-        SELECT *
-        FROM recolectas
+        const result = await db.query(`
+        SELECT r.*, h.hortaliza
+        FROM recolectas r JOIN hortalizas_recolectas hr ON r.id=hr.id_recolecta JOIN hortalizas h ON hr.id_hortaliza = h.id
       `);
-  
-      res.json(result.rows);
+        res.json(result.rows);
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
-  });
+});
 
 app.get('/selectRecolectasUsuario', async (req, res) => {
     console.log("Entra en selectRecolectasUsuario")
@@ -105,6 +104,60 @@ app.get('/selectRecolectasUsuario', async (req, res) => {
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/selectRecolectasCompletas', async (req, res) => {
+    console.log("Entra en selectRecolectasCompletas");
+    try {
+        const result = await db.query(`
+      SELECT r.id
+        FROM recolectas r
+        JOIN (
+            SELECT id_recolecta, COUNT(*) AS num_voluntarios
+            FROM voluntarios_recolectas
+            GROUP BY id_recolecta
+        ) vr ON r.id = vr.id_recolecta
+        WHERE vr.num_voluntarios >= r.maxNumVoluntarios
+      `);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/selectAgricultor', async (req, res) => {
+    console.log("Entra en selectAgricultor")
+
+    const agricultorId = req.query.agricultorId; // Obtén el userId de los parámetros de consulta
+    try {
+        const result = await db.query(
+            `SELECT * FROM agricultores WHERE id=$1`,
+            [agricultorId]
+        );
+        res.json(result.rows);
+    } catch (err) {
+        console.error("Error selectAgricultor: " + err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/addVoluntarioRecolecta', async (req, res) => {
+    console.log("Entra en addVoluntarioRecolecta")
+
+    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    const recolectaId = req.query.recolectaId;
+
+    try {
+        const result = await db.query(
+            `INSERT INTO voluntarios_recolectas (id_voluntario, id_recolecta) VALUES ($1, $2)`,
+            [userId, recolectaId]
+        );
+        res.json(result.rows);
+    } catch (err) {
+        console.error("Error addVoluntarioRecolecta " + err.message);
         res.status(500).send('Server Error');
     }
 });

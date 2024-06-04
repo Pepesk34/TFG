@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ModalAgricultor(props) {
   return(
-    <Modal show={props.showModal} onHide={props.handleCloseModal}>
+    <Modal show={props.showModal} onHide={props.handleCloseModal} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Titulo</Modal.Title>
         </Modal.Header>

@@ -1,18 +1,36 @@
-#divrecolecta{
-  margin-top: 3%;
+.contenedor{
+  width: 100%;
+}
+
+#pregunta-rol{
+  border-top: groove #5b7c2d 5px;
+  padding-top: 4%;
+  border-radius: 5%;
+
+}
+
+#div-recolecta{
+  padding: 2%;
+  margin-left: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FBFEFD;
 }
 
 .react-calendar {
-    width: 100%;
+    width: 94%;
     max-width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
     border: none;
+  
   }
   
   .react-calendar__tile {
-    height: 110px; /* Incrementar altura de las celdas */
-    max-height: 110px; /* Incrementar altura máxima de las celdas */
+    height: 140px; /* Incrementar altura de las celdas */
+    max-height: 140px; /* Incrementar altura máxima de las celdas */
     overflow: hidden; /* Asegurarse de que el contenido adicional no se desborde */
     display: flex;
     flex-direction: column;
@@ -30,56 +48,48 @@
   
   .react-calendar__month-view__days__day--weekend {
     background-color: #f0f0f0;
+    color: black;
   }
   
-  .react-calendar__tile--active {
-    background: #006edc;
+  .react-calendar__tile--active:enabled {
     color: white;
   }
   
-  .react-calendar__tile--now {
+  /* .react-calendar__tile--now {
     background: #ffff76;
-  }
-
-  .contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta la altura según tus necesidades */
-}
-
-.botones-grid {
-  display: flex;
-  flex-wrap: wrap; /* Permite que los botones se envuelvan en filas */
-  justify-content: center; /* Alinea los elementos horizontalmente al centro */
-  gap: 10px; /* Espacio entre los botones */
-}
-
-.botones-grid button {
-  max-width: 200px; /* Máximo ancho de cada botón */
-}
-  /*
-  .react-calendar button {
-    margin-top: 5px;
-    width: 100%;
-    display: block;
   } */
 
-#carta-cabecera{
-  position: sticky;
-  top: 0;
-  background-color: #14312D;
-  width: 25%;
-}
+  .filaTile {
+    overflow: hidden;
+    height: 24px;
+    border-top-left-radius: 9% 70%;
+    border-bottom-left-radius: 9% 70%;
+    border-top-right-radius: 9% 70%;
+    border-bottom-right-radius: 9% 70%;
+  }
 
-#tablacom{
-  border: solid #14312D 2px;
-}
+  .container {
+    height: 120px;
+  }
 
-#toptabla{
-  background-color: #5C7D2C;
-  height: 30px;
-  justify-content: center;
-  color: white;
-  vertical-align: middle;
-}
+  .columna > * {
+    border: 1px solid rgba(0, 0, 0, 0.34);
+  }
+
+  .div-11 {
+    background-color: rgba(140, 218, 138, 0.195);
+      padding: 2px;
+      height: 100%;
+  }
+
+  .filaTile:hover {
+    transform: scale(1.04)
+  }
+  
+  .hora {
+    margin-top: 1px;
+  }
+
+  .pimiento {
+    margin-bottom: 10px;
+  }

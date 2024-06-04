@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const InicioSesion = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rol, setRol] = useState('');
+
+    useEffect(() => {
+        window.scrollTo(0, 100);
+    }, []);
+
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -24,41 +29,43 @@ const InicioSesion = () => {
     };
 
     return (
-        <div>
-            <div id="pregunta_rol" className='mt-5 mb-5'>
-                <h1>INICIA SESIÓN</h1>
+        <div className='container'>
+            <div className='row mb-5' id="pregunta-rol">
+                <div className='col-12'>
+                    <h1>INICIA SESIÓN</h1>
+                </div>
             </div>
-            <div className="row justify-content-center" id='forminiciosesion'>
+            <div className="row justify-content-center">
                 <div className="col-md-6 col-lg-4">
                     <form onSubmit={handleSubmit}>
-                        <div className="form-floating mb-3">
-                            <input 
-                                type="email" 
-                                className="form-control" 
-                                id="floatingInput" 
-                                placeholder="name@example.com" 
-                                value={email} 
-                                onChange={handleEmailChange} 
+                        <div className="form-floating mb-4">
+                            <input
+                                type="email"
+                                className="form-control"
+                                id="floatingInput"
+                                placeholder="name@example.com"
+                                value={email}
+                                onChange={handleEmailChange}
                             />
                             <label htmlFor="floatingInput">Correo electrónico</label>
                         </div>
-                        <div className="form-floating mb-3">
-                            <input 
-                                type="password" 
-                                className="form-control" 
-                                id="floatingPassword" 
-                                placeholder="Password" 
-                                value={password} 
-                                onChange={handlePasswordChange} 
+                        <div className="form-floating mb-4">
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="floatingPassword"
+                                placeholder="Password"
+                                value={password}
+                                onChange={handlePasswordChange}
                             />
                             <label htmlFor="floatingPassword">Contraseña</label>
                         </div>
-                        <div className="form-floating mb-3">
-                            <select 
-                                className="form-select" 
-                                id="floatingSelect" 
-                                aria-label="Seleccionar rol" 
-                                value={rol} 
+                        <div className="form-floating mb-4">
+                            <select
+                                className="form-select"
+                                id="floatingSelect"
+                                aria-label="Seleccionar rol"
+                                value={rol}
                                 onChange={handleRolChange}
                             >
                                 <option value="">Seleccionar rol</option>

@@ -1,32 +1,39 @@
 
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import "../estilos.css"
 import React, { useState, useContext } from "react";
 import { UserContext } from '../../../contexts/userContext';
 import { Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Boton from './boton';
+import { RecolectasContext } from "../../../contexts/recolectasContext";
 
 function TileContent(props) {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
-  const { view, data, dataUsuario, handleShowModal, date } = props;
+  const { view, handleOnClickBoton, date, recolectasCompletas, pasarRecolecta} = props;
+
+  const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
+
   if (!data) {
     return <>
-
       <h1>Comprobar</h1> <Boton
         key={2}
         color="azul"
-        onClick={handleShowModal}
+        onClick={handleOnClickBoton}
       />
     </>; // Opcionalmente, puedes mostrar un indicador de carga aquí
   }
 
   const renderBoton = () => {
-    if (view === 'month') {
+    if (view === 'month' && data) {
       return data.map((fila) => {
 
         const fechaFila = new Date(fila.fecha);
+        var hours = fechaFila.getHours();
+        var minutes = fechaFila.getMinutes();
+
+        var hora = `${hours}:${minutes === 0 ? '00' : minutes}`
 
         const idRecolecta = fila.id;
 
@@ -47,12 +54,36 @@ function TileContent(props) {
         };
 
         if (comprobarFechaCalendario()) {
-          console.log("Entra en comprobarFechaCalendario");
           if (userRole === 'A') {
+            if (userId === fila.id_agricultor) {
+              //azul
+              return (
+                <Boton
+                  key={fila.id}
+                  tipo="azul"
+                  handleOnClickBoton={handleOnClickBoton}
+                  hora={hora}
+                  pasarRecolecta={pasarRecolecta}
+                  filaActual={fila}
+                />
+              );
+            } else {
+              //gris
+              return (
+                <Boton
+                  key={fila.id}
+                  tipo="gris"
+                  handleOnClickBoton={handleOnClickBoton}
+                  hora={hora}
+                  pasarRecolecta={pasarRecolecta}
+                  filaActual={fila}
+                />
+              );
+            }
           } else if (userRole === 'V') {
-            console.log("Entra en userRola = V")
+           
 
-            const botonUsuario = dataUsuario.find(filaUsuario => {
+            const usuarioApuntado = dataUsuario.find(filaUsuario => {
               const idRecolectaUsuario = filaUsuario.id;
 
               const comprobarFechaUsuario = () => {
@@ -62,57 +93,84 @@ function TileContent(props) {
               return comprobarFechaUsuario();
             });
 
-            if (botonUsuario) {
-              console.log("Entra en el primer return")
-              return (<>
-
-                <h1>Comprobar</h1> <Boton
-                  key={fila.id}
-                  color="azul"
-                  handleShowModal={handleShowModal}
-                />
-              </>
-
-              );
-            } else {
-              console.log("Entra en el segundo return")
+            if (usuarioApuntado) { // Usuario apuntado a recolecta AZUL
               return (
-                <>
+
+                <Boton
+                  key={fila.id}
+                  tipo="azul"
+                  handleOnClickBoton={handleOnClickBoton}
+                  hora={hora}
+                  pasarRecolecta={pasarRecolecta}
+                  filaActual={fila}
+                />
+              );
+
+            } else { //Usuario no apuntado a recolecta
+
+              let recolectaCompleta = recolectasCompletas.find(recolecta => {
+                return recolecta.id === fila.id;
+              })
+
+              if (recolectaCompleta) { //En rojo
+               
+                return (
                   <Boton
                     key={fila.id}
-                    color="azul"
-                    onClick={handleShowModal}
+                    tipo="rojo"
+                    handleOnClickBoton={handleOnClickBoton}
+                    hora={hora}
+                    pasarRecolecta={pasarRecolecta}
+                    filaActual={fila}
                   />
-                </>
-              );
+                );
+              } else { // En verde
+               
+                return (
+                  <Boton
+                    key={fila.id}
+                    tipo="verde"
+                    handleOnClickBoton={handleOnClickBoton}
+                    hora={hora}
+                    pasarRecolecta={pasarRecolecta}
+                    filaActual={fila}
+                  />
+                );
+              }
+
             }
           } else {
             console.log("Entra aquí?")
-            return (<Col key={fila.id} xs={12}>
-              <Boton
-                color="azul"
-                handleShowModal={handleShowModal}
-              />
-            </Col>
-
-            );
+            // return (
+            //   <Boton
+            //     key={fila.id}
+            //     tipo="azul"
+            //     handleOnClickBoton={handleOnClickBoton}
+            //     hora={hora}
+            //     pasarRecolecta={pasarRecolecta}
+            //     filaActual={fila}
+            //   />
+            // );
           }
         } else {
-          console.log("NO entra en comprobarFechaCalendario");
           return null;
         }
       });
     } else {
       return null;
     }
-
   }
-  return(
+  return (
     <div>
-      <Row>
-        {renderBoton()}
-      </Row>
+      <div className="container">
+        <div className="row fila">
+          <div className="col columna">
+            {renderBoton()}
+          </div>
+        </div>
+      </div>
     </div>
+
   )
 }
 
