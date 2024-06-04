@@ -6,3 +6,12 @@ Cosas por hacer:
 - Hacer llamadas a la bd en tileContent o donde sea y que compruebe cada dia con los arrays y eso.
 - Hacer el modal de los botones del calendario dinámico por usuario.
 - Ver que css aplicar a cada cosa (Boton, Calendario, etc).
+
+04/06/2024
+
+- Crear modales de agricultor. 
+    Tanto el de ver, como el de editar (ModalCalendario) como el de añadir (ModalAgricultor)
+- Ver si creo diferentes componentes de modal para cada uno de estos 
+    o si lo hago con muchas props y condicines en uno sólo.
+- Buscar 4 o 5 hortalizas y sus pngs y que queden bien.
+- Meter ur
