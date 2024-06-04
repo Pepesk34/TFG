@@ -1,5 +1,5 @@
 // src/components/CabeceraRecolecta.js
-import './estilo.css';
+import './estilos/cabecerarecolecta-estilo.css';
 import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BotonCabecera from './botonCabecera';

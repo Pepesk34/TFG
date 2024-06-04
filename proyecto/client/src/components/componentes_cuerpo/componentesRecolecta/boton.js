@@ -1,5 +1,5 @@
 /*import 'bootstrap/dist/css/bootstrap.min.css'; */
-import "../boton.css"
+import '../../estilos/boton-estilo.css';
 import tomate from "../../imagenes/tomato.png"
 import pimiento from "../../imagenes/pimiento.webp"
 import React, { useState, useContext, useEffect } from "react";

@@ -1,4 +1,5 @@
 import Calendar from "react-calendar";
+import '../estilos/recolecta-estilo.css';
 // import 'react-calendar/dist/Calendar.css';
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from '../../contexts/userContext';

@@ -1,0 +1,122 @@
+
+#InicioSesion {
+    background-color: #304D34;
+    box-shadow: 0 0 20pxw white;
+    color: white;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.inicio-caption-carousel {
+    height: 170px;
+}
+
+.inicio-img-carousel {
+    margin-top: 100px;
+    box-shadow: 0 0 20px black;
+    border: solid #fbfefd 3px;
+    height: 450px;
+}
+
+.inicio-item-carousel {
+    height: 800px;
+}
+
+#div-carousel {
+    background-color: #14302D;
+    height: 800px;
+    margin-bottom: 5%;
+}
+
+#fila1 {
+    background-color: #5B7C2B;
+}
+
+#image-data {
+    margin-top: 15%;
+    margin-right: 5%;
+    animation-iteration-count: 1;
+    animation-name: animacion1;
+    animation-duration: 1.5s;
+    color: white;
+}
+
+#divimagen1 {
+    height: 550px;
+    margin-left: 0%;
+}
+
+#imagen1 {
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    width: 500px;
+    margin-top: 8%;
+    animation-iteration-count: 1;
+    animation-name: animacion1;
+    animation-duration: 1.5s;
+}
+
+#imagen2 {
+    margin-top: 5%;
+    width: 850px;
+    box-shadow: 0 0 20px black;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion2;
+}
+
+#image-data2 {
+    margin-top: 3%;
+    color: #5B7C2B;
+    text-align: center;
+    margin-bottom: 5%;
+    animation-iteration-count: 1;
+    animation-name: animacion3;
+    animation-duration: 1.5s;
+}
+#mensaje_registrarse {
+    margin-bottom: 3%;
+}
+
+#boton_registrar {
+    background: #fff;
+    color: #14312F;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+}
+
+#boton_registrar:hover {
+    background: #14312F;
+    color: #fff;
+}
+
+#boton_registrar:before,
+#boton_registrar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #14312F;
+    transition: 400ms ease all;
+}
+
+#boton_registrar:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+#boton_registrar:hover:before,
+#boton_registrar:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}

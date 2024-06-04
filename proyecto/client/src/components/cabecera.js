@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './estilo.css';
+import './estilos/cabecera-estilo.css';
 import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -24,6 +24,7 @@ function Cabecera(props) {
                     <Nav className="ml-auto">
                         <Nav.Link as={Link} to="/inicio"> <Button variant="outline-secondary">Inicio</Button></Nav.Link>
                         <Nav.Link as={Link} to="/about"> <Button variant="outline-secondary">Sobre Nosotros</Button></Nav.Link>
+                        <Nav.Link as={Link} to="/comunidad"> <Button variant="outline-secondary">Comunidad</Button></Nav.Link>
 
                         {!userLoggedIn && <Nav.Link as={Link} to="/registrarse"> <Button variant="outline-secondary">Registrarse</Button></Nav.Link>}
                         {!userLoggedIn && <Nav.Link as={Link} to="/iniciosesion" > <Button variant="outline-secondary">Iniciar Sesión</Button></Nav.Link>}

@@ -1,6 +1,5 @@
-
 // import 'react-calendar/dist/Calendar.css';
-import "../estilos.css"
+import '../../estilos/recolecta-estilo.css';
 import React, { useState, useContext } from "react";
 import { UserContext } from '../../../contexts/userContext';
 import { Row, Col } from 'react-bootstrap';

@@ -1,4 +1,5 @@
 import Axios from "axios";
+import '../../estilos/formularioRegistro-estilo.css';
 import React, { useState, useContext, useRef, useEffect } from "react";
 import { UserContext } from '../../../contexts/userContext';
 import { Alert, Modal, Button } from 'react-bootstrap';

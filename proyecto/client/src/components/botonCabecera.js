@@ -1,5 +1,5 @@
 import React from "react";
-import './estilo.css';
+import './estilos/recolecta-estilo.css';
 import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";

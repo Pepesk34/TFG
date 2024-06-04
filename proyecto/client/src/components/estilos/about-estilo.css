@@ -1,0 +1,17 @@
+#about-main {
+    height: 2000px;
+    width: 100%;
+}
+
+.about-fruta {
+    height: 500px;
+    border: solid red 1px;
+}
+
+#button-about {
+    margin-top: 2%;
+}
+
+.contenedor {
+    width: 100%;
+}

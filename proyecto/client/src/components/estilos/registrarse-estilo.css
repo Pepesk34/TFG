@@ -1,0 +1,103 @@
+#pregunta-rol {
+    border-top: groove #5b7c2d 5px;
+    padding-top: 4%;
+    border-radius: 5%;
+
+}
+
+.img-container {}
+
+.img-descripcion {
+    margin-top: 2%;
+}
+
+#emoji-agricultor {
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion-agricultor;
+    width: 50%;
+    height: auto;
+    box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 2%;
+}
+
+#emoji-voluntario {
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-name: animacion-voluntario;
+    width: 50%;
+    height: auto;
+    box-shadow: 0 0 20px black;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 2%;
+}
+
+#emoji-agricultor:hover {
+    transform: scale(1.05);
+}
+
+#emoji-voluntario:hover {
+    transform: scale(1.05)
+}
+
+#opciones-registrarse {
+    padding-top: 5%;
+}
+
+#registrarse-div {
+    padding-top: 5%;
+    background-color: #5B7C2B;
+    padding-bottom: 8%;
+    animation-iteration-count: 1;
+    animation-name: animacion-registrarse;
+    animation-duration: 1.5s;
+    color: #fff;
+}
+
+#h3-agricultor {
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-name: animacion-agricultor;
+}
+
+#h3-voluntario {
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-name: animacion-voluntario;
+}
+
+
+@keyframes animacion-registrarse {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animacion-agricultor {
+    0% {
+        opacity: 0;
+        margin-right: 30%;
+    }
+
+    100% {
+        opacity: 1;
+        margin-right: 0;
+    }
+}
+
+@keyframes animacion-voluntario {
+    0% {
+        opacity: 0;
+        margin-left: 30%;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}

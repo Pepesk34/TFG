@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import agricultor from "../imagenes/imagen3.jpg";
 import voluntario from "../imagenes/voluntario.jpg";
 import { useEffect } from "react";
+import '../estilos/registrarse-estilo.css';
 
 
 const Registrarse = () => {
@@ -15,7 +16,7 @@ const Registrarse = () => {
         <div id="registrarse-div">
             <div className='row'>
                 <div className='col-xl-12'>
-                    <div id="pregunta_rol">
+                    <div id="pregunta-rol">
                         <h1>¿Cuál va a ser tu rol?</h1>
                     </div>
 

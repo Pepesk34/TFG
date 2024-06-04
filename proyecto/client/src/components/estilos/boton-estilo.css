@@ -1,3 +1,30 @@
+.filaTile {
+    overflow: hidden;
+    height: 24px;
+    border-top-left-radius: 9% 70%;
+    border-bottom-left-radius: 9% 70%;
+    border-top-right-radius: 9% 70%;
+    border-bottom-right-radius: 9% 70%;
+}
+
+.div-11 {
+    background-color: rgba(140, 218, 138, 0.195);
+    padding: 2px;
+    height: 100%;
+}
+
+.filaTile:hover {
+    transform: scale(1.04)
+}
+
+.hora {
+    margin-top: 1px;
+}
+
+.pimiento {
+    margin-bottom: 10px;
+}
+
 .btn-circle {
     width: 40px; /* Ajusta el tamaño del botón */
     height: 40px;

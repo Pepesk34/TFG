@@ -1,5 +1,5 @@
 import React from 'react';
-import './estilo.css';
+import './estilos/footer-estilo.css';
 import twitter from "./imagenes/twitter.png";
 import youtube from "./imagenes/youtube.png";
 import instagram from "./imagenes/instagram.png";

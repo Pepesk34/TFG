@@ -1,0 +1,61 @@
+/*ordenar css*/
+/* Aquí el estilo de pantallas grandes*/
+/* src/components/estilo.css */
+
+body {
+    font-family: sans-serif;
+    background-color: white;
+}
+
+#logo {
+    width: 120px;
+    height: auto;
+    min-width: 80px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*animacion*/
+
+@keyframes animacion4 {
+    0% {
+        background-color: #5B7C2B;
+    }
+
+    100% {
+        background-color: #4f6b26;
+    }
+}
+
+@keyframes animacion-descripcion {
+    0% {
+    }
+
+    100% {
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    /* Aquí el estilo de pantallas medianas */
+
+
+    #divimagen1 {
+        margin-top: 10%;
+    }
+
+    #image-data {
+        margin-top: 4%;
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 15%;
+        animation-name: animacion1;
+        animation-duration: 1.5s;
+        color: white;
+    }
+
+
+}

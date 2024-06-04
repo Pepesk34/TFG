@@ -1,4 +1,5 @@
 import '../cabecera.js';
+import '../estilos/inicio-estilo.css';
 import imagen1 from "../imagenes/imagen1.jpg";
 import imagen2 from "../imagenes/pepe.jpeg";
 import imagen3 from "../imagenes/verduras.jpg";
@@ -12,11 +13,10 @@ const Inicio = () => {
 
     return (
         <div>
-            <div className="card text-white bg-secondary mb-3 sticky-top" >
-                <div className="card-header">CONTACTO</div>
+            <div className="card text-white bg-secondary mb-3 sticky-top" id='card-contacto'>
                 <div className="card-body">
-                    <h5 className="card-title">LLAMA A NUESTRO NÚMERO DE TELÉFONO</h5>
-                    <p className="card-text">+34 662 47 32 48</p>
+                    <h5 className="card-title">CONTACTO: +34 662 47 32 48</h5>
+                    <p className="card-text"></p>
                 </div>
             </div>
             <div id="fila1" className="row">
@@ -29,10 +29,26 @@ const Inicio = () => {
                     <div id="image-data">
                         <h2>GREEN BOYD HOUSE</h2>
                         <br />
-                        <h5>Somos una plataforma que conecta a dedicados agricultores de la región de Almeria con
+                        <h4>
+                            Somos una plataforma que conecta a dedicados agricultores de la región de Almeria con
                             personas voluntarias que desean contribuir a una causa noble: reducir el desperdicio de
                             alimentos y ayudar a quienes lo necesitan. Nosotros creemos en un mundo donde cada alimento
-                            cuenta, donde cada gesto de generosidad tiene un impacto real.</h5>
+                            cuenta, donde cada gesto de generosidad tiene un impacto real.
+                        </h4>
+                        <br></br>
+                        <h5>
+                            Por eso hemos creado GREEN BOYD HOUSE, una herramienta que consigue conectar con un click,
+                            a cualquier agricultor agricultor de Almería con cualquier voluntario que se disponga a ayudar.
+                        </h5>
+                        <Link to="/about" >
+                            <button className="btn btn-light" type='button'id='button-about'>
+                                ¿QUIERES SABER MÁS?
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16" id='boton-flecha'>
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                                </svg>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
