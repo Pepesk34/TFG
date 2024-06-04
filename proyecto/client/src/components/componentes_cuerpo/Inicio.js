@@ -53,7 +53,7 @@ const Inicio = () => {
             <div className="row">
                 <div className="col-xl-12">
                     <div id="div-carousel">
-                        <Carousel interval={3000} pause={'hover'}>
+                        <Carousel interval={3000} pause={false}>
                             <Carousel.Item className='inicio-item-carousel'>
                                 <img className='inicio-img-carousel' src={imagen3} alt="First slide" />
                                 <Carousel.Caption className='inicio-caption-carousel'>
