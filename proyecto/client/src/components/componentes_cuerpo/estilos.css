@@ -79,9 +79,17 @@
   .div-11 {
     background-color: rgba(140, 218, 138, 0.195);
       padding: 2px;
+      height: 100%;
   }
 
   .filaTile:hover {
     transform: scale(1.04)
   }
   
+  .hora {
+    margin-top: 1px;
+  }
+
+  .pimiento {
+    margin-bottom: 10px;
+  }

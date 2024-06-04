@@ -11,7 +11,7 @@ import { RecolectasContext } from "../../../contexts/recolectasContext";
 function TileContent(props) {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
-  const { view, handleShowModal, date, recolectasCompletas, pasarRecolecta} = props;
+  const { view, handleOnClickBoton, date, recolectasCompletas, pasarRecolecta} = props;
 
   const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
 
@@ -20,7 +20,7 @@ function TileContent(props) {
       <h1>Comprobar</h1> <Boton
         key={2}
         color="azul"
-        onClick={handleShowModal}
+        onClick={handleOnClickBoton}
       />
     </>; // Opcionalmente, puedes mostrar un indicador de carga aquí
   }
@@ -30,12 +30,10 @@ function TileContent(props) {
       return data.map((fila) => {
 
         const fechaFila = new Date(fila.fecha);
-
-
         var hours = fechaFila.getHours();
         var minutes = fechaFila.getMinutes();
 
-        var hora = `${hours}:${minutes}`
+        var hora = `${hours}:${minutes === 0 ? '00' : minutes}`
 
         const idRecolecta = fila.id;
 
@@ -56,29 +54,34 @@ function TileContent(props) {
         };
 
         if (comprobarFechaCalendario()) {
-          console.log("Entra en comprobarFechaCalendario");
           if (userRole === 'A') {
             if (userId === fila.id_agricultor) {
               //azul
-              <Boton
-                key={fila.id}
-                tipo="azul"
-                handleShowModal={handleShowModal}
-                hora={hora}
-                pasarRecolecta={pasarRecolecta}
-                filaActual={fila}
-              />
+              return (
+                <Boton
+                  key={fila.id}
+                  tipo="azul"
+                  handleOnClickBoton={handleOnClickBoton}
+                  hora={hora}
+                  pasarRecolecta={pasarRecolecta}
+                  filaActual={fila}
+                />
+              );
             } else {
               //gris
-              <Boton
-                key={fila.id}
-                tipo="azul"
-                handleShowModal={handleShowModal}
-                hora={hora}
-              />
+              return (
+                <Boton
+                  key={fila.id}
+                  tipo="gris"
+                  handleOnClickBoton={handleOnClickBoton}
+                  hora={hora}
+                  pasarRecolecta={pasarRecolecta}
+                  filaActual={fila}
+                />
+              );
             }
           } else if (userRole === 'V') {
-            console.log("Entra en userRola = V")
+           
 
             const usuarioApuntado = dataUsuario.find(filaUsuario => {
               const idRecolectaUsuario = filaUsuario.id;
@@ -91,13 +94,12 @@ function TileContent(props) {
             });
 
             if (usuarioApuntado) { // Usuario apuntado a recolecta AZUL
-              console.log("Entra en el primer return")
               return (
 
                 <Boton
                   key={fila.id}
                   tipo="azul"
-                  handleShowModal={handleShowModal}
+                  handleOnClickBoton={handleOnClickBoton}
                   hora={hora}
                   pasarRecolecta={pasarRecolecta}
                   filaActual={fila}
@@ -105,31 +107,30 @@ function TileContent(props) {
               );
 
             } else { //Usuario no apuntado a recolecta
-              console.log("Entra en el segundo return")
 
               let recolectaCompleta = recolectasCompletas.find(recolecta => {
                 return recolecta.id === fila.id;
               })
 
               if (recolectaCompleta) { //En rojo
-                console.log("Entra en rojo cuyo maxNumVoluntarios es " + fila.maxnumvoluntarios)
+               
                 return (
                   <Boton
                     key={fila.id}
                     tipo="rojo"
-                    handleShowModal={handleShowModal}
+                    handleOnClickBoton={handleOnClickBoton}
                     hora={hora}
                     pasarRecolecta={pasarRecolecta}
                     filaActual={fila}
                   />
                 );
               } else { // En verde
-                console.log("Entra en verde cuyo maxNumVoluntarios es " + fila.maxnumvoluntarios)
+               
                 return (
                   <Boton
                     key={fila.id}
                     tipo="verde"
-                    handleShowModal={handleShowModal}
+                    handleOnClickBoton={handleOnClickBoton}
                     hora={hora}
                     pasarRecolecta={pasarRecolecta}
                     filaActual={fila}
@@ -140,19 +141,18 @@ function TileContent(props) {
             }
           } else {
             console.log("Entra aquí?")
-            return (
-              <Boton
-                key={fila.id}
-                tipo="azul"
-                handleShowModal={handleShowModal}
-                hora={hora}
-                pasarRecolecta={pasarRecolecta}
-                filaActual={fila}
-              />
-            );
+            // return (
+            //   <Boton
+            //     key={fila.id}
+            //     tipo="azul"
+            //     handleOnClickBoton={handleOnClickBoton}
+            //     hora={hora}
+            //     pasarRecolecta={pasarRecolecta}
+            //     filaActual={fila}
+            //   />
+            // );
           }
         } else {
-          console.log("NO entra en comprobarFechaCalendario");
           return null;
         }
       });
