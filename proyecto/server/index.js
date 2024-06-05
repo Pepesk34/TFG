@@ -24,7 +24,7 @@ app.post("/registrarV", async (req, res) => {
 
     console.log("Entra en /registrarV");
     //Obtenemos datos del cuerpo de la solicitud
-    const { nombre, apellidos, dni, email, contraseña } = req.body;
+    const { nombre, apellidos, dni, telefono, email, contraseña } = req.body;
 
     try {
         // Comprobamos si el voluntario ya existe por su email
@@ -35,8 +35,8 @@ app.post("/registrarV", async (req, res) => {
         } else {
             // Insertamos el voluntario
             const nuevoAgricultor = await db.query(
-                "INSERT INTO voluntarios(nombre, apellidos, dni, email, contraseña) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-                [nombre, apellidos, dni, email, contraseña]
+                "INSERT INTO voluntarios(nombre, apellidos, dni, telefono, email, contraseña) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+                [nombre, apellidos, dni, telefono, email, contraseña]
             );
 
             res.status(201).json(nuevoAgricultor.rows[0]);
@@ -51,7 +51,7 @@ app.post("/registrarA", async (req, res) => {
 
     console.log("Entra en /registrarA");
     //Obtenemos datos del cuerpo de la solicitud
-    const { nombre, apellidos, dni, email, contraseña } = req.body;
+    const { nombre, apellidos, dni, telefono, email, contraseña } = req.body;
 
     try {
         // Comprobamos si el voluntario ya existe por su email
@@ -62,8 +62,8 @@ app.post("/registrarA", async (req, res) => {
         } else {
             // Insertamos el voluntario
             const nuevoAgricultor = await db.query(
-                "INSERT INTO agricultores(nombre, apellidos, dni, email, contraseña) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-                [nombre, apellidos, dni, email, contraseña]
+                "INSERT INTO agricultores(nombre, apellidos, dni, telefono, email, contraseña) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+                [nombre, apellidos, dni, telefono, email, contraseña]
             );
 
             res.status(201).json(nuevoAgricultor.rows[0]);

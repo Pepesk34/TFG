@@ -1,5 +1,5 @@
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import React, { useState, useContext } from "react";
 import { UserContext } from '../../../contexts/userContext';
 import { Modal, Button } from 'react-bootstrap';
