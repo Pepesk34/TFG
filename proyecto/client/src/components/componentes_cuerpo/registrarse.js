@@ -16,33 +16,51 @@ const Registrarse = () => {
         <div id="registrarse-div">
             <div className='row'>
                 <div className='col-xl-12'>
-                    <div id="pregunta-rol">
+                    <div>
                         <h1>¿Cuál va a ser tu rol?</h1>
                     </div>
 
                 </div>
             </div>
+
             <div id="opciones-registrarse" className='row'>
+
                 <div className='col-xl-6'>
                     <h3 id="h3-agricultor">Agricultor</h3>
-                    <div className="img-container">
-                        <Link to="/agricultor">
-                            <img id="emoji-agricultor" src={agricultor} />
-                            <div className="img-descripcion">El agricultor cultiva y proporciona alimentos frescos.</div>
-                        </Link>
+                    <div className="container-carta">
+                        <div className="carta">
+                            <div className="carta-front">
+                                <Link to="/agricultor">
+                                    <img id="emoji-agricultor" src={agricultor} />
+                                </Link>
+                            </div>
+                            <div className="carta-back">
+                                <Link to="/agricultor">
+                                    <div className="img-descripcion">El agricultor cultiva y proporciona alimentos frescos.</div>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
+
                 <div className='col-xl-6'>
                     <h3 id="h3-voluntario">Voluntario</h3>
-                    <div className="img-container">
-                        <Link to="/voluntario">
-                            <img id="emoji-voluntario" src={voluntario} />
-                            <div className="img-descripcion">El voluntario ayuda a recolectar y distribuir alimentos.</div>
-                        </Link>
+                    <div className="container-carta">
+                        <div className="carta">
+                            <div className="carta-front">
+                                <Link to="/agricultor">
+                                    <img id="emoji-voluntario" src={voluntario} />
+                                </Link>
+                            </div>
+                            <div className="carta-back">
+                                <Link to="/agricultor">
+                                    <div className="img-descripcion">El voluntario ayuda a recolectar y distribuir alimentos.</div>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
+                
             </div>
         </div>
 

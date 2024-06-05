@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../estilos/iniciosesion-estilo.css';
 
 const InicioSesion = () => {
     const [email, setEmail] = useState('');

@@ -1,44 +1,61 @@
-#pregunta-rol {
-    border-top: groove #5b7c2d 5px;
-    padding-top: 4%;
-    border-radius: 5%;
-
+.container-carta{
+    position: relative;
+    width: 100%;
+    height: 50%;
 }
 
-.img-container {}
+.carta{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.carta:hover{
+    transform: rotateY(180deg);
+}
+
+.carta-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: currentColor;
+    color: grey;
+}
+
+.carta-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: black;
+    color: currentColor;
+    transform: rotateY(180deg);
+}
 
 .img-descripcion {
-    margin-top: 2%;
 }
 
 #emoji-agricultor {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion-agricultor;
-    width: 50%;
+    width: 100%;
     height: auto;
     box-shadow: 0 0 20px black;
     transition: transform 0.3s ease-in-out;
-    margin-top: 2%;
 }
 
 #emoji-voluntario {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
     animation-name: animacion-voluntario;
-    width: 50%;
+    width: 100%;
     height: auto;
     box-shadow: 0 0 20px black;
     transition: transform 0.3s ease-in-out;
-    margin-top: 2%;
-}
-
-#emoji-agricultor:hover {
-    transform: scale(1.05);
-}
-
-#emoji-voluntario:hover {
-    transform: scale(1.05)
 }
 
 #opciones-registrarse {
