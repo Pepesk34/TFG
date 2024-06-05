@@ -10,6 +10,7 @@ function FormularioRegistro(props) {
   const [nombre, setNombre] = useState("");
   const [apellidos, setApellidos] = useState("");
   const [dni, setDni] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [data, setData] = useState();
@@ -48,6 +49,7 @@ function FormularioRegistro(props) {
       nombre: nombre,
       apellidos: apellidos,
       dni: dni,
+      telefono: telefono,
       email: email,
       contraseña: contraseña
     }).then(response => {
@@ -64,6 +66,7 @@ function FormularioRegistro(props) {
       setNombre("");
       setApellidos("");
       setDni("");
+      setTelefono("");
       setEmail("");
       setContraseña("");
 
@@ -98,6 +101,11 @@ function FormularioRegistro(props) {
           onChange={(event) => setDni(event.target.value)}
           type="text" id="dni" className="controls" placeholder="Ingresa el dni"
           value={dni}
+        />
+        <input
+          onChange={(event) => setTelefono(event.target.value)}
+          type="tel" id="telefono" className="controls" placeholder="Ingresa tu teléfono"
+          value={telefono}
         />
         <input
           onChange={(event) => setEmail(event.target.value)}

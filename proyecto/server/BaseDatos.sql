@@ -6,6 +6,7 @@ CREATE TABLE agricultores (
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     dni VARCHAR(9) unique NOT NULL,
+    telefono varchar(15),
     email varchar(100) unique NOT NULL,
     contraseña VARCHAR(100) NOT NULL
 );
@@ -15,6 +16,7 @@ CREATE TABLE voluntarios (
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     dni VARCHAR(9) unique NOT NULL,
+    telefono varchar(15),
     email varchar(100) unique NOT NULL,
     contraseña VARCHAR(100) NOT NULL
 );
