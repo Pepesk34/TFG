@@ -2,38 +2,44 @@ import Calendar from "react-calendar";
 // import 'react-calendar/dist/Calendar.css';
 import React, { useState, useContext } from "react";
 import { UserContext } from '../../../contexts/userContext';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CalendarioContext } from "../../../contexts/calendarioContext";
+import ModalAgricultorAzul from "./componentesModales/modalAgricultorAzul";
+import ModalGris from "./componentesModales/modalGris";
+import ModalVoluntarioAzul from "./componentesModales/modalVoluntarioAzul";
+import ModalVoluntarioRojo from "./componentesModales/modalVoluntarioRojo";
+import ModalVoluntarioVerde from "./componentesModales/modalVoluntarioVerde";
 
 function ModalCalendario(props) {
 
-  const onSave = () => {
-    //handleClose e insetar una instancia en volutarios_recolectas
+  const {tipoModal, setTipoModal, showModal, setShowModal, recolectaActual, setRecolectaActual, agricultor, setAgricultor} = useContext(CalendarioContext);
 
-    props.handleSaveModal();
-    props.handleCloseModal();
+  const { userRole, userLoggedIn, userId } = useContext(UserContext);
+
+  const [showModalConfirmar, setShowModalConfirmar] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   }
-    return(
-    <Modal show={props.showModal} onHide={props.handleCloseModal} onShow={props.onShow} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title><h2>Título del modal</h2></Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>id de recolecta: {props.recolecta.id}</p>
-          <p>Hortaliza: {props.recolecta.hortaliza}</p>
-          <p>Nombre Agricultor: {props.agricultor.nombre} {props.agricultor.apellidos}.</p>
-          <p>Teléfono Agricultor: {props.agricultor.telefono}</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={props.handleCloseModal}>
-            Cerrar
-          </Button>
-          <Button variant="primary" onClick={onSave}>
-            Guardar cambios
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    )
+
+  const handleCloseModalConfirmar = () => {
+    setShowModalConfirmar(false);
+  }
+  const handleShowModalConfirmar = () => {
+    setShowModalConfirmar(true);
+  }
+
+  return (
+    <>
+      {userRole === 'A' && tipoModal === 'azul' && showModal ? <ModalAgricultorAzul /> : null}
+      {userRole === 'V' && tipoModal === 'azul' && showModal ? <ModalVoluntarioAzul /> : null}
+      {userRole === 'V' && tipoModal === 'rojo' && showModal ? <ModalVoluntarioRojo /> : null}
+      {userRole === 'V' && tipoModal === 'verde' && showModal ? <ModalVoluntarioVerde onShow={props.onShow} handleSaveModal={props.handleSaveModal} showModalConfirmar={showModalConfirmar} handleCloseModal={handleCloseModal} handleShowModalConfirmar={handleShowModalConfirmar} handleCloseModalConfirmar={handleCloseModalConfirmar}/> : null}
+      {tipoModal === 'gris' && showModal ? <ModalGris /> : null}
+    </>
+
+  )
 }
 
 export default ModalCalendario;

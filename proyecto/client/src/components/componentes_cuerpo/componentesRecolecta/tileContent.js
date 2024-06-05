@@ -10,7 +10,7 @@ import { RecolectasContext } from "../../../contexts/recolectasContext";
 function TileContent(props) {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
-  const { view, handleOnClickBoton, date, recolectasCompletas, pasarRecolecta} = props;
+  const { view, date, recolectasCompletas, pasarRecolecta} = props;
 
   const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
 
@@ -19,7 +19,6 @@ function TileContent(props) {
       <h1>Comprobar</h1> <Boton
         key={2}
         color="azul"
-        onClick={handleOnClickBoton}
       />
     </>; // Opcionalmente, puedes mostrar un indicador de carga aquí
   }
@@ -60,7 +59,6 @@ function TileContent(props) {
                 <Boton
                   key={fila.id}
                   tipo="azul"
-                  handleOnClickBoton={handleOnClickBoton}
                   hora={hora}
                   pasarRecolecta={pasarRecolecta}
                   filaActual={fila}
@@ -72,7 +70,6 @@ function TileContent(props) {
                 <Boton
                   key={fila.id}
                   tipo="gris"
-                  handleOnClickBoton={handleOnClickBoton}
                   hora={hora}
                   pasarRecolecta={pasarRecolecta}
                   filaActual={fila}
@@ -98,7 +95,7 @@ function TileContent(props) {
                 <Boton
                   key={fila.id}
                   tipo="azul"
-                  handleOnClickBoton={handleOnClickBoton}
+                  
                   hora={hora}
                   pasarRecolecta={pasarRecolecta}
                   filaActual={fila}
@@ -117,7 +114,7 @@ function TileContent(props) {
                   <Boton
                     key={fila.id}
                     tipo="rojo"
-                    handleOnClickBoton={handleOnClickBoton}
+                    
                     hora={hora}
                     pasarRecolecta={pasarRecolecta}
                     filaActual={fila}
@@ -129,7 +126,6 @@ function TileContent(props) {
                   <Boton
                     key={fila.id}
                     tipo="verde"
-                    handleOnClickBoton={handleOnClickBoton}
                     hora={hora}
                     pasarRecolecta={pasarRecolecta}
                     filaActual={fila}
@@ -144,7 +140,7 @@ function TileContent(props) {
             //   <Boton
             //     key={fila.id}
             //     tipo="azul"
-            //     handleOnClickBoton={handleOnClickBoton}
+            //     ={}
             //     hora={hora}
             //     pasarRecolecta={pasarRecolecta}
             //     filaActual={fila}

@@ -30,7 +30,7 @@ function FormularioRegistro(props) {
   }, [showAlert]);
 
   const validateForm = () => {
-    if (!nombre || !apellidos || !dni || !email || !contraseña) {
+    if (!nombre || !apellidos || !dni || !telefono || !email || !contraseña) {
       setAlertMessage("Todos los campos son requeridos");
       setAlertVariant("danger");
       setShowAlert(true);

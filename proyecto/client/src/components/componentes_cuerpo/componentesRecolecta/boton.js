@@ -4,23 +4,30 @@ import tomate from "../../imagenes/tomato.png"
 import pimiento from "../../imagenes/pimiento.webp"
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from '../../../contexts/userContext';
+import { CalendarioContext } from "../../../contexts/calendarioContext";
+
 
 function Boton(props) {
 
     const { userRole, userLoggedIn, userId } = useContext(UserContext);
 
-    const { key, tipo, handleOnClickBoton, hora, pasarRecolecta, filaActual } = props;
+    const {tipoModal, setTipoModal, showModal, setShowModal, recolectaActual, setRecolectaActual, agricultor, setAgricultor} = useContext(CalendarioContext);
+
+
+    const { key, tipo, hora, pasarRecolecta, filaActual } = props;
 
     const handleClick = () => {
-        if(userRole === 'V') {
-        handleOnClickBoton();
-        pasarRecolecta(filaActual);
-        } else if(userRole === 'A') {
+        setTipoModal(tipo);
+        setRecolectaActual(filaActual);
+        setShowModal(true);
+        // if(userRole === 'V') {
+        //     setShowModal(true);
+        //     pasarRecolecta(filaActual);
+        // } else if(userRole === 'A') {
             
-        } else {
-            console.error("No es no A ni V")
-        }
-        
+        // } else {
+        //     console.error("No es no A ni V")
+        // }
     }
 
     const handleTipo = () => {
