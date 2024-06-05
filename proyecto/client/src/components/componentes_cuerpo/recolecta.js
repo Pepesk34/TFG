@@ -9,19 +9,21 @@ import ModalCalendario from "./componentesRecolecta/modalCalendario";
 import ModalAgricultor from "./componentesRecolecta/modalAgricultor";
 import TileContent from "./componentesRecolecta/tileContent";
 import { RecolectasContext } from "../../contexts/recolectasContext";
+import { CalendarioContext } from "../../contexts/calendarioContext";
 
 function Recolecta() {
 
   const { userRole, userLoggedIn, userId } = useContext(UserContext);
   const { data, setData, dataUsuario, setDataUsuario } = useContext(RecolectasContext);
 
+  const {tipoModal, setTipoModal, showModal, setShowModal, recolectaActual, setRecolectaActual, agricultor, setAgricultor} = useContext(CalendarioContext);
+
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [showModal, setShowModal] = useState(false);
   const [showModalAgricultor, setShowModalAgricultor] = useState(false);
   const [recolectasCompletas, setRecolectasCompletas] = useState([]);
-  const [recolectaActual, setRecolectaActual] = useState({});
-  const [agricultor, setAgricultor] = useState({});
-  const [saveModal, setSaveModal] = useState(false);
+  const [saveModalVoluntarioVerde, setSaveModalVoluntarioVerde] = useState(false);
+  const [recolectaAdd, setRecolectaAdd] = useState({});
+
 
   const fetchData = async () => {
     try {
@@ -71,13 +73,13 @@ function Recolecta() {
     } catch (err) {
       console.error("Error fetchAgricultor: " + err.message)
     } finally {
-      setSaveModal(false);
+      setSaveModalVoluntarioVerde(false);
     }
   };
 
   const fetchAddVoluntarioRecolecta = async () => {
     try {
-      if (saveModal) {
+      if (saveModalVoluntarioVerde) {
         const response = await axios.get(`http://localhost:3001/addVoluntarioRecolecta?userId=${userId}&recolectaId=${recolectaActual.id}`);
         console.log("Response.data de AddVoluntarioRecolecta");
         console.log(response.data);
@@ -86,6 +88,28 @@ function Recolecta() {
       }
     } catch (err) {
       console.error("Error AddVoluntarioRecolecta: " + err.message)
+    }
+  };
+
+  const fetchAddRecolecta = async () => {
+    try {
+      if (Object.keys(recolectaAdd).length > 0) {
+        const response = await axios.post(`http://localhost:3001/addRecolecta`,
+          {
+            kilos: recolectaAdd.kilos,
+            maxNumVoluntarios: recolectaAdd.maxNumVoluntarios,
+            fecha: recolectaAdd.fecha,
+            localizacion: recolectaAdd.localizacion,
+            id_agricultor: recolectaAdd.idAgricultor
+          }
+        );
+        console.log("Response.data de AddRecolecta");
+        console.log(response.data);
+        fetchData();
+        fetchDataUsuario();
+      }
+    } catch (err) {
+      console.error("Error AddRecolecta: " + err.message)
     }
   };
 
@@ -114,12 +138,18 @@ function Recolecta() {
     }
   }, [recolectaActual]);
 
+  useEffect(() => {
+    if(recolectaAdd) {
+    fetchAddRecolecta();
+    }
+  }, [recolectaAdd]);
+
   // Efecto que se guarda ModalCalendario
   useEffect(() => {
-    if(saveModal) {
+    if(saveModalVoluntarioVerde) {
       fetchAddVoluntarioRecolecta();
     }
-  }, [saveModal]);
+  }, [saveModalVoluntarioVerde]);
 
   const handleDateClick = (value) => {
     setSelectedDate(value);
@@ -130,31 +160,29 @@ function Recolecta() {
   const handleShowModalAgricultor = () => {
     console.log('Entra en handleShowModalAgricultor');
     setShowModalAgricultor(true);
-    if (showModal) {
-      setShowModalAgricultor(false);
-    }
+    
   }
 
   const handleCloseModalAgricultor = () => setShowModalAgricultor(false);
 
-  const handleShowModal = () => {
-    console.log("Entra en handleShowModal");
-    setShowModal(true);
-  }
+  // const handleShowModal = () => {
+  //   console.log("Entra en handleShowModal");
+  //   setShowModal(true);
+  // }
 
-  const handleCloseModal = () => {
-    console.log("Entra en handleCloseModal");
-    setShowModal(false);
-  }
+  // const handleCloseModal = () => {
+  //   console.log("Entra en handleCloseModal");
+  //   setShowModal(false);
+  // }
 
   const pasarRecolecta = (recolecta) => {
     console.log("Entra en pasarRecolecta");
     setRecolectaActual(recolecta);
   }
 
-  const handleOnClickBoton = () => {
-    handleShowModal();
-  }
+  // const handleOnClickBoton = () => {
+  //   handleShowModal();
+  // }
 
   //Cuando se abre ModalCalendario
   const handleOnShowModalCalendario = () => {
@@ -162,13 +190,14 @@ function Recolecta() {
     //Consulta a la base de datos para obtener info de agricultor
   }
 
-  const handleSaveModal = () => {
-    setSaveModal(true);
+  const handleSaveModalVoluntarioVerde = () => {
+    setSaveModalVoluntarioVerde(true);
   }
+
 
   const tileContentFunction = ({ date, view }) => {
     return (
-      <TileContent date={date} view={view} handleOnClickBoton={handleOnClickBoton} recolectasCompletas={recolectasCompletas} pasarRecolecta={pasarRecolecta} />
+      <TileContent date={date} view={view} recolectasCompletas={recolectasCompletas} pasarRecolecta={pasarRecolecta} tipoModal={tipoModal}/>
     );
   };
 
@@ -180,8 +209,8 @@ function Recolecta() {
         value={selectedDate}
         tileContent={tileContentFunction}
       />
-      <ModalCalendario showModal={showModal} handleCloseModal={handleCloseModal} recolecta={recolectaActual} onShow={handleOnShowModalCalendario} agricultor={agricultor} handleSaveModal={handleSaveModal} />
-      <ModalAgricultor showModal={showModalAgricultor} handleCloseModal={handleCloseModalAgricultor} />
+      <ModalCalendario onShow={handleOnShowModalCalendario} handleSaveModalVoluntarioVerde={handleSaveModalVoluntarioVerde}/>
+      <ModalAgricultor showModal={showModalAgricultor} handleCloseModal={handleCloseModalAgricultor} setRecolectaAdd={setRecolectaAdd}/>
     </div>
   );
 }

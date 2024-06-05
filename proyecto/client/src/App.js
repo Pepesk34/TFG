@@ -11,6 +11,7 @@ import Agricultor from "./components/componentes_cuerpo/componentesRegistro/regi
 import Voluntario from "./components/componentes_cuerpo/componentesRegistro/registrarVoluntario.js";
 import Recolecta from './components/componentes_cuerpo/recolecta';
 import Registrarse from './components/componentes_cuerpo/registrarse.js';
+import { CalendarioProvider } from './contexts/calendarioContext.js';
 
 function App() {
   
@@ -24,7 +25,7 @@ function App() {
           <Route path="/registrarse" element={<><Cabecera /><Registrarse /></>} />
           <Route path="/iniciosesion" element={<><Cabecera /><InicioSesion /></>} />
           <Route path="/agricultor" element={<><Cabecera /><Agricultor /></>} />
-          <Route path="/recolecta" element={<><CabeceraRecolecta /><Recolecta /></>} />
+          <Route path="/recolecta" element={<><CabeceraRecolecta /><CalendarioProvider><Recolecta /></CalendarioProvider></>} />
           <Route path="/voluntario" element={<><Cabecera /><Voluntario /></>} />
           <Route path="/about" element={<><Cabecera /><About /></>} />
           <Route path="/perfil" element={<><Cabecera /><Inicio /></>} />

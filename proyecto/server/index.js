@@ -74,12 +74,50 @@ app.post("/registrarA", async (req, res) => {
     }
 });
 
+app.post("/addRecolecta", async (req, res) => {
+
+    console.log("Entra en /addRecolecta");
+    //Obtenemos datos del cuerpo de la solicitud
+    const { kilos, maxNumVoluntarios, fecha, localizacion, idAgricultor } = req.body;
+
+    try {
+        // Comprobamos si el voluntario ya existe por su email
+        // const comprobacion = await db.query("SELECT * FROM voluntarios WHERE email = $1 OR dni = $2", [email, dni]);
+
+        // if (comprobacion.rows.length > 0) {
+        //     res.status(400).send("Ya existe un voluntario con ese email o DNI");
+        // } else {
+            // Insertamos el voluntario
+            const nuevaRecolecta = await db.query(
+                "INSERT INTO recolectas(kilos, maxnumvoluntarios, fecha, localizacion, id_agricultor) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+                [kilos, maxNumVoluntarios, fecha, localizacion, idAgricultor]
+            );
+
+            res.status(201).json(nuevaRecolecta.rows[0]);
+        // }
+    } catch (error) {
+        console.error('Error al añadir recolecta:', error);
+        res.status(500).send("Error al añadir recolecta");
+    }
+});
+
 app.get('/selectRecolectas', async (req, res) => {
     console.log("Entra en selectRecolectas")
     try {
         const result = await db.query(`
-        SELECT r.*, h.hortaliza
-        FROM recolectas r JOIN hortalizas_recolectas hr ON r.id=hr.id_recolecta JOIN hortalizas h ON hr.id_hortaliza = h.id
+        SELECT 
+            r.*, 
+            STRING_AGG(h.hortaliza, ', ') AS hortalizas
+        FROM 
+            recolectas r 
+        JOIN 
+            hortalizas_recolectas hr 
+            ON r.id = hr.id_recolecta 
+        JOIN 
+            hortalizas h 
+            ON hr.id_hortaliza = h.id
+        GROUP BY 
+            r.id;
       `);
         res.json(result.rows);
     } catch (err) {
