@@ -10,12 +10,12 @@ function ModalVoluntarioVerde(props) {
 
     
   const {tipoModal, setTipoModal, showModal, setShowModal, recolectaActual, setRecolectaActual, agricultor, setAgricultor} = useContext(CalendarioContext);
-    const {onShow, handleSaveModal, showModalConfirmar, handleCloseModal, handleShowModalConfirmar, handleCloseModalConfirmar} = props;
+    const {onShow, handleSaveModalVoluntarioVerde, showModalConfirmar, handleCloseModal, handleShowModalConfirmar, handleCloseModalConfirmar} = props;
 
     const onSave = () => {
         //handleClose e insetar una instancia en volutarios_recolectas
         handleCloseModalConfirmar();
-        handleSaveModal();
+        handleSaveModalVoluntarioVerde();
         handleCloseModal();
       }
 

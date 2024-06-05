@@ -48,12 +48,12 @@ const Registrarse = () => {
                     <div className="container-carta">
                         <div className="carta">
                             <div className="carta-front">
-                                <Link to="/agricultor">
+                                <Link to="/voluntario">
                                     <img id="emoji-voluntario" src={voluntario} />
                                 </Link>
                             </div>
                             <div className="carta-back">
-                                <Link to="/agricultor">
+                                <Link to="/voluntario">
                                     <div className="img-descripcion">El voluntario ayuda a recolectar y distribuir alimentos.</div>
                                 </Link>
                             </div>

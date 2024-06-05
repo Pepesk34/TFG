@@ -4,7 +4,6 @@ import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
-import BotonCabecera from './botonCabecera';
 import Button from 'react-bootstrap/Button';
 import { UserContext } from '../contexts/userContext';
 
@@ -26,7 +25,7 @@ function Cabecera(props) {
                         <Nav.Link as={Link} to="/about"> <Button variant="outline-secondary">Sobre Nosotros</Button></Nav.Link>
                         <Nav.Link as={Link} to="/comunidad"> <Button variant="outline-secondary">Comunidad</Button></Nav.Link>
 
-                        {!userLoggedIn && <Nav.Link as={Link} to="/registrarse"> <Button variant="outline-secondary">Registrarse</Button></Nav.Link>}
+                        {!userLoggedIn && <Nav.Link as={Link} to="/registrarse"> <Button variant="outline-secondary active">Registrarse</Button></Nav.Link>}
                         {!userLoggedIn && <Nav.Link as={Link} to="/iniciosesion" > <Button variant="outline-secondary">Iniciar Sesión</Button></Nav.Link>}
                         {userLoggedIn && <Nav.Link as={Link} to="/recolecta"> <Button variant="outline-secondary">Recolecta</Button></Nav.Link>}
                         {userLoggedIn && <Nav.Link as={Link} to="/perfil"><Button variant="outline-secondary">MI PERFIL</Button></Nav.Link>}

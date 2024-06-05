@@ -2,7 +2,6 @@
 import './estilos/cabecerarecolecta-estilo.css';
 import logo from "./imagenes/logo1.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BotonCabecera from './botonCabecera';
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';

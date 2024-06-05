@@ -30,12 +30,16 @@ function ModalCalendario(props) {
     setShowModalConfirmar(true);
   }
 
+  const handleSaveModal = () => {
+
+  }
+
   return (
     <>
       {userRole === 'A' && tipoModal === 'azul' && showModal ? <ModalAgricultorAzul /> : null}
       {userRole === 'V' && tipoModal === 'azul' && showModal ? <ModalVoluntarioAzul /> : null}
       {userRole === 'V' && tipoModal === 'rojo' && showModal ? <ModalVoluntarioRojo /> : null}
-      {userRole === 'V' && tipoModal === 'verde' && showModal ? <ModalVoluntarioVerde onShow={props.onShow} handleSaveModal={props.handleSaveModal} showModalConfirmar={showModalConfirmar} handleCloseModal={handleCloseModal} handleShowModalConfirmar={handleShowModalConfirmar} handleCloseModalConfirmar={handleCloseModalConfirmar}/> : null}
+      {userRole === 'V' && tipoModal === 'verde' && showModal ? <ModalVoluntarioVerde onShow={props.onShow} handleSaveModalVoluntarioVerde={props.handleSaveModalVoluntarioVerde} showModalConfirmar={showModalConfirmar} handleCloseModal={handleCloseModal} handleShowModalConfirmar={handleShowModalConfirmar} handleCloseModalConfirmar={handleCloseModalConfirmar}/> : null}
       {tipoModal === 'gris' && showModal ? <ModalGris /> : null}
     </>
 

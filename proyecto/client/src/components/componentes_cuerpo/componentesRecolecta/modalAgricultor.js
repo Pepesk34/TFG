@@ -1,5 +1,4 @@
 import Calendar from "react-calendar";
-// import 'react-calendar/dist/Calendar.css';
 import React, { useState, useContext } from "react";
 import { UserContext } from '../../../contexts/userContext';
 import { Modal, Button } from 'react-bootstrap';
@@ -13,51 +12,102 @@ function ModalAgricultor(props) {
 
   const [kilos, setKilos] = useState("");
   const [maxNumVoluntarios, setMaxNumVoluntarios] = useState("");
-  const [fecha, setFecha] = useState("");
+  const [hora, setHora] = useState("");
   const [localizacion, setLocalizacion] = useState("");
+  const [hortalizas, setHortalizas] = useState([]);
+
+  const fechita = props.selectedDate.getFullYear() + "-" + (props.selectedDate.getMonth() + 1) + "-" + props.selectedDate.getDate();
 
   const onSave = () => {
-    //handleClose e insetar una instancia en volutarios_recolectas
+    //handleClose e insertar una instancia en volutarios_recolectas
+    const fechaCompleta = fechita + " " + hora;
     handleCloseModalConfirmar();
-    props.handleSaveModalCelda();
+    // props.handleSaveModalCelda();
     props.handleCloseModal();
-    props.setRecolectaAdd({kilos, maxNumVoluntarios, fecha, localizacion, userId})
+    props.setRecolectaAdd({kilos, maxNumVoluntarios, fechaCompleta, localizacion, userId, hortalizas});
   }
+
   const handleCloseModalConfirmar = () => {
     setShowModalConfirmar(false);
   }
+
   const handleShowModalConfirmar = () => {
     setShowModalConfirmar(true);
   }
 
+  const handleHortalizaChange = (event) => {
+    const { value } = event.target;
+    setHortalizas((prev) => {
+      if (prev.includes(value)) {
+        // Si la hortaliza ya está seleccionada, la quitamos
+        return prev.filter(h => h !== value);
+      } else if (prev.length < 3) {
+        // Si no está seleccionada y el número de hortalizas es menor que 3, la añadimos
+        return [...prev, value];
+      } else {
+        return prev;
+      }
+    });
+  };
+
+  const hortalizasDisponibles = ["pimiento", "tomate", "berenjena", "calabacin"];
+
   return (
     <>
-      <Modal show={props.showModal && userRole === 'A'} onHide={props.handleCloseModal} size="lg">
+      <Modal show={props.showModal && userRole === 'A'} onHide={props.handleCloseModal} size="lg" scrollable>
         <Modal.Header closeButton>
           <Modal.Title>Crea una recolecta</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Formulario para crear una recolecta
-          <input
-          onChange={(event) => setKilos(event.target.value)}
-          type="text" id="nombres" className="controls" placeholder="Ingresa el Kilos"
-          value={kilos}
-        />
-        <input
-          onChange={(event) => setMaxNumVoluntarios(event.target.value)}
-          type="text" id="apellidos" className="controls" placeholder="Ingresa los MaxsetMaxNumVoluntarios"
-          value={maxNumVoluntarios}
-        />
-        <input
-          onChange={(event) => setFecha(event.target.value)}
-          type="text" id="dni" className="controls" placeholder="Ingresa el Fecha"
-          value={fecha}
-        />
-        <input
-          onChange={(event) => setLocalizacion(event.target.value)}
-          type="tel" id="telefono" className="controls" placeholder="Ingresa tu Localizacion"
-          value={localizacion}
-        />
+          <div>
+            <label>Kilos:</label>
+            <input
+              onChange={(event) => setKilos(event.target.value)}
+              type="text" id="kilos" className="controls" placeholder="Ingresa el Kilos"
+              value={kilos}
+            />
+          </div>
+          <div>
+            <label>Max. Número de Voluntarios:</label>
+            <input
+              onChange={(event) => setMaxNumVoluntarios(event.target.value)}
+              type="text" id="maxNumVoluntarios" className="controls" placeholder="Ingresa el número máximo de voluntarios"
+              value={maxNumVoluntarios}
+            />
+          </div>
+          <div>
+            <label>Ingresa la hora para el día {fechita}:</label>
+            <input
+              onChange={(event) => setHora(event.target.value)}
+              type="text" id="hora" className="controls" placeholder="Ingresa la hora"
+              value={hora}
+            />
+          </div>
+          <div>
+            <label>Localización:</label>
+            <input
+              onChange={(event) => setLocalizacion(event.target.value)}
+              type="tel" id="localizacion" className="controls" placeholder="Ingresa la localización"
+              value={localizacion}
+            />
+          </div>
+          <div class="form-check">
+            <label><h4>Hortalizas:</h4></label>
+            {hortalizasDisponibles.map((hortaliza, index) => (
+              <div key={hortaliza}>
+                <input
+                  type="checkbox"
+                  value={hortaliza}
+                  checked={hortalizas.includes(hortaliza)}
+                  onChange={handleHortalizaChange}
+                  className="form-check-input shadow border border-secondary" 
+                  id={index}
+                />
+                <label for={index}>{hortaliza.toUpperCase()}</label>
+              </div>
+            ))}
+            <p>Seleccionadas: {hortalizas.join(', ')}</p>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.handleCloseModal}>
@@ -86,8 +136,7 @@ function ModalAgricultor(props) {
         </Modal.Footer>
       </Modal>
     </>
-
-  )
+  );
 }
 
 export default ModalAgricultor;

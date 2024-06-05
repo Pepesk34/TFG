@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import '../estilos/iniciosesion-estilo.css';
+import React, { useState, useContext, useRef, useEffect } from "react";
+import { UserContext } from '../../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const InicioSesion = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rol, setRol] = useState('');
+    const [error, setError] = useState('');
 
-    useEffect(() => {
-        window.scrollTo(0, 100);
-    }, []);
+  const { setUserRole, setUserLoggedIn, setUserId } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
 
     const handleEmailChange = (event) => {
@@ -23,10 +29,31 @@ const InicioSesion = () => {
         setRol(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Aquí puedes manejar el envío de los datos
-        console.log({ email, password, rol });
+
+        try {
+            const response = await Axios.post('http://localhost:3001/login', {
+                email: email,
+                password: password,
+                rol: rol
+            });
+
+            // Aquí puedes manejar la respuesta del backend, por ejemplo, almacenar el token JWT
+            console.log('Respuesta del backend:', response.data);
+
+            // Limpiar los campos después de enviar los datos
+            setEmail('');
+            setPassword('');
+            setRol('');
+            setUserId(response.data.filaUsuario.id);
+            setUserLoggedIn(true);
+            setUserRole(response.data.rol)
+            navigate('/recolecta');
+        } catch (err) {
+            console.error('Error al iniciar sesión:', err);
+            setError(err.response.data.message);
+        }
     };
 
     return (
@@ -70,11 +97,12 @@ const InicioSesion = () => {
                                 onChange={handleRolChange}
                             >
                                 <option value="">Seleccionar rol</option>
-                                <option value="agricultor">Agricultor</option>
-                                <option value="voluntario">Voluntario</option>
+                                <option value="A">Agricultor</option>
+                                <option value="V">Voluntario</option>
                             </select>
                             <label htmlFor="floatingSelect">Rol</label>
                         </div>
+                        {error && <div className="alert alert-danger">{error}</div>}
                         <button type="submit" className="btn btn-primary">Aceptar</button>
                     </form>
                 </div>

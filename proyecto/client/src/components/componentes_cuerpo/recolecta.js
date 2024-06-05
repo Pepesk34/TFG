@@ -94,13 +94,15 @@ function Recolecta() {
   const fetchAddRecolecta = async () => {
     try {
       if (Object.keys(recolectaAdd).length > 0) {
+        console.log("User id: " + userId);
         const response = await axios.post(`http://localhost:3001/addRecolecta`,
           {
             kilos: recolectaAdd.kilos,
             maxNumVoluntarios: recolectaAdd.maxNumVoluntarios,
-            fecha: recolectaAdd.fecha,
+            fecha: recolectaAdd.fechaCompleta,
             localizacion: recolectaAdd.localizacion,
-            id_agricultor: recolectaAdd.idAgricultor
+            idAgricultor: userId,
+            hortalizas: recolectaAdd.hortalizas
           }
         );
         console.log("Response.data de AddRecolecta");
@@ -210,7 +212,7 @@ function Recolecta() {
         tileContent={tileContentFunction}
       />
       <ModalCalendario onShow={handleOnShowModalCalendario} handleSaveModalVoluntarioVerde={handleSaveModalVoluntarioVerde}/>
-      <ModalAgricultor showModal={showModalAgricultor} handleCloseModal={handleCloseModalAgricultor} setRecolectaAdd={setRecolectaAdd}/>
+      <ModalAgricultor showModal={showModalAgricultor} handleCloseModal={handleCloseModalAgricultor} setRecolectaAdd={setRecolectaAdd} selectedDate={selectedDate}/>
     </div>
   );
 }
