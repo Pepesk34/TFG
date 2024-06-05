@@ -1,17 +1,83 @@
 #about-main {
-    height: 2000px;
-    width: 100%;
-}
-
-.about-fruta {
-    height: 500px;
-    border: solid red 1px;
-}
-
-#button-about {
     margin-top: 2%;
+    height: 2250px;
+    width: 90%;
+    margin-left: 5%;
 }
 
-.contenedor {
-    width: 100%;
+.about-verdura {
+    height: 500px;
+    margin-bottom: 5%;
+    border: solid 10px;
+    border-top-color: #77a4ff;
+    border-bottom-color: #ff61e7;
+    border-left-color: #ff6f00;
+    border-right-color: #43962a;
+}
+
+#about-tomate {
+    /*COLOR TOMATE: #E82201*/
+    box-shadow: 0 0 20px black;
+    background: rgb(232, 34, 1);
+    background: linear-gradient(90deg, rgba(232, 34, 1, 1) 0%, rgba(0, 0, 0, 1) 5%, rgba(232, 34, 1, 1) 35%);
+}
+
+#about-pimiento {
+    /*COLOR PIMIENTO: #FBBB04*/
+    box-shadow: 0 0 20px black;
+    background: rgb(251, 187, 4);
+    background: linear-gradient(90deg, rgba(251, 187, 4, 1) 65%, rgba(0, 0, 0, 1) 95%, rgba(251, 187, 4, 1) 100%);
+}
+
+#about-berenjena {
+    /*COLOR BERENJENA: #7C4971*/
+    box-shadow: 0 0 20px black;
+    background: rgb(181, 85, 159);
+    background: linear-gradient(90deg, rgba(181, 85, 159, 1) 0%, rgba(0, 0, 0, 1) 5%, rgba(181, 85, 159, 1) 35%);
+}
+
+#about-calabacin {
+    /*COLOR CALABACIN: #385A15*/
+    box-shadow: 0 0 20px black;
+    background: rgb(91, 147, 35);
+    background: linear-gradient(90deg, rgba(91, 147, 35, 1) 65%, rgba(0, 0, 0, 1) 95%, rgba(91, 147, 35, 1) 100%);
+}
+
+#img-tomate {
+    max-width: 100%;
+}
+
+#img-pimiento {
+    max-width: 100%;
+}
+
+#img-berenjena {
+    max-width: 100%;
+}
+
+#img-calabacin {
+    max-width: 100%;
+    rotate: -120deg;
+}
+
+#about-tomate-texto {}
+
+#about-pimiento-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-lista {
+    width: 70%;
+}
+
+.about-item {
+    background: rgb(251, 187, 4);
+    /*background: linear-gradient(90deg, rgba(251,187,4,1) 65%, rgba(0,0,0,1) 95%, rgba(251,187,4,1) 100%);*/
+
+}
+
+.about-cards{
+    
 }
