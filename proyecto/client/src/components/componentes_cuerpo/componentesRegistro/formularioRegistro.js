@@ -86,7 +86,7 @@ function FormularioRegistro(props) {
   return (
     <div id="div_formulario">
       <section className="form-register">
-        <h4>Registro voluntario</h4>
+        <h4>Registro {props.rol === 'V' ? "voluntario" : "agricultor"}</h4>
         <input
           onChange={(event) => setNombre(event.target.value)}
           type="text" id="nombres" className="controls" placeholder="Ingresa el nombre"

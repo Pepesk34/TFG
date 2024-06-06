@@ -3,6 +3,8 @@ import '../estilos/iniciosesion-estilo.css';
 import React, { useState, useContext, useRef, useEffect } from "react";
 import { UserContext } from '../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
+import { Alert, Modal, Button } from 'react-bootstrap';
+
 
 
 
@@ -12,10 +14,11 @@ const InicioSesion = () => {
     const [rol, setRol] = useState('');
     const [error, setError] = useState('');
 
-  const { setUserRole, setUserLoggedIn, setUserId } = useContext(UserContext);
+    const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();
+    const { setUserRole, setUserLoggedIn, setUserId } = useContext(UserContext);
 
+    const navigate = useNavigate();
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -27,6 +30,11 @@ const InicioSesion = () => {
 
     const handleRolChange = (event) => {
         setRol(event.target.value);
+    };
+
+    const handleClose = () => {
+        setShowModal(false);
+        navigate('/recolecta');
     };
 
     const handleSubmit = async (event) => {
@@ -48,8 +56,8 @@ const InicioSesion = () => {
             setRol('');
             setUserId(response.data.filaUsuario.id);
             setUserLoggedIn(true);
-            setUserRole(response.data.rol)
-            navigate('/recolecta');
+            setUserRole(response.data.rol);
+            setShowModal(true);
         } catch (err) {
             console.error('Error al iniciar sesión:', err);
             setError(err.response.data.message);
@@ -107,6 +115,17 @@ const InicioSesion = () => {
                     </form>
                 </div>
             </div>
+            <Modal show={showModal} onHide={handleClose} className='bg-success'>
+                <Modal.Header closeButton>
+                    <Modal.Title>¡Éxito!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Ha iniciado sesión</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={handleClose}>
+                        Continuar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

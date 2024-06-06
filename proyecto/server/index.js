@@ -15,7 +15,7 @@ const db = new pg.Client({
     user: 'postgres',         // reemplaza con tu usuario de PostgreSQL
     host: 'localhost',          // dirección del servidor PostgreSQL
     database: 'greenboydhousedb', // reemplaza con el nombre de tu base de datos
-    password: '8569',            // reemplaza con tu contraseña
+    password: '1234',            // reemplaza con tu contraseña
     port: 5432,                 // puerto donde corre PostgreSQL
 });
 
@@ -106,6 +106,7 @@ app.post("/addRecolecta", async (req, res) => {
         );
 
         const idRecolecta = nuevaRecolecta.rows[0].id;
+        console.log("idrecolecta " + idRecolecta)
 
         // Crear el array de parámetros para la consulta
         const queryParams = [...idHortalizas, idRecolecta];
@@ -222,6 +223,51 @@ app.get('/addVoluntarioRecolecta', async (req, res) => {
     }
 });
 
+app.get('/deleteVoluntarioRecolecta', async (req, res) => {
+    console.log("Entra en deleteVoluntarioRecolecta")
+
+    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    const recolectaId = req.query.recolectaId;
+    try {
+        const result = await db.query(
+            `DELETE FROM voluntarios_recolectas
+            WHERE id_voluntario = $1 AND id_recolecta = $2;`,
+            [userId, recolectaId]
+        );
+        res.json(result.rows);
+    } catch (err) {
+        console.error("Error deleteVoluntarioRecolecta " + err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/deleteRecolecta', async (req, res) => {
+    console.log("Entra en deleteRecolecta")
+
+    const recolectaId = req.query.recolectaId;
+    try {
+
+        const resultHortalizasRecolectas = await db.query(
+            "DELETE FROM hortalizas_recolectas WHERE id_recolecta = $1", 
+            [recolectaId]
+        );
+        const result = await db.query(
+            `DELETE FROM voluntarios_recolectas
+            WHERE id_recolecta = $1;`,
+            [recolectaId]
+        );
+        const resultRecolectas = await db.query(
+            "DELETE FROM recolectas WHERE id= $1;",
+            [recolectaId]
+        );
+        
+        res.json({resultHortalizasRecolectas, result, resultRecolectas});
+    } catch (err) {
+        console.error("Error deleteRecolecta " + err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 // Ruta para iniciar sesión
 app.post('/login', async (req, res) => {
     const { email, password, rol } = req.body;
@@ -235,7 +281,8 @@ app.post('/login', async (req, res) => {
             `SELECT * FROM ${tabla} WHERE email = $1`, [email]
         )
         console.log(filaUsuario);
-        const hashedPassword = filaUsuario.rows[0].contraseña // Implementa esta función
+        if(filaUsuario.rows.length > 0) {
+            const hashedPassword = filaUsuario.rows[0].contraseña // Implementa esta función
 
         if (!hashedPassword) {
             return res.status(401).json({ message: 'Credenciales inválidas, email no registrado' });
@@ -257,6 +304,11 @@ app.post('/login', async (req, res) => {
         } else {
             res.status(401).json({ message: 'Credenciales inválidas' });
         }
+        } else {
+            console.log("Usuario no registrado");
+            res.status(401).json({message: "Usuario no registrado"});
+        }
+        
     } catch (error) {
         console.error('Error al comparar contraseñas:', error);
         res.status(500).json({ message: 'Error interno del servidor' });

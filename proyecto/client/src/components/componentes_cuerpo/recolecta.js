@@ -22,6 +22,8 @@ function Recolecta() {
   const [showModalAgricultor, setShowModalAgricultor] = useState(false);
   const [recolectasCompletas, setRecolectasCompletas] = useState([]);
   const [saveModalVoluntarioVerde, setSaveModalVoluntarioVerde] = useState(false);
+  const [saveModalVoluntarioAzul, setSaveModalVoluntarioAzul] = useState(false);
+  const [saveModalAgricultorAzul, setSaveModalAgricultorAzul] = useState(false);
   const [recolectaAdd, setRecolectaAdd] = useState({});
 
 
@@ -91,6 +93,22 @@ function Recolecta() {
     }
   };
 
+  const fetchDeleteVoluntarioRecolecta = async () => {
+    try {
+      if (saveModalVoluntarioAzul) {
+        const response = await axios.get(`http://localhost:3001/deleteVoluntarioRecolecta?userId=${userId}&recolectaId=${recolectaActual.id}`);
+        console.log("Response.data de deleteVoluntarioRecolecta");
+        console.log(response.data);
+        fetchData();
+        fetchDataUsuario();
+      }
+    } catch (err) {
+      console.error("Error deleteVoluntarioRecolecta: " + err.message)
+    } finally {
+      setSaveModalVoluntarioAzul(false);
+    }
+  };
+
   const fetchAddRecolecta = async () => {
     try {
       if (Object.keys(recolectaAdd).length > 0) {
@@ -112,6 +130,22 @@ function Recolecta() {
       }
     } catch (err) {
       console.error("Error AddRecolecta: " + err.message)
+    }
+  };
+
+  const fetchDeleteRecolecta = async () => {
+    try {
+      if (saveModalAgricultorAzul) {
+        const response = await axios.get(`http://localhost:3001/deleteRecolecta?recolectaId=${recolectaActual.id}`);
+        console.log("Response.data de deleteRecolecta");
+        console.log(response.data);
+        fetchData();
+        fetchDataUsuario();
+      }
+    } catch (err) {
+      console.error("Error deleteRecolecta: " + err.message)
+    } finally {
+      setSaveModalAgricultorAzul(false);
     }
   };
 
@@ -152,6 +186,18 @@ function Recolecta() {
       fetchAddVoluntarioRecolecta();
     }
   }, [saveModalVoluntarioVerde]);
+
+  useEffect(() => {
+    if(saveModalVoluntarioAzul) {
+      fetchDeleteVoluntarioRecolecta();
+    }
+  }, [saveModalVoluntarioAzul]);
+
+  useEffect(() => {
+    if(saveModalAgricultorAzul) {
+      fetchDeleteRecolecta();
+    }
+  }, [saveModalAgricultorAzul]);
 
   const handleDateClick = (value) => {
     setSelectedDate(value);
@@ -196,6 +242,14 @@ function Recolecta() {
     setSaveModalVoluntarioVerde(true);
   }
 
+  const handleSaveModalVoluntarioAzul = () => {
+    setSaveModalVoluntarioAzul(true);
+  }
+
+  const handleSaveModalAgricultorAzul = () => {
+    setSaveModalAgricultorAzul(true);
+  }
+
 
   const tileContentFunction = ({ date, view }) => {
     return (
@@ -211,7 +265,7 @@ function Recolecta() {
         value={selectedDate}
         tileContent={tileContentFunction}
       />
-      <ModalCalendario onShow={handleOnShowModalCalendario} handleSaveModalVoluntarioVerde={handleSaveModalVoluntarioVerde}/>
+      <ModalCalendario onShow={handleOnShowModalCalendario} handleSaveModalVoluntarioVerde={handleSaveModalVoluntarioVerde} handleSaveModalVoluntarioAzul={handleSaveModalVoluntarioAzul} handleSaveModalAgricultorAzul={handleSaveModalAgricultorAzul}/>
       <ModalAgricultor showModal={showModalAgricultor} handleCloseModal={handleCloseModalAgricultor} setRecolectaAdd={setRecolectaAdd} selectedDate={selectedDate}/>
     </div>
   );

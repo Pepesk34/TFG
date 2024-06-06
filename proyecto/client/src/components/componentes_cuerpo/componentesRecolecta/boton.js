@@ -39,7 +39,7 @@ function Boton(props) {
             <div className={`col-1 ${tipo} text-dark`}></div>
             <div className="col ps-1 div-11">
                 <div className="row">
-                    <div className="col-1 hora">{props.hora}</div>
+                    <div className="col-1 hora">{hora}</div>
                     <div className="col">
                         {filaActual.hortaliza === 'Pimiento' ? <img src={pimiento} width={"24px"}></img> : null}
                         {filaActual.hortaliza === 'Tomate' ? <img src={tomate} width={"17px"}></img> : null}

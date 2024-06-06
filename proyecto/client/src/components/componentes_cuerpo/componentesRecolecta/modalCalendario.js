@@ -31,16 +31,15 @@ function ModalCalendario(props) {
   }
 
   const handleSaveModal = () => {
-
   }
 
   return (
     <>
-      {userRole === 'A' && tipoModal === 'azul' && showModal ? <ModalAgricultorAzul /> : null}
-      {userRole === 'V' && tipoModal === 'azul' && showModal ? <ModalVoluntarioAzul /> : null}
-      {userRole === 'V' && tipoModal === 'rojo' && showModal ? <ModalVoluntarioRojo /> : null}
+      {userRole === 'A' && tipoModal === 'azul' && showModal ? <ModalAgricultorAzul onShow={props.onShow} handleSaveModalAgricultorAzul={props.handleSaveModalAgricultorAzul} showModalConfirmar={showModalConfirmar} handleCloseModal={handleCloseModal} handleShowModalConfirmar={handleShowModalConfirmar} handleCloseModalConfirmar={handleCloseModalConfirmar}/> : null}
+      {userRole === 'V' && tipoModal === 'azul' && showModal ? <ModalVoluntarioAzul onShow={props.onShow} handleSaveModalVoluntarioAzul={props.handleSaveModalVoluntarioAzul} showModalConfirmar={showModalConfirmar} handleCloseModal={handleCloseModal} handleShowModalConfirmar={handleShowModalConfirmar} handleCloseModalConfirmar={handleCloseModalConfirmar}/> : null}
+      {userRole === 'V' && tipoModal === 'rojo' && showModal ? <ModalVoluntarioRojo onShow={props.onShow} handleSaveModalVoluntarioRojo={props.handleSaveModalVoluntarioRojo} handleCloseModal={handleCloseModal} /> : null}
       {userRole === 'V' && tipoModal === 'verde' && showModal ? <ModalVoluntarioVerde onShow={props.onShow} handleSaveModalVoluntarioVerde={props.handleSaveModalVoluntarioVerde} showModalConfirmar={showModalConfirmar} handleCloseModal={handleCloseModal} handleShowModalConfirmar={handleShowModalConfirmar} handleCloseModalConfirmar={handleCloseModalConfirmar}/> : null}
-      {tipoModal === 'gris' && showModal ? <ModalGris /> : null}
+      {tipoModal === 'gris' && showModal ? <ModalGris onShow={props.onShow} handleSaveModalGris={props.handleSaveModalGris} handleCloseModal={handleCloseModal}/> : null}
     </>
 
   )

@@ -26,6 +26,7 @@ function ModalVoluntarioVerde(props) {
             </Modal.Header>
             <Modal.Body>
                 <p>id de recolecta: {recolectaActual.id}</p>
+                <p>Localización: {recolectaActual.localizacion}</p>
                 <p>Hortaliza: {recolectaActual.hortaliza}</p>
                 <p>Nombre Agricultor: {agricultor.nombre} {agricultor.apellidos}.</p>
                 <p>Teléfono Agricultor: {agricultor.telefono}</p>
@@ -34,8 +35,8 @@ function ModalVoluntarioVerde(props) {
                 <Button variant="secondary" onClick={handleCloseModal}>
                     Cerrar
                 </Button>
-                <Button variant="primary" onClick={handleShowModalConfirmar}>
-                    Guardar cambios
+                <Button variant="success" onClick={handleShowModalConfirmar}>
+                    Me apunto
                 </Button>
 
                 <Modal show={showModalConfirmar} onHide={handleCloseModalConfirmar}>
@@ -49,7 +50,7 @@ function ModalVoluntarioVerde(props) {
                         <Button variant="secondary" onClick={handleCloseModalConfirmar}>
                             Cancelar
                         </Button>
-                        <Button variant="primary" onClick={onSave}>
+                        <Button variant="success" onClick={onSave}>
                             Confirmar
                         </Button>
                     </Modal.Footer>
