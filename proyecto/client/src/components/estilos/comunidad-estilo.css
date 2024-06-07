@@ -1,0 +1,27 @@
+#tabla-com {
+    border: solid black 2px;
+}
+
+#top-tabla{
+    background: linear-gradient(90deg, rgba(91, 147, 35, 1) 0%, rgb(94, 255, 0) 50%, rgba(91, 147, 35, 1) 100%);
+}
+
+#tabla-pos{
+    background-color: rgb(0, 217, 255);
+}
+
+#tabla-usu{
+    background-color: rgb(255, 230, 0);
+}
+
+#tabla-nr{
+    background-color: rgb(255, 88, 88);
+}
+
+#tabla-kgs{
+    background-color: rgb(133, 131, 255);
+}
+
+#tabla-contenido{
+    background-color: rgb(204, 204, 204);
+}
