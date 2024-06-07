@@ -1,6 +1,10 @@
-CREATE DATABASE `greenboydhousedb`;
-USE greenboydhousedb;
 
+/* 1º CREAMOS BASE DE DATOS */
+CREATE DATABASE greenboydhousedb;
+
+/* 2º Seleccionamos la base de datos EN LA APLICACIÓN */
+
+/* 3º Insertamos las tablas en la base de datos */
 CREATE TABLE agricultores (
     id serial PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -20,18 +24,6 @@ CREATE TABLE voluntarios (
     email varchar(100) unique NOT NULL,
     contraseña VARCHAR(100) NOT NULL
 );
-
-/*
-CREATE TABLE usuarios (
-    id serial PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    dni VARCHAR(9) unique NOT NULL,
-    email varchar(100) unique NOT NULL
-    contraseña VARCHAR(100) NOT NULL,
-    rol CHAR(1) NOT NULL
-);
-*/
 
 CREATE TABLE recolectas (
     id serial PRIMARY KEY,
@@ -59,6 +51,12 @@ CREATE TABLE hortalizas_recolectas (
     id_recolecta INTEGER REFERENCES recolectas(id),
     PRIMARY KEY (id_hortaliza, id_recolecta)
 );
+
+
+INSERT INTO hortalizas (hortaliza) values (pimiento, tomate, berenjena, calabacin);
+
+/************************* HASTA AQUÍ ******************************/
+
 
 /* Seleccionar los id de las recolectas que llegan a maxNumVoluntarios */
 SELECT r.id
