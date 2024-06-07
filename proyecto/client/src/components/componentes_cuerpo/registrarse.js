@@ -35,8 +35,8 @@ const Registrarse = () => {
                                 </Link>
                             </div>
                             <div className="carta-back">
-                                <Link to="/agricultor">
-                                    <div className="col-12 align-self-center">
+                                <Link to="/agricultor" className="links">
+                                    <div className="align-self-center">
                                         <h3>
                                             ¿QUÉ HACE EL AGRICULTOR?
                                         </h3>
@@ -64,7 +64,7 @@ const Registrarse = () => {
                                 </Link>
                             </div>
                             <div className="carta-back">
-                                <Link to="/voluntario">
+                                <Link to="/voluntario" className="links">
                                     <div className="img-descripcion">
                                         <h3>
                                             ¿QUÉ HACE EL VOLUNTARIO?
