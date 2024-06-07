@@ -55,6 +55,7 @@ function TileContent(props) {
         };
 
         if (comprobarFechaCalendario()) {
+          document.getElementsByClassName("react-calendar__tile")
           if (fechaFila > fechaActual) {
             if (userRole === 'A') {
               if (userId === fila.id_agricultor) {
