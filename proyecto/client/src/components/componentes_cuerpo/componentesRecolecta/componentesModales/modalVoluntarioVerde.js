@@ -22,7 +22,7 @@ function ModalVoluntarioVerde(props) {
     return (
         <Modal show={showModal} onHide={handleCloseModal} onShow={onShow} size="lg">
             <Modal.Header closeButton>
-                <Modal.Title><h2>Título del modal</h2></Modal.Title>
+                <Modal.Title><h2>¡Apúntate a esta recolecta!</h2></Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <p>id de recolecta: {recolectaActual.id}</p>

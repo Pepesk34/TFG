@@ -12,11 +12,11 @@ app.use(express.json());
 
 // Configura la conexión
 const db = new pg.Client({
-    user: 'postgres',         // reemplaza con tu usuario de PostgreSQL
-    host: 'localhost',          // dirección del servidor PostgreSQL
-    database: 'greenboydhousedb', // reemplaza con el nombre de tu base de datos
-    password: '1234',            // reemplaza con tu contraseña
-    port: 5432,                 // puerto donde corre PostgreSQL
+    user: 'postgres',         
+    host: 'localhost',          
+    database: 'greenboydhousedb', 
+    password: '8569',           
+    port: 5432,                
 });
 
 db.connect();
