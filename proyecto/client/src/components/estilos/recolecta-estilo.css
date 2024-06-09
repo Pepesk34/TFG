@@ -30,11 +30,11 @@
     align-items: center;
     padding: 5px;
     border: 1px solid rgba(0, 0, 0, 0.288);
-    background-image: url('../imagenes/farmergif.gif');
+    /* background-image: url('../imagenes/farmergif.gif');
     background-size: cover; /* Esto hará que la imagen cubra todo el elemento */
-    background-position: center; /* Esto centrará la imagen en el elemento */
-    background-repeat: no-repeat;
-}
+    /* background-position: center; /* Esto centrará la imagen en el elemento */
+    /* background-repeat: no-repeat;  */
+} */
 
 .react-calendar__tile>div {
     width: 100%;

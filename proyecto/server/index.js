@@ -152,7 +152,7 @@ app.get('/selectRecolectas', async (req, res) => {
 app.get('/selectRecolectasUsuario', async (req, res) => {
     console.log("Entra en selectRecolectasUsuario")
 
-    const userId = req.query.userId; // Obtén el userId de los parámetros de consulta
+    const userId = req.query.userId; //Obtemnemos el userId de los parámetros de consulta
     try {
         const result = await db.query(
             `SELECT r.*

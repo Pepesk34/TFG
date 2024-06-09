@@ -259,7 +259,7 @@ function Recolecta() {
 
   return (
     <div className="App" id="div-recolecta">
-      <h1>Recolectas {userId} {userRole}</h1>
+      <h1>Recolectas</h1>
       <Calendar
         onClickDay={handleDateClick}
         value={selectedDate}

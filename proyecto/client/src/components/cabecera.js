@@ -22,7 +22,7 @@ function Cabecera(props) {
                 <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
                     <Nav className="ml-auto">
                         <Nav.Link as={Link} to="/inicio"> <Button variant="outline-secondary">Inicio</Button></Nav.Link>
-                        <Nav.Link as={Link} to="/about"> <Button variant="outline-secondary">Sobre Nosotros</Button></Nav.Link>
+                        <Nav.Link as={Link} to="/about"> <Button variant="outline-secondary active">Sobre Nosotros</Button></Nav.Link>
                         <Nav.Link as={Link} to="/comunidad"> <Button variant="outline-secondary">Comunidad</Button></Nav.Link>
 
                         {!userLoggedIn && <Nav.Link as={Link} to="/registrarse"> <Button variant="outline-secondary active">Registrarse</Button></Nav.Link>}
