@@ -8,6 +8,7 @@ import tomate from "../imagenes/tomato.png";
 import berenjena from "../imagenes/berenjena.webp";
 import calabacin from "../imagenes/calabacin.png";
 import pablo from "../imagenes/pablo.jpg";
+import angel from "../imagenes/angeladrian.jpg";
 import { Card } from 'react-bootstrap';
 
 function About() {
@@ -54,7 +55,7 @@ function About() {
                     <img src={berenjena} id='img-berenjena'></img>
                 </div>
                 <div className='col-8 align-self-center'>
-                    <h1>¿QUIÉNES SOMOS?</h1>
+                    <h1 className='mt-2 mb-2'>¿QUIÉNES SOMOS?</h1>
                     <div className='row'>
                         <div className='col-4 about-cards'>
                             <Card border='secondary' bg='dark' text='white' style={{ width: '100%' }}>
@@ -62,7 +63,7 @@ function About() {
                                 <Card.Body>
                                     <Card.Title>Pablo Cano</Card.Title>
                                     <Card.Text>
-                                        hola.
+                                        FRONT-END
                                     </Card.Text>
                                     <button type="button" class='btn btn-secondary'>PERFIL</button>
                                 </Card.Body>
@@ -74,7 +75,7 @@ function About() {
                                 <Card.Body>
                                     <Card.Title>José Antonio Victoria</Card.Title>
                                     <Card.Text>
-                                        hola.
+                                        BACK-END
                                     </Card.Text>
                                     <button type="button" class='btn btn-secondary'>PERFIL</button>
                                 </Card.Body>
@@ -82,11 +83,11 @@ function About() {
                         </div>
                         <div className='col-4 about-cards'>
                             <Card border='secondary' bg='dark' text='white' style={{ width: '100%' }}>
-                                <Card.Img variant="top" src={pimiento} />
+                                <Card.Img variant="top" src={angel} />
                                 <Card.Body>
                                     <Card.Title>Ángel Adrián Pérez</Card.Title>
                                     <Card.Text>
-                                        hola.
+                                        FRONT-END
                                     </Card.Text>
                                     <button type="button" class='btn btn-secondary'>PERFIL</button>
                                 </Card.Body>
