@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const Comunidad = () => {
 
     return (
-        <div>
+        <div id='div-comunidad'>
             <div className="container mt-4 mb-4">
                 <div id='top-tabla'>
                     <h5>
@@ -96,7 +96,7 @@ const Comunidad = () => {
                         </Card>
                     </div>
                     <div className='col-3'>
-                        <Card bg='success' text='white'>
+                        <Card bg='danger' text='white'>
                             <Card.Header>Voluntario</Card.Header>
                             <Card.Body>
                                 <Card.Title>Ana García</Card.Title>
@@ -118,7 +118,7 @@ const Comunidad = () => {
                         </Card>
                     </div>
                     <div className='col-3'>
-                        <Card bg='success' text='white'>
+                        <Card bg='danger' text='white'>
                             <Card.Header>Voluntario</Card.Header>
                             <Card.Body>
                                 <Card.Title>María Fernández</Card.Title>
@@ -143,7 +143,7 @@ const Comunidad = () => {
                         </Card>
                     </div>
                     <div className='col-3'>
-                        <Card bg='success' text='white'>
+                        <Card bg='danger' text='white'>
                             <Card.Header>Voluntario</Card.Header>
                             <Card.Body>
                                 <Card.Title>Lucía Martínez</Card.Title>
@@ -165,7 +165,7 @@ const Comunidad = () => {
                         </Card>
                     </div>
                     <div className='col-3'>
-                        <Card bg='success' text='white'>
+                        <Card bg='danger' text='white'>
                             <Card.Header>Voluntario</Card.Header>
                             <Card.Body>
                                 <Card.Title>Sofía González</Card.Title>

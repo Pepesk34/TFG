@@ -65,7 +65,7 @@ const InicioSesion = () => {
     };
 
     return (
-        <div className='container'>
+        <div className='container' id='div-iniciosesion'>
             <div className='row mb-5' id="pregunta-rol">
                 <div className='col-12'>
                     <h1>INICIA SESIÓN</h1>
@@ -111,7 +111,7 @@ const InicioSesion = () => {
                             <label htmlFor="floatingSelect">Rol</label>
                         </div>
                         {error && <div className="alert alert-danger">{error}</div>}
-                        <button type="submit" className="btn btn-primary">Aceptar</button>
+                        <button type="submit" className="btn btn-primary mb-4">Aceptar</button>
                     </form>
                 </div>
             </div>
