@@ -12,6 +12,7 @@ import Voluntario from "./components/componentes_cuerpo/componentesRegistro/regi
 import Recolecta from './components/componentes_cuerpo/recolecta';
 import Registrarse from './components/componentes_cuerpo/registrarse.js';
 import { CalendarioProvider } from './contexts/calendarioContext.js';
+import Perfil from './components/componentes_cuerpo/perfil.js';
 
 function App() {
   
@@ -28,7 +29,7 @@ function App() {
           <Route path="/recolecta" element={<><CabeceraRecolecta /><CalendarioProvider><Recolecta /></CalendarioProvider></>} />
           <Route path="/voluntario" element={<><Cabecera /><Voluntario /></>} />
           <Route path="/about" element={<><Cabecera /><About /></>} />
-          <Route path="/perfil" element={<><Cabecera /><Inicio /></>} />
+          <Route path="/perfil" element={<><Cabecera /><Perfil /></>} />
         </Routes>
         <Footer />
       </div>
